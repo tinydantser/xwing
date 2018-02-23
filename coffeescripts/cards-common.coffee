@@ -32,7 +32,8 @@ exportObj.basicCardData = ->
             shields: 2
             actions: [
                 "Focus"
-                "Target Lock"
+                "Target Lock",
+                "Barrel Roll"
             ]
             maneuvers: [
               [ 0, 0, 0, 0, 0, 0]
@@ -43,7 +44,7 @@ exportObj.basicCardData = ->
             ]
         "Y-Wing":
             name: "Y-Wing"
-            factions: [ "Rebel Alliance", "Scum and Villainy", ]
+            factions: [ "Rebel Alliance" ]
             attack: 2
             agility: 1
             hull: 5
@@ -59,50 +60,9 @@ exportObj.basicCardData = ->
               [ 3, 1, 1, 1, 3, 0]
               [ 0, 0, 3, 0, 0, 3]
             ]
-        "A-Wing":
-            name: "A-Wing"
-            factions: [ "Rebel Alliance", ]
-            attack: 2
-            agility: 3
-            hull: 2
-            shields: 2
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Boost"
-                "Evade"
-            ]
-            maneuvers: [
-              [ 0, 0, 0, 0, 0, 0]
-              [ 1, 0, 0, 0, 1, 0]
-              [ 2, 2, 2, 2, 2, 0]
-              [ 1, 1, 2, 1, 1, 3]
-              [ 0, 0, 2, 0, 0, 0]
-              [ 0, 0, 2, 0, 0, 3]
-            ]
-        "YT-1300":
-            name: "YT-1300"
-            factions: [ "Rebel Alliance", "Resistance" ]
-            attack: 2
-            agility: 1
-            hull: 6
-            shields: 4
-            actions: [
-                "Focus"
-                "Target Lock"
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-turret'
-            maneuvers: [
-              [ 0, 0, 0, 0, 0, 0]
-              [ 1, 2, 2, 2, 1, 0]
-              [ 1, 1, 2, 1, 1, 0]
-              [ 0, 1, 1, 1, 0, 3]
-              [ 0, 0, 1, 0, 0, 3]
-            ]
-            large: true
         "TIE Fighter":
             name: "TIE Fighter"
-            factions: ["Rebel Alliance", "Galactic Empire"]
+            factions: ["Galactic Empire"]
             attack: 2
             agility: 3
             hull: 3
@@ -123,7 +83,7 @@ exportObj.basicCardData = ->
         "TIE Advanced":
             name: "TIE Advanced"
             factions: [ "Galactic Empire", ]
-            attack: 2
+            attack: 3
             agility: 3
             hull: 3
             shields: 2
@@ -141,1013 +101,6 @@ exportObj.basicCardData = ->
               [ 0, 0, 1, 0, 0, 3]
               [ 0, 0, 1, 0, 0, 0]
             ]
-        "TIE Interceptor":
-            name: "TIE Interceptor"
-            factions: [ "Galactic Empire", ]
-            attack: 3
-            agility: 3
-            hull: 3
-            shields: 0
-            actions: [
-                "Focus"
-                "Barrel Roll"
-                "Boost"
-                "Evade"
-            ]
-            maneuvers: [
-              [ 0, 0, 0, 0, 0, 0]
-              [ 1, 0, 0, 0, 1, 0]
-              [ 2, 2, 2, 2, 2, 0]
-              [ 1, 1, 2, 1, 1, 3]
-              [ 0, 0, 2, 0, 0, 0]
-              [ 0, 0, 1, 0, 0, 3]
-            ]
-        "Firespray-31":
-            name: "Firespray-31"
-            factions: [ "Galactic Empire", "Scum and Villainy", ]
-            attack: 3
-            agility: 2
-            hull: 6
-            shields: 4
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Evade"
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-frontback'
-            maneuvers: [
-              [ 0, 0, 0, 0, 0, 0]
-              [ 0, 2, 2, 2, 0, 0]
-              [ 1, 1, 2, 1, 1, 0]
-              [ 1, 1, 1, 1, 1, 3]
-              [ 0, 0, 1, 0, 0, 3]
-            ]
-            large: true
-        "HWK-290":
-            name: "HWK-290"
-            factions: [ "Rebel Alliance", "Scum and Villainy", ]
-            attack: 1
-            agility: 2
-            hull: 4
-            shields: 1
-            actions: [
-                "Focus"
-                "Target Lock"
-            ]
-            maneuvers: [
-              [ 0, 0, 0, 0, 0]
-              [ 0, 2, 2, 2, 0]
-              [ 1, 1, 2, 1, 1]
-              [ 0, 3, 1, 3, 0]
-              [ 0, 0, 3, 0, 0]
-            ]
-        "Lambda-Class Shuttle":
-            name: "Lambda-Class Shuttle"
-            factions: [ "Galactic Empire", ]
-            attack: 3
-            agility: 1
-            hull: 5
-            shields: 5
-            actions: [
-                "Focus"
-                "Target Lock"
-            ]
-            maneuvers: [
-              [ 0, 0, 3, 0, 0]
-              [ 0, 2, 2, 2, 0]
-              [ 3, 1, 2, 1, 3]
-              [ 0, 3, 1, 3, 0]
-            ]
-            large: true
-        "B-Wing":
-            name: "B-Wing"
-            factions: [ "Rebel Alliance", ]
-            attack: 3
-            agility: 1
-            hull: 3
-            shields: 5
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-            ]
-            maneuvers: [
-              [ 0, 0, 0, 0, 0, 0]
-              [ 3, 2, 2, 2, 3, 0]
-              [ 1, 1, 2, 1, 1, 3]
-              [ 0, 3, 1, 3, 0, 0]
-              [ 0, 0, 3, 0, 0, 0]
-            ]
-        "TIE Bomber":
-            name: "TIE Bomber"
-            factions: [ "Galactic Empire", ]
-            attack: 2
-            agility: 2
-            hull: 6
-            shields: 0
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-            ]
-            maneuvers: [
-              [ 0, 0, 0, 0, 0, 0]
-              [ 0, 1, 2, 1, 0, 0]
-              [ 3, 2, 2, 2, 3, 0]
-              [ 1, 1, 2, 1, 1, 0]
-              [ 0, 0, 1, 0, 0, 0]
-              [ 0, 0, 0, 0, 0, 3]
-            ]
-        "GR-75 Medium Transport":
-            name: "GR-75 Medium Transport"
-            factions: [ "Rebel Alliance", ]
-            energy: 4
-            agility: 0
-            hull: 8
-            shields: 4
-            actions: [
-                "Recover"
-                "Reinforce"
-                "Coordinate"
-                "Jam"
-            ]
-            huge: true
-            epic_points: 2
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-            ]
-        "Z-95 Headhunter":
-            name: "Z-95 Headhunter"
-            factions: [ "Rebel Alliance", "Scum and Villainy", ]
-            attack: 2
-            agility: 2
-            hull: 2
-            shields: 2
-            actions: [
-                "Focus"
-                "Target Lock"
-            ]
-            maneuvers: [
-              [ 0, 0, 0, 0, 0, 0]
-              [ 0, 1, 2, 1, 0, 0]
-              [ 1, 2, 2, 2, 1, 0]
-              [ 1, 1, 1, 1, 1, 3]
-              [ 0, 0, 1, 0, 0, 0]
-            ]
-        "TIE Defender":
-            name: "TIE Defender"
-            factions: [ "Galactic Empire", ]
-            attack: 3
-            agility: 3
-            hull: 3
-            shields: 3
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-            ]
-            maneuvers: [
-              [ 0, 0, 0, 0, 0, 0]
-              [ 3, 1, 0, 1, 3, 0]
-              [ 3, 1, 2, 1, 3, 0]
-              [ 1, 1, 2, 1, 1, 0]
-              [ 0, 0, 2, 0, 0, 1]
-              [ 0, 0, 2, 0, 0, 0]
-            ]
-        "E-Wing":
-            name: "E-Wing"
-            factions: [ "Rebel Alliance", ]
-            attack: 3
-            agility: 3
-            hull: 2
-            shields: 3
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-                "Evade"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 2, 1, 0, 0 ]
-                [ 1, 2, 2, 2, 1, 0 ]
-                [ 1, 1, 2, 1, 1, 3 ]
-                [ 0, 0, 1, 0, 0, 3 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-            ]
-        "TIE Phantom":
-            name: "TIE Phantom"
-            factions: [ "Galactic Empire", ]
-            attack: 4
-            agility: 2
-            hull: 2
-            shields: 2
-            actions: [
-                "Focus"
-                "Barrel Roll"
-                "Evade"
-                "Cloak"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0]
-                [ 1, 0, 0, 0, 1, 0]
-                [ 1, 2, 2, 2, 1, 0]
-                [ 1, 1, 2, 1, 1, 3]
-                [ 0, 0, 1, 0, 0, 3]
-            ]
-        "CR90 Corvette (Fore)":
-            name: "CR90 Corvette (Fore)"
-            factions: [ "Rebel Alliance", ]
-            attack: 4
-            agility: 0
-            hull: 8
-            shields: 5
-            actions: [
-                "Coordinate"
-                "Target Lock"
-            ]
-            huge: true
-            epic_points: 1.5
-            attack_icon: 'xwing-miniatures-font-attack-turret'
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0]
-                [ 0, 1, 0, 1, 0, 0]
-                [ 0, 1, 1, 1, 0, 0]
-                [ 0, 0, 1, 0, 0, 0]
-                [ 0, 0, 1, 0, 0, 0]
-            ]
-            multisection: [
-                "CR90 Corvette (Aft)".canonicalize()
-            ]
-            canonical_name: "CR90 Corvette".canonicalize()
-        "CR90 Corvette (Aft)":
-            name: "CR90 Corvette (Aft)"
-            factions: [ "Rebel Alliance", ]
-            energy: 5
-            agility: 0
-            hull: 8
-            shields: 3
-            actions: [
-                "Reinforce"
-                "Recover"
-            ]
-            huge: true
-            epic_points: 1.5
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0]
-                [ 0, 1, 0, 1, 0, 0]
-                [ 0, 1, 1, 1, 0, 0]
-                [ 0, 0, 1, 0, 0, 0]
-                [ 0, 0, 1, 0, 0, 0]
-            ]
-            multisection: [
-                "CR90 Corvette (Fore)".canonicalize()
-            ]
-            canonical_name: "CR90 Corvette".canonicalize()
-        "YT-2400":
-            name: "YT-2400"
-            factions: [ "Rebel Alliance", ]
-            attack: 2
-            agility: 2
-            hull: 5
-            shields: 5
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-            ]
-            large: true
-            attack_icon: 'xwing-miniatures-font-attack-turret'
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0]
-                [ 1, 2, 2, 2, 1, 0]
-                [ 1, 1, 2, 1, 1, 0]
-                [ 1, 1, 1, 1, 1, 0]
-                [ 0, 0, 1, 0, 0, 3]
-            ]
-        "VT-49 Decimator":
-            name: "VT-49 Decimator"
-            factions: [ "Galactic Empire", ]
-            attack: 3
-            agility: 0
-            hull: 12
-            shields: 4
-            actions: [
-                "Focus"
-                "Target Lock"
-            ]
-            large: true
-            attack_icon: 'xwing-miniatures-font-attack-turret'
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0]
-                [ 0, 1, 1, 1, 0, 0]
-                [ 1, 2, 2, 2, 1, 0]
-                [ 1, 1, 2, 1, 1, 0]
-                [ 0, 0, 1, 0, 0, 0]
-            ]
-        "StarViper":
-            name: "StarViper"
-            factions: ["Scum and Villainy"]
-            attack: 3
-            agility: 3
-            hull: 4
-            shields: 1
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-                "Boost"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0]
-                [ 1, 2, 2, 2, 1, 0, 0, 0]
-                [ 1, 1, 2, 1, 1, 0, 0, 0]
-                [ 0, 1, 2, 1, 0, 0, 3, 3]
-                [ 0, 0, 1, 0, 0, 0, 0, 0]
-            ]
-        "M3-A Interceptor":
-            name: "M3-A Interceptor"
-            factions: [ "Scum and Villainy" ]
-            attack: 2
-            agility: 3
-            hull: 2
-            shields: 1
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-                "Evade"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 1, 2, 0, 2, 1, 0 ]
-                [ 1, 2, 2, 2, 1, 0 ]
-                [ 0, 1, 2, 1, 0, 3 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-                [ 0, 0, 0, 0, 0, 3 ]
-            ]
-        "Aggressor":
-            name: "Aggressor"
-            factions: [ "Scum and Villainy" ]
-            attack: 3
-            agility: 3
-            hull: 4
-            shields: 4
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Boost"
-                "Evade"
-            ]
-            large: true
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 1, 2, 2, 2, 1, 0, 0, 0 ]
-                [ 1, 2, 2, 2, 1, 0, 0, 0 ]
-                [ 0, 2, 2, 2, 0, 0, 3, 3 ]
-                [ 0, 0, 0, 0, 0, 3, 0, 0 ]
-            ]
-        "Raider-class Corvette (Fore)":
-            name: "Raider-class Corvette (Fore)"
-            factions: [ "Galactic Empire" ]
-            attack: 4
-            agility: 0
-            hull: 8
-            shields: 6
-            actions: [
-                "Recover"
-                "Reinforce"
-            ]
-            huge: true
-            epic_points: 1.5
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-            ]
-            multisection: [
-                "Raider-class Corvette (Aft)".canonicalize()
-            ]
-            canonical_name: "Raider-class Corvette".canonicalize()
-        "Raider-class Corvette (Aft)":
-            name: "Raider-class Corvette (Aft)"
-            factions: [ "Galactic Empire" ]
-            energy: 6
-            agility: 0
-            hull: 8
-            shields: 4
-            actions: [
-                "Coordinate"
-                "Target Lock"
-            ]
-            huge: true
-            epic_points: 1.5
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-            ]
-            multisection: [
-                "Raider-class Corvette (Fore)".canonicalize()
-            ]
-            canonical_name: "Raider-class Corvette".canonicalize()
-        "YV-666":
-            name: "YV-666"
-            factions: [ "Scum and Villainy" ]
-            attack: 3
-            agility: 1
-            hull: 6
-            shields: 6
-            large: true
-            actions: [
-                "Focus"
-                "Target Lock"
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-180'
-            maneuvers: [
-                [ 0, 0, 3, 0, 0, 0 ]
-                [ 0, 2, 2, 2, 0, 0 ]
-                [ 3, 1, 2, 1, 3, 0 ]
-                [ 1, 1, 2, 1, 1, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-            ]
-        "Kihraxz Fighter":
-            name: "Kihraxz Fighter"
-            factions: ["Scum and Villainy"]
-            attack: 3
-            agility: 2
-            hull: 4
-            shields: 1
-            actions: [
-                "Focus"
-                "Target Lock"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 1, 2, 0, 2, 1, 0 ]
-                [ 1, 2, 2, 2, 1, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 3 ]
-                [ 0, 0, 0, 0, 0, 3 ]
-            ]
-        "K-Wing":
-            name: "K-Wing"
-            factions: ["Rebel Alliance"]
-            attack: 2
-            agility: 1
-            hull: 5
-            shields: 4
-            actions: [
-                "Focus"
-                "Target Lock"
-                "SLAM"
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-turret'
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 0, 2, 2, 2, 0, 0 ]
-                [ 1, 1, 2, 1, 1, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-            ]
-        "TIE Punisher":
-            name: "TIE Punisher"
-            factions: ["Galactic Empire"]
-            attack: 2
-            agility: 1
-            hull: 6
-            shields: 3
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Boost"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 0, 2, 2, 2, 0, 0 ]
-                [ 3, 1, 2, 1, 3, 0 ]
-                [ 1, 1, 1, 1, 1, 0 ]
-                [ 0, 0, 0, 0, 0, 3 ]
-            ]
-        "Gozanti-class Cruiser":
-            name: "Gozanti-class Cruiser"
-            factions: ["Galactic Empire"]
-            energy: 4
-            agility: 0
-            hull: 9
-            shields: 5
-            huge: true
-            epic_points: 2 # guessing it's the same as rebel transport
-            actions: [
-                "Recover"
-                "Reinforce"
-                "Coordinate"
-                "Target Lock"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-            ]
-        "VCX-100":
-            name: "VCX-100"
-            factions: ["Rebel Alliance"]
-            attack: 4
-            agility: 0
-            hull: 10
-            shields: 6
-            large: true
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Evade"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 3, 1, 2, 1, 3, 0 ]
-                [ 1, 2, 2, 2, 1, 0 ]
-                [ 3, 1, 1, 1, 3, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-                [ 0, 0, 0, 0, 0, 3 ]
-            ]
-        "Attack Shuttle":
-            name: "Attack Shuttle"
-            factions: ["Rebel Alliance"]
-            attack: 3
-            agility: 2
-            hull: 2
-            shields: 2
-            actions: [
-                "Focus"
-                "Barrel Roll"
-                "Evade"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 3, 2, 2, 2, 3, 0 ]
-                [ 1, 1, 2, 1, 1, 0 ]
-                [ 3, 1, 1, 1, 3, 0 ]
-                [ 0, 0, 1, 0, 0, 3 ]
-            ]
-        "TIE Advanced Prototype":
-            name: "TIE Advanced Prototype"
-            canonical_name: 'TIE Adv. Prototype'.canonicalize()
-            factions: ["Galactic Empire"]
-            attack: 2
-            agility: 3
-            hull: 2
-            shields: 2
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-                "Boost"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 2, 2, 0, 2, 2, 0 ]
-                [ 1, 1, 2, 1, 1, 0 ]
-                [ 1, 1, 2, 1, 1, 0 ]
-                [ 0, 0, 2, 0, 0, 3 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-            ]
-        "G-1A Starfighter":
-            name: "G-1A Starfighter"
-            factions: ["Scum and Villainy"]
-            attack: 3
-            agility: 1
-            hull: 4
-            shields: 4
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Evade"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 3, 2, 2, 2, 3, 0 ]
-                [ 1, 1, 2, 1, 1, 0 ]
-                [ 0, 3, 2, 3, 0, 3 ]
-                [ 0, 0, 1, 0, 0, 3 ]
-            ]
-        "JumpMaster 5000":
-            name: "JumpMaster 5000"
-            factions: ["Scum and Villainy"]
-            large: true
-            attack: 2
-            agility: 2
-            hull: 5
-            shields: 4
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-turret'
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 2, 2, 2, 1, 1, 0, 0, 0 ]
-                [ 2, 2, 2, 1, 1, 0, 1, 3 ]
-                [ 0, 1, 1, 1, 0, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 3, 0, 0 ]
-            ]
-        "T-70 X-Wing":
-            name: "T-70 X-Wing"
-            factions: ["Resistance"]
-            attack: 3
-            agility: 2
-            hull: 3
-            shields: 3
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Boost"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 0, 2, 2, 2, 0, 0, 0, 0, 0, 0 ]
-                [ 1, 1, 2, 1, 1, 0, 0, 0, 0, 0 ]
-                [ 1, 1, 2, 1, 1, 0, 0, 0, 3, 3 ]
-                [ 0, 0, 1, 0, 0, 3, 0, 0, 0, 0 ]
-            ]
-        "TIE/fo Fighter":
-            name: "TIE/fo Fighter"
-            factions: ["First Order"]
-            attack: 2
-            agility: 3
-            hull: 3
-            shields: 1
-            actions: [
-                "Focus"
-                "Target Lock"
-                "Barrel Roll"
-                "Evade"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 1, 0, 0, 0, 1, 0, 0, 0 ]
-                [ 2, 2, 2, 2, 2, 0, 3, 3 ]
-                [ 1, 1, 2, 1, 1, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 3, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0, 0, 0 ]
-            ]
-        'ARC-170':
-            name: 'ARC-170'
-            factions: ["Rebel Alliance"]
-            attack: 2
-            agility: 1
-            hull: 6
-            shields: 3
-            actions: [
-                "Focus"
-                "Target Lock"
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-frontback'
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 0, 2, 2, 2, 0, 0 ]
-                [ 1, 2, 2, 2, 1, 0 ]
-                [ 3, 1, 1, 1, 3, 0 ]
-                [ 0, 0, 3, 0, 0, 3 ]
-            ]
-        'TIE/sf Fighter':
-            name: 'TIE/sf Fighter'
-            factions: ["First Order"]
-            attack: 2
-            agility: 2
-            hull: 3
-            shields: 3
-            actions: [
-                'Focus'
-                'Target Lock'
-                'Barrel Roll'
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-frontback'
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 3, 2, 2, 2, 3, 0, 0, 0 ]
-                [ 1, 1, 2, 1, 1, 0, 0, 0 ]
-                [ 3, 1, 2, 1, 3, 0, 3, 3 ]
-                [ 0, 0, 1, 0, 0, 0, 0, 0 ]
-            ]
-        'Protectorate Starfighter':
-            name: 'Protectorate Starfighter'
-            factions: ["Scum and Villainy"]
-            attack: 3
-            agility: 3
-            hull: 4
-            shields: 0
-            actions: [
-                'Focus'
-                'Target Lock'
-                'Barrel Roll'
-                'Boost'
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
-                [ 2, 2, 2, 2, 2, 0, 0, 0, 3, 3 ]
-                [ 1, 1, 2, 1, 1, 0, 0, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 3, 0, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
-            ]
-        'Lancer-class Pursuit Craft':
-            name: 'Lancer-class Pursuit Craft'
-            factions: ["Scum and Villainy"]
-            large: true
-            attack: 3
-            agility: 2
-            hull: 7
-            shields: 3
-            actions: [
-                'Focus'
-                'Target Lock'
-                'Evade'
-                'Rotate Arc'
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0]
-                [ 0, 1, 1, 1, 0, 0]
-                [ 1, 1, 2, 1, 1, 0]
-                [ 2, 2, 2, 2, 2, 0]
-                [ 0, 0, 2, 0, 0, 0]
-                [ 0, 0, 1, 0, 0, 3]
-            ]
-        'Upsilon-class Shuttle':
-            name: 'Upsilon-class Shuttle'
-            factions: ["First Order"]
-            large: true
-            attack: 4
-            agility: 1
-            hull: 6
-            shields: 6
-            actions: [
-                'Focus'
-                'Target Lock'
-                'Coordinate'
-            ]
-            maneuvers: [
-              [ 0, 0, 3, 0, 0]
-              [ 3, 1, 2, 1, 3]
-              [ 1, 2, 2, 2, 1]
-              [ 3, 1, 1, 1, 3]
-            ]
-        'Quadjumper':
-            name: 'Quadjumper'
-            factions: ["Scum and Villainy"]
-            attack: 2
-            agility: 2
-            hull: 5
-            shields: 0
-            actions: [
-                'Barrel Roll'
-                'Focus'
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 3, 3, 3 ]
-                [ 1, 2, 2, 2, 1, 0, 3, 3, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
-            ]
-        'U-Wing':
-            name: 'U-Wing'
-            factions: ["Rebel Alliance"]
-            large: true
-            attack: 3
-            agility: 1
-            hull: 4
-            shields: 4
-            actions: [
-                'Focus'
-                'Target Lock'
-            ]
-            maneuvers: [
-                [ 0, 0, 3, 0, 0 ]
-                [ 0, 2, 2, 2, 0 ]
-                [ 1, 2, 2, 2, 1 ]
-                [ 0, 1, 1, 1, 0 ]
-                [ 0, 0, 1, 0, 0 ]
-            ]
-        'TIE Striker':
-            name: 'TIE Striker'
-            factions: ["Galactic Empire"]
-            attack: 3
-            agility: 2
-            hull: 4
-            shields: 0
-            actions: [
-                'Focus'
-                'Barrel Roll'
-                'Evade'
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 1, 2, 2, 2, 1, 0, 0, 0 ]
-                [ 1, 1, 2, 1, 1, 3, 3, 3 ]
-                [ 0, 1, 2, 1, 0, 0, 0, 0 ]
-            ]
-        "C-ROC Cruiser":
-            name: "C-ROC Cruiser"
-            factions: ["Scum and Villainy"]
-            energy: 4
-            agility: 0
-            hull: 10
-            shields: 4
-            huge: true
-            actions: [
-                "Recover"
-                "Reinforce"
-                "Target Lock"
-                "Jam"
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 1, 1, 1, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0 ]
-            ]
-        'Auzituck Gunship':
-            name: 'Auzituck Gunship'
-            factions: ["Rebel Alliance"]
-            attack: 3
-            agility: 1
-            hull: 6
-            shields: 3
-            actions: [
-                'Focus'
-                'Reinforce'
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-180'
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 0, 2, 2, 2, 0, 0, 0, 0 ]
-                [ 1, 1, 2, 1, 1, 0, 0, 0 ]
-                [ 1, 1, 2, 1, 1, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 0, 0, 0 ]
-                [ 0, 0, 3, 0, 0, 0, 0, 0 ]
-            ]
-        'Scurrg H-6 Bomber':
-            name: 'Scurrg H-6 Bomber'
-            factions: ["Rebel Alliance", "Scum and Villainy"]
-            attack: 3
-            agility: 1
-            hull: 5
-            shields: 5
-            actions: [
-                'Focus'
-                'Target Lock'
-                'Barrel Roll'
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 2, 1, 0, 0, 0, 0, 0, 0 ]
-                [ 1, 2, 2, 2, 1, 0, 0, 0, 0, 0 ]
-                [ 3, 1, 2, 1, 3, 0, 0, 0, 3, 3 ]
-                [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 0, 0, 3, 0, 0, 0, 0, 0, 0, 0 ]
-            ]
-        'TIE Aggressor':
-            name: 'TIE Aggressor'
-            factions: ["Galactic Empire"]
-            attack: 2
-            agility: 2
-            hull: 4
-            shields: 1
-            actions: [
-                'Focus'
-                'Target Lock'
-                'Barrel Roll'
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 2, 1, 0, 0, 0, 0, 0, 0 ]
-                [ 1, 2, 2, 2, 1, 0, 0, 0, 0, 0 ]
-                [ 1, 1, 2, 1, 1, 0, 0, 0, 0, 0 ]
-                [ 0, 0, 1, 0, 0, 3, 0, 0, 0, 0 ]
-            ]
-        'Alpha-class Star Wing':
-            name: 'Alpha-class Star Wing'
-            factions: ["Galactic Empire"]
-            attack: 2
-            agility: 2
-            hull: 4
-            shields: 3
-            actions: [
-                'Target Lock'
-                'Focus'
-                'SLAM'
-                'Reload'
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 0, 1, 2, 1, 0, 0, 0, 0 ]
-                [ 1, 2, 2, 2, 1, 0, 0, 0 ]
-                [ 1, 1, 1, 1, 1, 0, 0, 0 ]
-                [ 0, 0, 3, 0, 0, 0, 0, 0 ]
-            ]
-        'M12-L Kimogila Fighter':
-            name: 'M12-L Kimogila Fighter'
-            factions: ["Scum and Villainy"]
-            attack_icon: 'xwing-miniatures-font-attack-bullseye'
-            attack: 3
-            agility: 1
-            hull: 6
-            shields: 2
-            actions: [
-                'Target Lock'
-                'Focus'
-                'Barrel Roll'
-                'Reload'
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0]
-                [ 3, 1, 2, 1, 3, 0]
-                [ 3, 2, 2, 2, 3, 0]
-                [ 1, 1, 2, 1, 1, 0]
-                [ 0, 0, 0, 0, 0, 3]
-            ]
-        'Sheathipede-class Shuttle':
-            name: 'Sheathipede-class Shuttle'
-            factions: ["Rebel Alliance"]
-            attack: 2
-            agility: 2
-            hull: 4
-            shields: 1
-            actions: [
-                'Focus'
-                'Target Lock'
-                'Coordinate'
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-frontback'
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0]
-                [ 0, 1, 2, 1, 0, 0]
-                [ 1, 2, 2, 2, 1, 0]
-                [ 3, 1, 2, 1, 3, 3]
-                [ 0, 0, 3, 0, 0, 0]
-            ]
-        'B/SF-17 Bomber':
-            name: 'B/SF-17 Bomber'
-            factions: ["Resistance"]
-            large: true
-            attack: 2
-            agility: 1
-            hull: 9
-            shields: 3
-            actions: [
-                'Focus'
-                'Target Lock'
-            ]
-            attack_icon: 'xwing-miniatures-font-attack-turret'
-            maneuvers: [
-                [ 0, 0, 3, 0, 0, 0]
-                [ 3, 2, 2, 2, 3, 0]
-                [ 1, 1, 2, 1, 1, 0]
-                [ 0, 1, 1, 1, 0, 0]
-            ]
-        'TIE Silencer':
-            name: 'TIE Silencer'
-            factions: ["First Order"]
-            attack: 3
-            agility: 3
-            hull: 4
-            shields: 2
-            actions: [
-                'Focus'
-                'Barrel Roll'
-                'Boost'
-                'Target Lock'
-            ]
-            maneuvers: [
-                [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
-                [ 1, 0, 0, 0, 1, 0, 0, 0, 0, 0 ]
-                [ 2, 2, 2, 2, 2, 0, 0, 0, 0, 0 ]
-                [ 1, 2, 2, 2, 1, 0, 0, 0, 3, 3 ]
-                [ 0, 0, 2, 0, 0, 3, 0, 0, 0, 0 ]
-                [ 0, 0, 2, 0, 0, 0, 0, 0, 0, 0 ]
-            ]
-        'TIE Reaper':
-            name: 'TIE Reaper'
-            factions: ["Galactic Empire"]
-            attack: 3
-            agility: 1
-            hull: 6
-            shields: 2
-            actions: [
-                'Focus'
-                'Evade'
-                'Jam'
-            ]
 
     # name field is for convenience only
     pilotsById: [
@@ -1157,12 +110,10 @@ exportObj.basicCardData = ->
             id: 0
             unique: true
             ship: "X-Wing"
-            skill: 9
+            skill: 10
             points: 29
             slots: [
                 "Elite"
-                "Torpedo"
-                "Astromech"
             ]
         }
         {
@@ -1172,10 +123,9 @@ exportObj.basicCardData = ->
             unique: true
             ship: "X-Wing"
             skill: 6
-            points: 26
+            points: 25
             slots: [
-                "Torpedo"
-                "Astromech"
+                 "Elite"
             ]
         }
         {
@@ -1184,10 +134,9 @@ exportObj.basicCardData = ->
             id: 2
             ship: "X-Wing"
             skill: 4
-            points: 23
+            points: 22
             slots: [
-                "Torpedo"
-                "Astromech"
+                 "Elite"
             ]
         }
         {
@@ -1196,11 +145,8 @@ exportObj.basicCardData = ->
             id: 3
             ship: "X-Wing"
             skill: 2
-            points: 21
-            slots: [
-                "Torpedo"
-                "Astromech"
-            ]
+            points: 20
+            slots: [ ]
         }
         {
             name: "Biggs Darklighter"
@@ -1209,11 +155,8 @@ exportObj.basicCardData = ->
             unique: true
             ship: "X-Wing"
             skill: 5
-            points: 25
-            slots: [
-                "Torpedo"
-                "Astromech"
-            ]
+            points: 26
+            slots: []
         }
         {
             name: "Luke Skywalker"
@@ -1221,12 +164,10 @@ exportObj.basicCardData = ->
             id: 5
             unique: true
             ship: "X-Wing"
-            skill: 8
-            points: 28
+            skill: 9
+            points: 29
             slots: [
                 "Elite"
-                "Torpedo"
-                "Astromech"
             ]
         }
         {
@@ -1237,10 +178,7 @@ exportObj.basicCardData = ->
             skill: 4
             points: 20
             slots: [
-                "Turret"
-                "Torpedo"
-                "Torpedo"
-                "Astromech"
+                "Elite"
             ]
         }
         {
@@ -1250,12 +188,9 @@ exportObj.basicCardData = ->
             unique: true
             ship: "Y-Wing"
             skill: 6
-            points: 23
+            points: 22
             slots: [
-                "Turret"
-                "Torpedo"
-                "Torpedo"
-                "Astromech"
+                "Elite"
             ]
         }
         {
@@ -1265,12 +200,9 @@ exportObj.basicCardData = ->
             unique: true
             ship: "Y-Wing"
             skill: 8
-            points: 25
+            points: 24
             slots: [
-                "Turret"
-                "Torpedo"
-                "Torpedo"
-                "Astromech"
+                 "Elite"
             ]
         }
         {
@@ -1280,12 +212,7 @@ exportObj.basicCardData = ->
             ship: "Y-Wing"
             skill: 2
             points: 18
-            slots: [
-                "Turret"
-                "Torpedo"
-                "Torpedo"
-                "Astromech"
-            ]
+            slots: []
         }
         {
             name: "Academy Pilot"
@@ -1293,7 +220,7 @@ exportObj.basicCardData = ->
             id: 10
             ship: "TIE Fighter"
             skill: 1
-            points: 12
+            points: 10
             slots: []
         }
         {
@@ -1302,16 +229,18 @@ exportObj.basicCardData = ->
             id: 11
             ship: "TIE Fighter"
             skill: 3
-            points: 13
-            slots: []
+            points: 12
+            slots: [
+                "Elite"
+            ]
         }
         {
             name: "Black Squadron Pilot"
             faction: "Galactic Empire"
             id: 12
             ship: "TIE Fighter"
-            skill: 4
-            points: 14
+            skill: 5
+            points: 13
             slots: [
                 "Elite"
             ]
@@ -1323,7 +252,7 @@ exportObj.basicCardData = ->
             unique: true
             ship: "TIE Fighter"
             skill: 5
-            points: 15
+            points: 14
             slots: [ ]
         }
         {
@@ -1333,8 +262,10 @@ exportObj.basicCardData = ->
             unique: true
             ship: "TIE Fighter"
             skill: 5
-            points: 15
-            slots: [ ]
+            points: 13
+            slots: [
+                "Elite"
+            ]
         }
         {
             name: '"Backstabber"'
@@ -1343,8 +274,10 @@ exportObj.basicCardData = ->
             unique: true
             ship: "TIE Fighter"
             skill: 6
-            points: 16
-            slots: [ ]
+            points: 15
+            slots: [
+                "Elite"
+            ]
         }
         {
             name: '"Dark Curse"'
@@ -1353,7 +286,7 @@ exportObj.basicCardData = ->
             unique: true
             ship: "TIE Fighter"
             skill: 6
-            points: 16
+            points: 17
             slots: [ ]
         }
         {
@@ -1363,7 +296,7 @@ exportObj.basicCardData = ->
             unique: true
             ship: "TIE Fighter"
             skill: 7
-            points: 17
+            points: 16
             slots: [
                 "Elite"
             ]
@@ -1386,11 +319,10 @@ exportObj.basicCardData = ->
             id: 19
             unique: true
             ship: "TIE Advanced"
-            skill: 7
-            points: 27
+            skill: 8
+            points: 30
             slots: [
                 "Elite"
-                "Missile"
             ]
         }
         {
@@ -1399,10 +331,8 @@ exportObj.basicCardData = ->
             id: 20
             ship: "TIE Advanced"
             skill: 2
-            points: 21
-            slots: [
-                "Missile"
-            ]
+            points: 25
+            slots: []
         }
         {
             name: "Storm Squadron Pilot"
@@ -1410,9 +340,9 @@ exportObj.basicCardData = ->
             id: 21
             ship: "TIE Advanced"
             skill: 4
-            points: 23
+            points: 28
             slots: [
-                "Missile"
+                "Elite"
             ]
         }
         {
@@ -1421,11 +351,10 @@ exportObj.basicCardData = ->
             id: 22
             unique: true
             ship: "TIE Advanced"
-            skill: 9
-            points: 29
+            skill: 10
+            points: 35
             slots: [
                 "Elite"
-                "Missile"
             ]
         }
         {
@@ -2240,6 +1169,7 @@ exportObj.basicCardData = ->
                 "Torpedo"
                 "Astromech"
             ]
+            skip: true
         }
         {
             name: "Jek Porkins"
@@ -2254,6 +1184,7 @@ exportObj.basicCardData = ->
                 "Torpedo"
                 "Astromech"
             ]
+            skip:true
         }
         {
             name: '"Hobbie" Klivian'
@@ -2267,6 +1198,7 @@ exportObj.basicCardData = ->
                 "Torpedo"
                 "Astromech"
             ]
+            skip:true
         }
         {
             name: "Tarn Mison"
@@ -2280,6 +1212,7 @@ exportObj.basicCardData = ->
                 "Torpedo"
                 "Astromech"
             ]
+            skip:true
         }
         {
             name: "Jake Farrell"
@@ -5215,6 +4148,7 @@ exportObj.basicCardData = ->
                 'Astromech'
             ]
             points: 100
+            skip: true
         }
         {
             name: 'Lee???'
@@ -5228,6 +4162,7 @@ exportObj.basicCardData = ->
                 'Astromech'
             ]
             points: 100
+            skip: true
         }
         {
             name: 'Kullbee Sperado'
@@ -5242,6 +4177,7 @@ exportObj.basicCardData = ->
                 'Astromech'
             ]
             points: 26
+            skip: true
         }
         {
             name: 'Major Vermeil'
@@ -5306,6 +4242,7 @@ exportObj.basicCardData = ->
                 'Astromech'
             ]
             points: 100
+            skip: true
         }
     ]
 
@@ -7323,942 +6260,14 @@ exportObj.basicCardData = ->
     ]
 
     modificationsById: [
-        {
-            name: "Zero modification"
-            id: 0
-            skip: true
-        }
-        {
-            name: "Stealth Device"
-            id: 1
-            points: 3
-            modifier_func: (stats) ->
-                stats.agility += 1
-        }
-        {
-            name: "Shield Upgrade"
-            id: 2
-            points: 4
-            modifier_func: (stats) ->
-                stats.shields += 1
-        }
-        {
-            name: "Engine Upgrade"
-            id: 3
-            points: 4
-            modifier_func: (stats) ->
-                stats.actions.push 'Boost' if 'Boost' not in stats.actions
-        }
-        {
-            name: "Anti-Pursuit Lasers"
-            id: 4
-            points: 2
-            restriction_func: (ship) ->
-                ship.data.large ? false
-        }
-        {
-            name: "Targeting Computer"
-            id: 5
-            points: 2
-            modifier_func: (stats) ->
-                stats.actions.push 'Target Lock' if 'Target Lock' not in stats.actions
-        }
-        {
-            name: "Hull Upgrade"
-            id: 6
-            points: 3
-            modifier_func: (stats) ->
-                stats.hull += 1
-        }
-        {
-            name: "Munitions Failsafe"
-            id: 7
-            points: 1
-        }
-        {
-            name: "Stygium Particle Accelerator"
-            id: 8
-            points: 2
-        }
-        {
-            name: "Advanced Cloaking Device"
-            id: 9
-            points: 4
-            ship: "TIE Phantom"
-        }
-        {
-            name: "Combat Retrofit"
-            id: 10
-            points: 10
-            ship: "GR-75 Medium Transport"
-            huge: true
-            modifier_func: (stats) ->
-                stats.hull += 2
-                stats.shields += 1
-        }
-        {
-            name: "B-Wing/E2"
-            id: 11
-            points: 1
-            ship: "B-Wing"
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Crew"
-                }
-            ]
-        }
-        {
-            name: "Countermeasures"
-            id: 12
-            points: 3
-            restriction_func: (ship) ->
-                ship.data.large ? false
-        }
-        {
-            name: "Experimental Interface"
-            id: 13
-            unique: true
-            points: 3
-        }
-        {
-            name: "Tactical Jammer"
-            id: 14
-            points: 1
-            restriction_func: (ship) ->
-                ship.data.large ? false
-        }
-        {
-            name: "Autothrusters"
-            id: 15
-            points: 2
-            restriction_func: (ship) ->
-                "Boost" in ship.effectiveStats().actions
-        }
-        {
-            name: "Advanced SLAM"
-            id: 16
-            points: 2
-        }
-        {
-            name: "Twin Ion Engine Mk. II"
-            id: 17
-            points: 1
-            restriction_func: (ship) ->
-                ship.data.name.indexOf('TIE') != -1
-            modifier_func: (stats) ->
-                for s in (stats.maneuvers ? [])
-                    s[1] = 2 if s[1] != 0
-                    s[3] = 2 if s[3] != 0
-        }
-        {
-            name: "Maneuvering Fins"
-            id: 18
-            points: 1
-            ship: "YV-666"
-        }
-        {
-            name: "Ion Projector"
-            id: 19
-            points: 2
-            restriction_func: (ship) ->
-                ship.data.large ? false
-        }
-        {
-            name: 'Integrated Astromech'
-            id: 20
-            restriction_func: (ship) ->
-                ship.data.canonical_name.indexOf('xwing') != -1
-            points: 0
-        }
-        {
-            name: 'Optimized Generators'
-            id: 21
-            points: 5
-            restriction_func: (ship) ->
-                ship.data.huge ? false
-        }
-        {
-            name: 'Automated Protocols'
-            id: 22
-            points: 5
-            restriction_func: (ship) ->
-                ship.data.huge ? false
-        }
-        {
-            name: 'Ordnance Tubes'
-            id: 23
-            points: 5
-            slot: 'Hardpoint'
-            restriction_func: (ship) ->
-                ship.data.huge ? false
-        }
-        {
-            name: 'Long-Range Scanners'
-            id: 24
-            points: 0
-            restriction_func: (ship) ->
-                ((upgrade for upgrade in ship.upgrades when upgrade.slot == 'Torpedo' and not upgrade.occupied_by?).length >= 1) and ((upgrade for upgrade in ship.upgrades when upgrade.slot == 'Missile' and not upgrade.occupied_by?).length >= 1)
-        }
-        {
-            name: "Guidance Chips"
-            id: 25
-            points: 0
-        }
-        {
-            name: 'Vectored Thrusters'
-            id: 26
-            points: 2
-            restriction_func: (ship) ->
-                not ((ship.data.large ? false) or (ship.data.huge ? false))
-            modifier_func: (stats) ->
-                stats.actions.push 'Barrel Roll' if 'Barrel Roll' not in stats.actions
-        }
-        {
-            name: 'Smuggling Compartment'
-            id: 27
-            points: 0
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Illicit"
-                }
-                {
-                    type: exportObj.RestrictedModification
-                    filter_func: (mod) ->
-                        mod.points <= 3
-                }
-            ]
-            limited: true
-            restriction_func: (ship) ->
-                ship.data.name in ['YT-1300', 'YT-2400']
-        }
-        {
-            id: 28
-            name: 'Gyroscopic Targeting'
-            ship: 'Lancer-class Pursuit Craft'
-            points: 2
-        }
-        {
-            name: 'Captured TIE'
-            id: 29
-            unique: true
-            ship: 'TIE Fighter'
-            faction: 'Rebel Alliance'
-            points: 1
-        }
-        {
-            name: 'Spacetug Tractor Array'
-            id: 30
-            ship: 'Quadjumper'
-            points: 2
-        }
-        {
-            name: 'Lightweight Frame'
-            id: 31
-            points: 2
-            restriction_func: (ship) ->
-                ship.data.name.indexOf('TIE') != -1 and ship.effectiveStats().agility < 3
-        }
-        {
-            name: 'Pulsed Ray Shield'
-            id: 32
-            faction: ['Rebel Alliance', 'Scum and Villainy']
-            points: 2
-            restriction_func: (ship) ->
-                ship.effectiveStats().shields == 1
-        }
-        {
-            name: 'Deflective Plating'
-            ship: 'B/SF-17 Bomber'
-            id: 33
-            points: 1
-        }
     ]
 
     titlesById: [
         {
-            name: "Zero Title"
-            id: 0
-            skip: true
-        }
-        {
-            name: "Slave I"
-            id: 1
-            unique: true
-            points: 0
-            ship: "Firespray-31"
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Torpedo"
-                }
-            ]
-        }
-        {
-            name: "Millennium Falcon"
-            id: 2
-            unique: true
-            points: 1
-            ship: "YT-1300"
-            actions: "Evade"
-            modifier_func: (stats) ->
-                stats.actions.push 'Evade' if 'Evade' not in stats.actions
-        }
-        {
-            name: "Moldy Crow"
-            id: 3
-            unique: true
-            points: 3
-            ship: "HWK-290"
-        }
-        {
-            name: "ST-321"
-            id: 4
-            unique: true
-            points: 3
-            ship: "Lambda-Class Shuttle"
-        }
-        {
-            name: "Royal Guard TIE"
-            id: 5
-            points: 0
-            ship: "TIE Interceptor"
-            confersAddons: [
-                {
-                    type: exportObj.Modification
-                }
-            ]
-            restriction_func: (ship) ->
-                ship.effectiveStats().skill > 4
-            special_case: 'Royal Guard TIE'
-        }
-        {
-            name: "Dodonna's Pride"
-            id: 6
-            unique: true
-            points: 4
-            ship: "CR90 Corvette (Fore)"
-        }
-        {
-            name: "A-Wing Test Pilot"
-            id: 7
-            points: 0
-            ship: "A-Wing"
-            restriction_func: (ship) ->
-                ship.effectiveStats().skill > 1
-            validation_func: (ship, upgrade_obj) ->
-                # Still need to respect the restriction
-                return false unless ship.effectiveStats().skill > 1
-                # No two Elites are on fir^W^W^Wcan be the same
-                elites = (upgrade.data.canonical_name for upgrade in ship.upgrades when upgrade.slot == 'Elite' and upgrade.data?)
-                while elites.length > 0
-                    elite = elites.pop()
-                    if elite in elites
-                        return false
-                true
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Elite"
-                }
-            ]
-            special_case: "A-Wing Test Pilot"
-        }
-        # Apparently this is a modification, NOT a title
-        # Leaving this here to occupy the ID in case someone used it
-         {
-             name: "B-Wing/E"
-             id: 8
-             skip: true
-             points: 99
-             ship: "B-Wing"
-             confersAddons: [
-                 {
-                     type: exportObj.Upgrade
-                     slot: "Crew"
-                 }
-             ]
-         }
-        {
-            name: "Tantive IV"
-            id: 9
-            unique: true
-            points: 4
-            ship: "CR90 Corvette (Fore)"
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Crew"
-                }
-                {
-                    type: exportObj.Upgrade
-                    slot: "Team"
-                }
-            ]
-        }
-        {
-            name: "Bright Hope"
-            id: 10
-            energy: "+2"
-            unique: true
-            points: 5
-            ship: "GR-75 Medium Transport"
-            modifier_func: (stats) ->
-                stats.energy += 2
-        }
-        {
-            name: "Quantum Storm"
-            id: 11
-            energy: "+1"
-            unique: true
-            points: 4
-            ship: "GR-75 Medium Transport"
-            modifier_func: (stats) ->
-                stats.energy += 1
-        }
-        {
-            name: "Dutyfree"
-            id: 12
-            energy: "+0"
-            unique: true
-            points: 2
-            ship: "GR-75 Medium Transport"
-        }
-        {
-            name: "Jaina's Light"
-            id: 13
-            unique: true
-            points: 2
-            ship: "CR90 Corvette (Fore)"
-        }
-        {
-            name: "Outrider"
-            id: 14
-            unique: true
-            points: 5
-            ship: "YT-2400"
-        }
-        {
-            name: "Dauntless"
-            id: 15
-            unique: true
-            points: 2
-            ship: "VT-49 Decimator"
-        }
-        {
-            name: "Virago"
-            id: 16
-            unique: true
-            points: 1
-            ship: "StarViper"
-            restriction_func: (ship) ->
-                ship.pilot.skill > 3
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "System"
-                }
-                {
-                    type: exportObj.Upgrade
-                    slot: "Illicit"
-                }
-            ]
-        }
-        {
-            name: '"Heavy Scyk" Interceptor (Cannon)'
-            canonical_name: '"Heavy Scyk" Interceptor'.canonicalize()
-            id: 17
-            points: 2
-            ship: "M3-A Interceptor"
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Cannon"
-                }
-            ]
-            modifier_func: (stats) ->
-                stats.hull += 1
-        }
-        {
-            name: '"Heavy Scyk" Interceptor (Torpedo)'
-            canonical_name: '"Heavy Scyk" Interceptor'.canonicalize()
-            id: 18
-            points: 2
-            ship: "M3-A Interceptor"
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Torpedo"
-                }
-            ]
-            modifier_func: (stats) ->
-                stats.hull += 1
-        }
-        {
-            name: '"Heavy Scyk" Interceptor (Missile)'
-            canonical_name: '"Heavy Scyk" Interceptor'.canonicalize()
-            id: 19
-            points: 2
-            ship: "M3-A Interceptor"
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Missile"
-                }
-            ]
-            modifier_func: (stats) ->
-                stats.hull += 1
-        }
-        {
-            name: 'IG-2000'
-            faction: 'Scum and Villainy'
-            id: 20
-            points: 0
-            ship: "Aggressor"
-        }
-        {
             name: "BTL-A4 Y-Wing"
-            id: 21
+            id: 0
             points: 0
             ship: "Y-Wing"
-        }
-        {
-            name: "Andrasta"
-            id: 22
-            unique: true
-            points: 0
-            ship: "Firespray-31"
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Bomb"
-                }
-                {
-                    type: exportObj.Upgrade
-                    slot: "Bomb"
-                }
-            ]
-        }
-        {
-            name: 'TIE/x1'
-            id: 23
-            points: 0
-            ship: "TIE Advanced"
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "System"
-                    adjustment_func: (upgrade) ->
-                        copy = $.extend true, {}, upgrade
-                        copy.points = Math.max(0, copy.points - 4)
-                        copy
-                }
-            ]
-        }
-        {
-            name: "Hound's Tooth"
-            id: 24
-            points: 6
-            unique: true
-            ship: "YV-666"
-        }
-        {
-            name: "Ghost"
-            id: 25
-            unique: true
-            points: 0
-            ship: "VCX-100"
-        }
-        {
-            name: "Phantom"
-            id: 26
-            unique: true
-            points: 0
-            ship: "Attack Shuttle"
-        }
-        {
-            name: "TIE/v1"
-            id: 27
-            points: 1
-            ship: "TIE Advanced Prototype"
-        }
-        {
-            name: "Mist Hunter"
-            id: 28
-            unique: true
-            points: 0
-            ship: "G-1A Starfighter"
-            confersAddons: [
-                {
-                    type: exportObj.RestrictedUpgrade
-                    slot: "Cannon"
-                    filter_func: (upgrade) ->
-                        upgrade.english_name == 'Tractor Beam'
-                    auto_equip: 144
-                }
-            ]
-            modifier_func: (stats) ->
-                stats.actions.push 'Barrel Roll' if 'Barrel Roll' not in stats.actions
-        }
-        {
-            name: "Punishing One"
-            id: 29
-            unique: true
-            points: 12
-            ship: "JumpMaster 5000"
-            modifier_func: (stats) ->
-                stats.attack += 1
-        }
-        {
-            name: 'Assailer'
-            id: 30
-            points: 2
-            unique: true
-            ship: "Raider-class Corvette (Aft)"
-        }
-        {
-            name: 'Instigator'
-            id: 31
-            points: 4
-            unique: true
-            ship: "Raider-class Corvette (Aft)"
-        }
-        {
-            name: 'Impetuous'
-            id: 32
-            points: 3
-            unique: true
-            ship: "Raider-class Corvette (Aft)"
-        }
-        {
-            name: 'TIE/x7'
-            id: 33
-            ship: 'TIE Defender'
-            points: -2
-            unequips_upgrades: [
-                'Cannon'
-                'Missile'
-            ]
-            also_occupies_upgrades: [
-                'Cannon'
-                'Missile'
-            ]
-        }
-        {
-            name: 'TIE/D'
-            id: 34
-            ship: 'TIE Defender'
-            points: 0
-        }
-        {
-            name: 'TIE Shuttle'
-            id: 35
-            ship: 'TIE Bomber'
-            points: 0
-            unequips_upgrades: [
-                'Torpedo'
-                'Torpedo'
-                'Missile'
-                'Missile'
-                'Bomb'
-            ]
-            also_occupies_upgrades: [
-                'Torpedo'
-                'Torpedo'
-                'Missile'
-                'Missile'
-                'Bomb'
-            ]
-            confersAddons: [
-                {
-                    type: exportObj.RestrictedUpgrade
-                    slot: 'Crew'
-                    filter_func: (upgrade) ->
-                        upgrade.points <= 4
-                }
-                {
-                    type: exportObj.RestrictedUpgrade
-                    slot: 'Crew'
-                    filter_func: (upgrade) ->
-                        upgrade.points <= 4
-                }
-            ]
-        }
-        {
-            name: 'Requiem'
-            id: 36
-            unique: true
-            ship: 'Gozanti-class Cruiser'
-            energy: '+0'
-            points: 4
-        }
-        {
-            name: 'Vector'
-            id: 37
-            unique: true
-            ship: 'Gozanti-class Cruiser'
-            energy: '+1'
-            points: 2
-            modifier_func: (stats) ->
-                stats.energy += 1
-        }
-        {
-            name: 'Suppressor'
-            id: 38
-            unique: true
-            ship: 'Gozanti-class Cruiser'
-            energy: '+2'
-            points: 6
-            modifier_func: (stats) ->
-                stats.energy += 2
-        }
-        {
-            name: 'Black One'
-            id: 39
-            unique: true
-            ship: 'T-70 X-Wing'
-            points: 1
-            restriction_func: (ship) ->
-                ship.effectiveStats().skill > 6
-        }
-        {
-            name: "Millennium Falcon (TFA)"
-            canonical_name: "millenniumfalcon-swx57"
-            id: 40
-            unique: true
-            points: 1
-            ship: "YT-1300"
-        }
-        {
-            name: 'Alliance Overhaul'
-            id: 41
-            ship: 'ARC-170'
-            points: 0
-        }
-        {
-            name: 'Special Ops Training'
-            id: 42
-            ship: 'TIE/sf Fighter'
-            points: 0
-        }
-        {
-            name: 'Concord Dawn Protector'
-            id: 43
-            ship: 'Protectorate Starfighter'
-            points: 1
-        }
-        {
-            name: 'Shadow Caster'
-            id: 44
-            unique: true
-            ship: 'Lancer-class Pursuit Craft'
-            points: 3
-        }
-        {
-            name: '''Kylo Ren's Shuttle'''
-            id: 45
-            unique: true
-            ship: 'Upsilon-class Shuttle'
-            points: 2
-        }
-        {
-            name: '''Sabine's Masterpiece'''
-            id: 46
-            ship: 'TIE Fighter'
-            faction: 'Rebel Alliance'
-            unique: true
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Crew"
-                }
-                {
-                    type: exportObj.Upgrade
-                    slot: "Illicit"
-                }
-            ]
-            points: 1
-        }
-        {
-            name: '''Pivot Wing'''
-            id: 47
-            ship: 'U-Wing'
-            points: 0
-        }
-        {
-            name: '''Adaptive Ailerons'''
-            id: 48
-            ship: 'TIE Striker'
-            points: 0
-        }
-        {
-            name: '''Merchant One'''
-            id: 49
-            ship: 'C-ROC Cruiser'
-            points: 2
-            energy: '+1'
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Crew"
-                }
-                {
-                    type: exportObj.Upgrade
-                    slot: "Team"
-                }
-            ]
-            unequips_upgrades: [ "Cargo" ]
-            also_occupies_upgrades: [ "Cargo" ]
-            modifier_func: (stats) ->
-                stats.energy += 1
-        }
-        {
-            name: '''"Light Scyk" Interceptor'''
-            id: 50
-            ship: 'M3-A Interceptor'
-            points: -2
-            unequips_modifications: true
-            also_occupies_modifications: true
-            modifier_func: (stats) ->
-                for s in (stats.maneuvers ? [])
-                    s[1] = 2 if s[1] != 0
-                    s[3] = 2 if s[3] != 0
-        }
-        {
-            name: '''Insatiable Worrt'''
-            id: 51
-            ship: 'C-ROC Cruiser'
-            points: 1
-            energy: '-1'
-            modifier_func: (stats) ->
-                stats.energy -= 1
-        }
-        {
-            name: '''Broken Horn'''
-            id: 52
-            ship: 'C-ROC Cruiser'
-            points: 5
-            energy: '+2'
-            modifier_func: (stats) ->
-                stats.energy += 2
-        }
-        {
-            name: 'Havoc'
-            id: 53
-            ship: 'Scurrg H-6 Bomber'
-            unique: true
-            points: 0
-            unequips_upgrades: [
-                'Crew'
-            ]
-            also_occupies_upgrades: [
-                'Crew'
-            ]
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: 'System'
-                }
-                {
-                    type: exportObj.RestrictedUpgrade
-                    slot: 'Salvaged Astromech'
-                    filter_func: (upgrade) ->
-                        upgrade.unique
-                }
-            ]
-        }
-        {
-            name: 'Vaksai'
-            id: 54
-            points: 0
-            ship: 'Kihraxz Fighter'
-            confersAddons: [
-                {
-                    type: exportObj.Modification
-                }
-                {
-                    type: exportObj.Modification
-                }
-            ]
-            special_case: 'Royal Guard TIE'
-        }
-        {
-            name: 'StarViper Mk. II'
-            id: 55
-            limited: true
-            points: -3
-            ship: 'StarViper'
-            confersAddons: [
-                {
-                    type: exportObj.Title
-                }
-            ]
-        }
-        {
-            name: 'XG-1 Assault Configuration'
-            id: 56
-            points: 1
-            ship: 'Alpha-class Star Wing'
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Cannon"
-                }
-                {
-                    type: exportObj.Upgrade
-                    slot: "Cannon"
-                }
-            ]
-        }
-        {
-            name: 'Enforcer'
-            id: 57
-            unique: true
-            ship: 'M12-L Kimogila Fighter'
-            points: 1
-        }
-        {
-            name: 'Ghost (Phantom II)'
-            id: 58
-            canonical_name: 'ghost-swx72'
-            ship: 'VCX-100'
-            points: 0
-        }
-        {
-            name: 'Phantom II'
-            id: 59
-            ship: 'Sheathipede-class Shuttle'
-            points: 0
-        }
-        {
-            name: 'First Order Vanguard'
-            id: 60
-            ship: 'TIE Silencer'
-            unique: true
-            points: 2
-        }
-        {
-            name: 'Os-1 Arsenal Loadout'
-            id: 61
-            points: 2
-            ship: 'Alpha-class Star Wing'
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Torpedo"
-                }
-                {
-                    type: exportObj.Upgrade
-                    slot: "Missile"
-                }
-            ]
-        }
-        {
-            name: 'Crossfire Formation'
-            id: 62
-            ship: 'B/SF-17 Bomber'
-            points: 2
         }
     ]
 
@@ -8318,6 +6327,29 @@ exportObj.basicCardData = ->
         }
     ]
 
+    chassisById: [
+        {
+            name: "T-65B"
+            id: 0
+            points: 0
+            ship: "X-Wing"
+            faction: "Rebel Alliance"
+            confersAddons: [
+                {
+                    type: exportObj.Upgrade
+                    slot: "Torpedo"
+                }
+                {
+                    type: exportObj.Upgrade
+                    slot: "Astromech"
+                }
+                {
+                    type: exportObj.Modification
+                }
+            ]
+        }
+    ]
+
 exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations, modification_translations, title_translations, condition_translations) ->
     # assert that each ID is the index into BLAHById (should keep this, in general)
     for pilot_data, i in basic_cards.pilotsById
@@ -8335,6 +6367,10 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
     for condition_data, i in basic_cards.conditionsById
         if condition_data.id != i
             throw new Error("ID mismatch: condition at index #{i} has ID #{condition_data.id}")
+    for chassis_data, i in basic_cards.chassisById
+        if chassis_data.id != i
+            throw new Error("ID mismatch: chassis at index #{i} has ID #{chassis_data.id}")
+
 
     exportObj.pilots = {}
     # Assuming a given pilot is unique by name...
@@ -8352,8 +6388,6 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
             try
                 exportObj.pilots[pilot_name][field] = translation
             catch e
-                console.error "Cannot find translation for attribute #{field} for pilot #{pilot_name}"
-                throw e
 
     exportObj.upgrades = {}
     for upgrade_data in basic_cards.upgradesById
@@ -8367,8 +6401,6 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
             try
                 exportObj.upgrades[upgrade_name][field] = translation
             catch e
-                console.error "Cannot find translation for attribute #{field} for upgrade #{upgrade_name}"
-                throw e
 
     exportObj.modifications = {}
     for modification_data in basic_cards.modificationsById
@@ -8382,8 +6414,6 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
             try
                 exportObj.modifications[modification_name][field] = translation
             catch e
-                console.error "Cannot find translation for attribute #{field} for modification #{modification_name}"
-                throw e
 
     exportObj.titles = {}
     for title_data in basic_cards.titlesById
@@ -8397,8 +6427,6 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
             try
                 exportObj.titles[title_name][field] = translation
             catch e
-                console.error "Cannot find translation for attribute #{field} for title #{title_name}"
-                throw e
 
     exportObj.conditions = {}
     for condition_data in basic_cards.conditionsById
@@ -8412,8 +6440,14 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
             try
                 exportObj.conditions[condition_name][field] = translation
             catch e
-                console.error "Cannot find translation for attribute #{field} for condition #{condition_name}"
-                throw e
+
+    exportObj.chassis = {}
+    for chassis_data in basic_cards.chassisById
+        unless chassis_data.skip?
+            chassis_data.sources = []
+            chassis_data.english_name = chassis_data.name
+            chassis_data.canonical_name = chassis_data.english_name.canonicalize() unless condition_data.canonical_name?
+            exportObj.chassis[chassis_data.name] = chassis_data
 
     for ship_name, ship_data of basic_cards.ships
         ship_data.english_name ?= ship_name
@@ -8439,7 +6473,6 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
                     else
                         throw new Error("Unexpected card type #{card.type} for card #{card.name} of #{expansion}")
             catch e
-                console.error "Error adding card #{card.name} (#{card.type}) from #{expansion}"
 
     for name, card of exportObj.pilots
         card.sources = card.sources.sort()
@@ -8542,6 +6575,19 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
         if title.ship not of exportObj.titlesByShip
             exportObj.titlesByShip[title.ship] = []
         exportObj.titlesByShip[title.ship].push title
+
+    exportObj.chassisByShip = {}
+    for chassis_name, chassis of exportObj.chassis
+        if chassis.ship not of exportObj.chassisByShip
+            exportObj.chassisByShip[chassis.ship] = []
+        exportObj.chassisByShip[chassis.ship].push chassis
+
+    exportObj.chassisById = {}
+    exportObj.chassisByLocalizedName = {}
+    for chassis_name, chassis of exportObj.chassis
+        exportObj.fixIcons pilot
+        exportObj.chassisById[chassis.id] = chassis
+        exportObj.chassisByLocalizedName[chassis.name] = chassis
 
     exportObj.titlesByCanonicalName = {}
     exportObj.titlesByUniqueName = {}

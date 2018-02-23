@@ -94,6 +94,8 @@ class exportObj.SquadBuilder
                 []
             Title:
                 []
+            Chassis:
+                []
         @suppress_automatic_new_ship = false
         @tooltip_currently_displaying = null
         @randomizer_options =
@@ -1275,6 +1277,17 @@ class exportObj.SquadBuilder
             eligible_faction_pilots.push include_pilot
         ({ id: pilot.id, text: "#{pilot.name} (#{pilot.points})", points: pilot.points, ship: pilot.ship, english_name: pilot.english_name, disabled: pilot not in eligible_faction_pilots } for pilot in available_faction_pilots).sort exportObj.sortHelper
 
+    getAvailableChassisForShipIncluding: (ship, include_chassis, term='') ->
+        # Returns data formatted for Select2
+        available_faction_chassis = (chassis for chassis_name, chassis of exportObj.chassisByLocalizedName when (not ship? or chassis.ship == ship) and @isOurFaction(chassis.faction) and @matcher(chassis_name, term))
+
+        eligible_faction_chassis = (chassis for chassis_name, chassis of available_faction_chassis when (not chassis.unique? or chassis not in @uniques_in_use['Chassis'] or chassis.canonical_name.getXWSBaseName() == include_chassis?.canonical_name.getXWSBaseName()))
+
+        # Re-add selected chassis
+        if include_chassis? and include_chassis.unique? and @matcher(include_chassis.name, term)
+            eligible_faction_chassis.push include_chassis
+        ({ id: chassis.id, text: "#{chassis.name} (#{chassis.points})", points: chassis.points, ship: chassis.ship, english_name: chassis.english_name, disabled: chassis not in eligible_faction_chassis } for chassis in available_faction_chassis).sort exportObj.sortHelper
+
     dfl_filter_func = ->
         true
 
@@ -1999,6 +2012,7 @@ class Ship
         @upgrades = []
         @modifications = []
         @titles = []
+        @chassis = null
 
         @setupUI()
 
@@ -2246,6 +2260,8 @@ class Ship
             <div class="span3">
                 <input class="ship-selector-container" type="hidden" />
                 <br />
+                <input class="chassis-selector-container" type="hidden" />
+                <br />
                 <input type="hidden" class="pilot-selector-container" />
             </div>
             <div class="span1 points-display-container">
@@ -2260,6 +2276,7 @@ class Ship
         @row.find('.button-container span').tooltip()
 
         @ship_selector = $ @row.find('input.ship-selector-container')
+        @chassis_selector = $ @row.find('input.chassis-selector-container')
         @pilot_selector = $ @row.find('input.pilot-selector-container')
 
         shipResultFormatter = (object, container, query) ->
@@ -2335,6 +2352,17 @@ class Ship
             @builder.showTooltip 'Ship', this if @data?
 
         @pilot_selector.data('select2').container.hide()
+
+        @chassis_selector.select2
+            width: '100%'
+            placeholder: 'select a chassis'
+            query: (query) =>
+                @builder.checkCollection()
+                query.callback
+                    more: false
+                    results: @builder.getAvailableChassisForShipIncluding(@ship_selector.val(), @chassis, query.term)
+            minimumResultsForSearch: if $.isMobile() then -1 else 0
+            formatResultCssClass: (obj) => ''
 
         @points_container = $ @row.find('.points-display-container')
         @points_container.fadeTo 0, 0
