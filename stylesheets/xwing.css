@@ -148,6 +148,12 @@ i.xwing-miniatures-font-shield {
   vertical-align: top;
   padding-right: 5px; }
 
+.pilot-label, .chassis-label {
+  display: inline; }
+
+.chassis-text, .pilot-text {
+  padding-left: 3px; }
+
 .info-text {
   margin-top: 15px; }
 
