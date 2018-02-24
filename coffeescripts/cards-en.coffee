@@ -1313,10 +1313,28 @@ roll dice equal to your agility. For each %EVADE% result, you may suffer 1 of th
         "T-65C-A2":
             text: """you may treat all (%STRAIGHT%) maneuvers as green maneuvers.%LINEBREAK%"""
         "T-65BR 'Recon X'":
-            text: """At the end of the Planning phase, you may choose an enemy
-ship at Range 1-3. Guess aloud that ship’s bearing and speed,
-then look at its dial. If correct, you may rotate your dial to an- other maneuver.
-%LINEBREAK%<strong>Action:</strong> Destroy this ship. Each ship at Range 1 suffers 1
-damage.%LINEBREAK%"""
+            text: """At the end of the Planning phase, you may choose an enemy ship at Range 1-3. Guess aloud that ship’s bearing and speed, then look at its dial. If correct, you may rotate your dial to an- other maneuver. %LINEBREAK%<strong>Action:</strong> Destroy this ship. Each ship at Range 1 suffers 1 damage.%LINEBREAK%"""
+        "BTL-A4 LP 'LongProbe'":
+            text: """You cannot attack ships outside your firing arc. You may treat all speed 1 maneuvers as green maneuvers."""
+        "BTL-A4":
+            text: """You cannot attack ships outside your firing arc. After you preform a primary weapon attack, you may immediately perform an attack with a %TURRET% secondary weapon.%LINEBREAK%After executing a (3) or (4) speed maneuver, if you did not overlap an obstacle or ship, you may aquire a target lock."""
+        "BTL-S3":
+            text: """Increase your shield value by 1"""
+        "BTL-S3 TS 'Twin'":
+            text: """Increase your shield value by 1"""
+        "Flight School TIE/LN":
+            text: """All damage cards dealt to you are dealt faceup. You may not equip unique %CREW% upgrade cards."""
+        "TIE/LN 'S-Type'":
+            text: """After preforming a (%STRAIGHT%) maneuver, you may preform a free %BOOST% action. Your action bar gains the %TARGETLOCK% icon."""
+        "TIE/M2 'Havoc'":
+            text: """Treat all (%TURNLEFT% 1) and (%TURNRIGHT% 1) maneuvers as red maneuvers. Your action bar gains the %TARGETLOCK% icon."""
+        "TIE/LN":
+            text: """After preforming a (%STRAIGHT% 5) maneuver, you may preform a free %BARRELROLL% or %EVADE% action."""
+        "TIE/x2C 'Corona'":
+            text: """Your action bar gains the %BOOST% icon. When preforming a %BOOST% action, you may use the (%BANKLEFT% 2) or (%BANKRIGHT% 2) maneuver template."""
+        "TIE/x1":
+            text: """Once per round, when defending against primary weapon attack, you may cancel one of your %FOCUS% results during the 'Modify Defense Dice' step to assign 1 %FOCUS% token to your ship."""
+        "TIE/x1 Prototype":
+            text: """<span class="card-restriction">Darth Vader Only</span>%LINEBREAK%Your action bar gains the %BOOST% icon. When performing a primary weapon attack, you may receive one stress token to preform this attack twice."""
 
     exportObj.setupCardData basic_cards, pilot_translations, upgrade_translations, modification_translations, title_translations, condition_translations, chassis_translations

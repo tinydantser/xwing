@@ -6262,14 +6262,7 @@ exportObj.basicCardData = ->
     modificationsById: [
     ]
 
-    titlesById: [
-        {
-            name: "BTL-A4 Y-Wing"
-            id: 0
-            points: 0
-            ship: "Y-Wing"
-        }
-    ]
+    titlesById: [ ]
 
     conditionsById: [
         {
@@ -6339,6 +6332,8 @@ exportObj.basicCardData = ->
                 "Astromech"
                 "Modification"
             ]
+            redSlots: [ ]
+            blueSlots: [ ]
         }
         {
             name: "T-65C-A2"
@@ -6350,6 +6345,14 @@ exportObj.basicCardData = ->
                 "Torpedo"
                 "Astromech"
             ]
+            redSlots: [
+                "Torpedo"
+            ]
+            blueSlots: [ ]
+            modifier_func: (stats) ->
+                if stats.maneuvers? and stats.maneuvers.length > 0
+                    stats.maneuvers[3][2] = 2
+                    stats.maneuvers[4][2] = 2
         }
         {
             name: "T-65BR 'Recon X'"
@@ -6360,10 +6363,165 @@ exportObj.basicCardData = ->
             slots: [
                 "Astromech"
             ]
-            modifier_func: (stats) ->
-                if stats.maneuvers? and stats.maneuvers.length > 0
-                    stats.maneuvers[3][2] = 2
-                    stats.maneuvers[4][2] = 2
+            redSlots: [ ]
+            blueSlots: [ ]
+        }
+        {
+            name: "BTL-A4"
+            id: 3
+            points: 2
+            ship: "Y-Wing"
+            faction: "Rebel Alliance"
+            slots: [
+                "Turret"
+                "Torpedo"
+                "Bomb"
+                "Astromech"
+            ]
+            redSlots: [
+                "Torpedo"
+            ]
+            blueSlots: [ ]
+        }
+        {
+            name: "BTL-S3"
+            id: 4
+            points: 0
+            ship: "Y-Wing"
+            faction: "Rebel Alliance"
+            slots: [
+                "Turret"
+                "Torpedo"
+                "Bomb"
+                "Astromech"
+            ]
+            redSlots: [
+                "Torpedo"
+                "Bomb"
+            ]
+            blueSlots: [ ]
+        }
+        {
+            name: "BTL-A4 LP 'LongProbe'"
+            id: 5
+            points: 0
+            ship: "Y-Wing"
+            faction: "Rebel Alliance"
+            slots: [
+                "Turret"
+                "System"
+                "Torpedo"
+                "Astromech"
+            ]
+            redSlots: [ ]
+            blueSlots: [ 
+               "Torpedo"
+            ]
+        }
+        {
+            name: "BTL-S3 TS 'Twin'"
+            id: 6
+            points: 0
+            ship: "Y-Wing"
+            faction: "Rebel Alliance"
+            slots: [
+                "Crew"
+                "Torpedo"
+                "Bomb"
+                "Astromech"
+            ]
+            redSlots: [ ]
+            blueSlots: [ 
+               "Torpedo"
+               "Bomb"
+            ]
+        }
+        {
+            name: "Flight School TIE/LN"
+            id: 7
+            points: 0
+            ship: "TIE Fighter"
+            faction: "Galactic Empire"
+            slots: [
+                "Crew"
+            ]
+            redSlots: [ ]
+            blueSlots: [ ]
+        }
+        {
+            name: "TIE/LN 'S-Type'"
+            id: 8
+            points: 3
+            ship: "TIE Fighter"
+            faction: "Galactic Empire"
+            slots: [
+                "Refit"
+            ]
+            redSlots: [ ]
+            blueSlots: [ ]
+        }
+        {
+            name: "TIE/M2 'Havoc'"
+            id: 9
+            points: 3
+            ship: "TIE Fighter"
+            faction: "Galactic Empire"
+            slots: [
+                "Cannon"
+            ]
+            redSlots: [ ]
+            blueSlots: [ ]
+        }
+        {
+            name: "TIE/LN"
+            id: 10
+            points: 1
+            ship: "TIE Fighter"
+            faction: "Galactic Empire"
+            slots: [ ]
+            redSlots: [ ]
+            blueSlots: [ ]
+        }
+        {
+            name: "TIE/x2C 'Corona'"
+            id: 11
+            points: 4
+            ship: "TIE Advanced"
+            faction: "Galactic Empire"
+            slots: [ 
+                "System"
+                "Refit"
+                "Missile"
+            ]
+            redSlots: [ ]
+            blueSlots: [ ]
+        }
+        {
+            name: "TIE/x1"
+            id: 12
+            points: 0
+            ship: "TIE Advanced"
+            faction: "Galactic Empire"
+            slots: [ 
+                "System"
+                "Refit"
+            ]
+            redSlots: [ ]
+            blueSlots: [ ]
+        }
+        {
+            name: "TIE/x1 Prototype"
+            id: 13
+            points: 10
+            ship: "TIE Advanced"
+            faction: "Galactic Empire"
+            unique: true
+            slots: [ 
+                "System"
+                "Missile"
+            ]
+            redSlots: [ ]
+            blueSlots: [ ]
         }
     ]
 
