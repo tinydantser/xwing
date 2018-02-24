@@ -73,6 +73,64 @@ conditionToHTML = (condition) ->
         </div>
     """
 
+upgradesToFontIcons = (upgrades) ->
+    upgrade_icons = []
+    for upgrade in upgrades
+        upgrade_icons.push switch upgrade
+            when "Torpedo"
+                """<i class="xwing-miniatures-font xwing-miniatures-font-torpedo"></i>"""
+            when 'Astromech'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-astromech"></i>"""
+            when 'Modification'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-modification"></i>"""
+            when 'Missile'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-missile"></i>"""
+            when 'Cannon'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-cannon"></i>"""
+            when 'Crew'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-crew"></i>"""
+            when 'System'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-system"></i>"""
+            when 'Turret'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-turret"></i>"""
+            else
+                """<span>&nbsp;#{upgrade}<span>"""
+    return upgrade_icons
+
+actionsToFontIcons = (actions) ->
+    action_icons = []
+    for action in actions
+        action_icons.push switch action
+            when 'Focus'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-focus"></i>"""
+            when 'Evade'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-evade"></i>"""
+            when 'Barrel Roll'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-barrelroll"></i>"""
+            when 'Target Lock'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-targetlock"></i>"""
+            when 'Boost'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-boost"></i>"""
+            when 'Coordinate'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-coordinate"></i>"""
+            when 'Jam'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-jam"></i>"""
+            when 'Recover'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-recover"></i>"""
+            when 'Reinforce'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-reinforce"></i>"""
+            when 'Cloak'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-cloak"></i>"""
+            when 'SLAM'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-slam"></i>"""
+            when 'Rotate Arc'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-rotatearc"></i>"""
+            when 'Reload'
+                """<i class="xwing-miniatures-font xwing-miniatures-font-reload"></i>"""
+            else
+                """<span>&nbsp;#{action}<span>"""
+    return action_icons
+
 # Assumes cards.js will be loaded
 
 class exportObj.SquadBuilder
@@ -676,6 +734,9 @@ class exportObj.SquadBuilder
                             <td class="info-header">Ship</td>
                             <td class="info-data"></td>
                         </tr>
+                        <tr class="info-chassis">
+                            <td class="info-header">Chassis</td>
+                            <td class="info-data"></td>
                         <tr class="info-skill">
                             <td class="info-header">Skill</td>
                             <td class="info-data info-skill"></td>
@@ -708,13 +769,22 @@ class exportObj.SquadBuilder
                             <td class="info-header">Actions</td>
                             <td class="info-data"></td>
                         </tr>
-                        <tr class="info-upgrades">
-                            <td class="info-header">Upgrades</td>
-                            <td class="info-data"></td>
-                        </tr>
                     </tbody>
                 </table>
                 <p class="info-text" />
+                <div class="ship-info-container">
+                    <span class="pilot-text-container">
+                        <p class="pilot-label"><strong>Pilot</strong></p>
+                        <i class="ept xwing-miniatures-font xwing-miniatures-font-elite"></i>
+                        <p class="pilot-text" />
+                    </span>
+                    <br />
+                    <span class="chassis-text-container">
+                        <p class="chassis-label"><strong>Chassis</strong></p>
+                        <span class="chassis-upgrade-container"></span>
+                        <p class="chassis-text" />
+                    </span>
+                </div>
                 <p class="info-maneuvers" />
             </div>
         """
@@ -1507,8 +1577,15 @@ class exportObj.SquadBuilder
         outTable += "</tbody></table>"
         outTable
 
+    showChassisUpgradeIcons: (data) =>
+        if data
+            @info_container.find('.pilot-text-container')
+
     showTooltip: (type, data, additional_opts) ->
         if data != @tooltip_currently_displaying
+            @info_container.find('.pilot-text-container').hide()
+            @info_container.find('.chassis-text-container').hide()
+            @info_container.find('.ept').hide()
             switch type
                 when 'Ship'
                     @info_container.find('.info-sources').text (exportObj.translate(@language, 'sources', source) for source in data.pilot.sources).sort().join(', ')
@@ -1521,10 +1598,36 @@ class exportObj.SquadBuilder
                     effective_stats = data.effectiveStats()
                     extra_actions = $.grep effective_stats.actions, (el, i) ->
                         el not in data.data.actions
-                    @info_container.find('.info-name').html """#{if data.pilot.unique then "&middot;&nbsp;" else ""}#{data.pilot.name}#{if data.pilot.epic? then " (#{exportObj.translate(@language, 'ui', 'epic')})" else ""}#{if exportObj.isReleased(data.pilot) then "" else " (#{exportObj.translate(@language, 'ui', 'unreleased')})"}"""
-                    @info_container.find('p.info-text').html data.pilot.text ? ''
+                    @info_container.find('.info-name').html """#{if data.pilot.unique then "&middot;&nbsp;" else ""}#{data.pilot.name}"""
+
+                    ship_actions_icons = actionsToFontIcons(data.data.actions)
+                    action_bar = ship_actions_icons.join ' '
+                    extra_actions_icons = actionsToFontIcons(extra_actions)
+                    if extra_actions_icons.length > 0
+                        action_bar += extra_actions_icons.join ' '
+
+                    @info_container.find('p.info-text').html ''
+                    if data.pilot.text
+                        @info_container.find('.pilot-label').show()
+                        @info_container.find('.pilot-text-container').show()
+                        @info_container.find('.pilot-text').html data.pilot.text
+                        
+                    if data.pilot.slots.length > 0
+                        @info_container.find('.pilot-label').show()
+                        @info_container.find('.pilot-text-container').show()
+                        @info_container.find('.ept').show()
+
+                    if data.chassis.text
+                        @info_container.find('.chassis-text-container').show()
+                        @info_container.find('.chassis-text').html data.chassis.text
+                    chassis_upgrade_icons = upgradesToFontIcons(data.chassis.slots)
+                    upgrade_bar = chassis_upgrade_icons.join ' '
+                    @info_container.find('.chassis-upgrade-container').html """#{upgrade_bar}"""
+
                     @info_container.find('tr.info-ship td.info-data').text data.pilot.ship
                     @info_container.find('tr.info-ship').show()
+                    @info_container.find('tr.info-chassis td.info-data').text data.chassis.name
+                    @info_container.find('tr.info-chassis').show()
                     @info_container.find('tr.info-skill td.info-data').text statAndEffectiveStat(data.pilot.skill, effective_stats, 'skill')
                     @info_container.find('tr.info-skill').show()
 
@@ -1543,10 +1646,8 @@ class exportObj.SquadBuilder
                     @info_container.find('tr.info-hull').show()
                     @info_container.find('tr.info-shields td.info-data').text statAndEffectiveStat((data.pilot.ship_override?.shields ? data.data.shields), effective_stats, 'shields')
                     @info_container.find('tr.info-shields').show()
-                    @info_container.find('tr.info-actions td.info-data').html (exportObj.translate(@language, 'action', a) for a in data.data.actions.concat( ("<strong>#{exportObj.translate @language, 'action', action}</strong>" for action in extra_actions))).join ', '
+                    @info_container.find('tr.info-actions td.info-data').html """#{action_bar}"""
                     @info_container.find('tr.info-actions').show()
-                    @info_container.find('tr.info-upgrades').show()
-                    @info_container.find('tr.info-upgrades td.info-data').text((exportObj.translate(@language, 'slot', slot) for slot in data.pilot.slots).join(', ') or 'None')
                     @info_container.find('p.info-maneuvers').show()
                     @info_container.find('p.info-maneuvers').html(@getManeuverTableHTML(effective_stats.maneuvers, data.data.maneuvers))
                 when 'Pilot'
@@ -1558,14 +1659,28 @@ class exportObj.SquadBuilder
                     else
                         @info_container.find('.info-collection').text ''
                     @info_container.find('.info-name').html """#{if data.unique then "&middot;&nbsp;" else ""}#{data.name}#{if data.epic? then " (#{exportObj.translate(@language, 'ui', 'epic')})" else ""}#{if exportObj.isReleased(data) then "" else " (#{exportObj.translate(@language, 'ui', 'unreleased')})"}"""
-                    @info_container.find('p.info-text').html data.text ? ''
+
+                    @info_container.find('p.info-text').html ''
+                    @info_container.find('.pilot-label').hide()
+                    if data.text
+                        @info_container.find('.pilot-text-container').show()
+                        @info_container.find('.pilot-text').html data.text
+
+                    if data.slots.length > 0
+                        @info_container.find('.pilot-text-container').show()
+                        @info_container.find('.ept').show()
+
                     ship = exportObj.ships[data.ship]
                     @info_container.find('tr.info-ship td.info-data').text data.ship
                     @info_container.find('tr.info-ship').show()
+                    @info_container.find('tr.info-chassis').hide()
                     @info_container.find('tr.info-skill td.info-data').text data.skill
                     @info_container.find('tr.info-skill').show()
                     @info_container.find('tr.info-attack td.info-data').text(data.ship_override?.attack ? ship.attack)
                     @info_container.find('tr.info-attack').toggle(data.ship_override?.attack? or ship.attack?)
+
+                    action_icons = actionsToFontIcons(data.ship_override?.actions ? exportObj.ships[data.ship].actions)
+                    action_bar = action_icons.join ' '
 
                     for cls in @info_container.find('tr.info-attack td.info-header i.xwing-miniatures-font')[0].classList
                         @info_container.find('tr.info-attack td.info-header i.xwing-miniatures-font').removeClass(cls) if cls.startsWith('xwing-miniatures-font-attack')
@@ -1580,10 +1695,8 @@ class exportObj.SquadBuilder
                     @info_container.find('tr.info-hull').show()
                     @info_container.find('tr.info-shields td.info-data').text(data.ship_override?.shields ? ship.shields)
                     @info_container.find('tr.info-shields').show()
-                    @info_container.find('tr.info-actions td.info-data').text (exportObj.translate(@language, 'action', action) for action in (data.ship_override?.actions ? exportObj.ships[data.ship].actions)).join(', ')
+                    @info_container.find('tr.info-actions td.info-data').html """#{action_bar}"""
                     @info_container.find('tr.info-actions').show()
-                    @info_container.find('tr.info-upgrades').show()
-                    @info_container.find('tr.info-upgrades td.info-data').text((exportObj.translate(@language, 'slot', slot) for slot in data.slots).join(', ') or 'None')
                     @info_container.find('p.info-maneuvers').show()
                     @info_container.find('p.info-maneuvers').html(@getManeuverTableHTML(ship.maneuvers, ship.maneuvers))
                 when 'Addon'
@@ -1596,6 +1709,7 @@ class exportObj.SquadBuilder
                     @info_container.find('.info-name').html """#{if data.unique then "&middot;&nbsp;" else ""}#{data.name}#{if data.limited? then " (#{exportObj.translate(@language, 'ui', 'limited')})" else ""}#{if data.epic? then " (#{exportObj.translate(@language, 'ui', 'epic')})" else ""}#{if exportObj.isReleased(data) then  "" else " (#{exportObj.translate(@language, 'ui', 'unreleased')})"}"""
                     @info_container.find('p.info-text').html data.text ? ''
                     @info_container.find('tr.info-ship').hide()
+                    @info_container.find('tr.info-chassis').hide()
                     @info_container.find('tr.info-skill').hide()
                     if data.energy?
                         @info_container.find('tr.info-energy td.info-data').text data.energy
@@ -1620,7 +1734,6 @@ class exportObj.SquadBuilder
                     @info_container.find('tr.info-hull').hide()
                     @info_container.find('tr.info-shields').hide()
                     @info_container.find('tr.info-actions').hide()
-                    @info_container.find('tr.info-upgrades').hide()
                     @info_container.find('p.info-maneuvers').hide()
             @info_container.show()
             @tooltip_currently_displaying = data
@@ -2108,9 +2221,13 @@ class Ship
 
     setShipType: (ship_type) ->
         @pilot_selector.data('select2').container.show()
+        @chassis_selector.data('select2').container.show()
         if ship_type != @pilot?.ship
             # Ship changed; select first non-unique
             @setPilot (exportObj.pilotsById[result.id] for result in @builder.getAvailablePilotsForShipIncluding(ship_type) when not exportObj.pilotsById[result.id].unique)[0]
+
+        if ship_type != @chassis?.ship
+            @setChassis (exportObj.chassisById[result.id] for result in @builder.getAvailableChassisForShipIncluding(ship_type) when not exportObj.chassisById[result.id].unique)[0]                                       
 
         # Clear ship background class
         for cls in @row.attr('class').split(/\s+/)
@@ -2124,6 +2241,27 @@ class Ship
         @row.addClass "ship-#{ship_type.toLowerCase().replace(/[^a-z0-9]/gi, '')}0"
 
         @builder.container.trigger 'xwing:shipUpdated'
+        
+    setChassisById: (id) ->
+    	@setChassis exportObj.chassisById[parseInt id]
+    	
+    setChassis: (new_chassis) ->
+        if new_chassis != @chassis
+            @builder.current_squad.dirty = true
+            @resetChassis()
+            @resetAddons()
+            if new_chassis?
+                @data = exportObj.ships[new_chassis?.ship]
+                if new_chassis?.unique?
+                    await @builder.container.trigger 'xwing:claimUnique', [ new_chassis, 'Chassis', defer() ]
+                @chassis = new_chassis
+                @setupAddons() if @chassis?
+                @copy_button.show()
+                @setShipType @chassis.ship
+            else
+                @copy_button.hide()
+            @builder.container.trigger 'xwing:pointsUpdated'
+            @builder.container.trigger 'xwing-backend:squadDirtinessChanged'
 
     setPilotById: (id) ->
         @setPilot exportObj.pilotsById[parseInt id]
@@ -2184,6 +2322,11 @@ class Ship
             await @builder.container.trigger 'xwing:releaseUnique', [ @pilot, 'Pilot', defer() ]
         @pilot = null
 
+    resetChassis: ->
+        if @chassis?.unique?
+            await @builder.container.trigger 'xwing:releaseUnique', [@chassis, 'Chassis', defer() ]
+        @chassis = null
+
     setupAddons: ->
         # Upgrades from pilot
         for slot in @pilot.slots ? []
@@ -2191,6 +2334,12 @@ class Ship
                 ship: this
                 container: @addon_container
                 slot: slot
+        if @chassis
+           for slot in @chassis.slots ? []
+               @upgrades.push new exportObj.Upgrade
+                   ship: this
+                   container: @addon_container
+                   slot: slot
         # Title
         if @pilot.ship of exportObj.titlesByShip
             @titles.push new exportObj.Title
@@ -2215,6 +2364,7 @@ class Ship
 
     getPoints: ->
         points = @pilot?.points ? 0
+        points += @chassis?.points ? points
         for title in @titles
             points += (title?.getPoints() ? 0)
         for upgrade in @upgrades
@@ -2250,6 +2400,11 @@ class Ship
         else
             @pilot_selector.select2 'data', null
             @pilot_selector.data('select2').container.toggle(@ship_selector.val() != '')
+        if @chassis?
+            @chassis_selector.select2 'data',
+               id: @chassis.id
+               text: "#{@chassis.name} (#{@chassis.points})"
+            @chassis_selector.data('select2').container.show()
 
     setupUI: ->
         @row = $ document.createElement 'DIV'
@@ -2260,9 +2415,9 @@ class Ship
             <div class="span3">
                 <input class="ship-selector-container" type="hidden" />
                 <br />
-                <input class="chassis-selector-container" type="hidden" />
-                <br />
                 <input type="hidden" class="pilot-selector-container" />
+                <br />
+                <input type="hidden" class="chassis-selector-container" />
             </div>
             <div class="span1 points-display-container">
                 <span></span>
@@ -2364,6 +2519,20 @@ class Ship
             minimumResultsForSearch: if $.isMobile() then -1 else 0
             formatResultCssClass: (obj) => ''
 
+        @chassis_selector.on 'change', (e) =>
+            @setChassisById @chassis_selector.select2('val')
+            @builder.current_squad.dirty = true
+            @builder.container.trigger 'xwing-backend:squadDirtinessChanged'
+            @builder.backend_status.fadeOut 'slow'
+        @chassis_selector.data('select2').results.on 'mousemove-filtered', (e) =>
+            select2_data = $(e.target).closest('.select2-result').data 'select2-data'
+            @builder.showTooltip 'Chassis', exportObj.chassisById[select2_data.id], {ship: @data?.english_name} if select2_data?.id?
+        @chassis_selector.data('select2').container.on 'mouseover', (e) =>
+            @builder.showTooltip 'Ship', this if @data?
+            
+        @chassis_selector.data('select2').container.hide()
+
+       
         @points_container = $ @row.find('.points-display-container')
         @points_container.fadeTo 0, 0
 
@@ -2395,37 +2564,7 @@ class Ship
 
     toHTML: ->
         effective_stats = @effectiveStats()
-        action_icons = []
-        for action in effective_stats.actions
-            action_icons.push switch action
-                when 'Focus'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-focus"></i>"""
-                when 'Evade'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-evade"></i>"""
-                when 'Barrel Roll'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-barrelroll"></i>"""
-                when 'Target Lock'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-targetlock"></i>"""
-                when 'Boost'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-boost"></i>"""
-                when 'Coordinate'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-coordinate"></i>"""
-                when 'Jam'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-jam"></i>"""
-                when 'Recover'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-recover"></i>"""
-                when 'Reinforce'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-reinforce"></i>"""
-                when 'Cloak'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-cloak"></i>"""
-                when 'SLAM'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-slam"></i>"""
-                when 'Rotate Arc'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-rotatearc"></i>"""
-                when 'Reload'
-                    """<i class="xwing-miniatures-font xwing-miniatures-font-reload"></i>"""
-                else
-                    """<span>&nbsp;#{action}<span>"""
+        action_icons = actionsToFontIcons(effective_stats.actions)
         action_bar = action_icons.join ' '
 
         attack_icon = @data.attack_icon ? 'xwing-miniatures-font-attack'
@@ -2751,6 +2890,7 @@ class Ship
         for modification in @modifications
             modification.data.modifier_func(stats) if modification?.data?.modifier_func?
         @pilot.modifier_func(stats) if @pilot?.modifier_func?
+        @chassis.modifier_func(stats) if @chassis?.modifier_func?
         stats
 
     validate: ->

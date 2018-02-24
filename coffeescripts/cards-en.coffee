@@ -177,15 +177,16 @@ exportObj.cardLoaders.English = () ->
         "Garven Dreis":
             text: """After spending a focus token, you may place that token on any other friendly ship at Range 1-2 (instead of discarding it)."""
         "Biggs Darklighter":
-            text: """Once per game, at the start of the Combat phase, you may choose that until the end of the round, other friendly ships at Range 1 cannot be targeted by attacks if the attacker could target you instead."""
+            text: """Once per turn, when a friendly ship at Range 1 is hit by an attack, you may
+roll dice equal to your agility. For each %EVADE% result, you may suffer 1 of the uncanceled %HIT% or %CRIT% results."""
         "Luke Skywalker":
-            text: """When defending, you may change 1 of your %FOCUS% results to a %EVADE% result."""
+            text: """When defending, you may reduce the attacker's primary weapon value by 1 (to a minimum of 0)."""
         '"Dutch" Vander':
             text: """After acquiring a target lock, choose another friendly ship at Range 1-2.  The chosen ship may immediately acquire a target lock."""
         "Horton Salm":
             text: """When attacking at Range 2-3, you may reroll any of your blank results."""
         '"Winged Gundark"':
-            text: """When attacking at Range 1, you may change 1 of your %HIT% results to a %CRIT% result."""
+            text: """When attacking at Range 1-2, you may change 1 of your %FOCUS% results to a %CRIT% result."""
         '"Night Beast"':
             text: """After executing a green maneuver, you may perform a free focus action."""
         '"Backstabber"':
@@ -1306,4 +1307,16 @@ exportObj.cardLoaders.English = () ->
         'Optimized Prototype':
             text: '''Increase your shield value by 1.%LINEBREAK%Once per round, when performing a primary weapon attack, you may spend 1 die result to remove 1 shield from the defender. ...'''
 
-    exportObj.setupCardData basic_cards, pilot_translations, upgrade_translations, modification_translations, title_translations, condition_translations
+    chassis_translations =
+        "T-65B":
+            text: """Before executing a green maneuver, if you are not stressed, you may first execute a white (%BANKLEFT% 1), (%STRAIGHT% 1), or (%BANKRIGHT% 1) maneuver.%LINEBREAK%"""
+        "T-65C-A2":
+            text: """you may treat all (%STRAIGHT%) maneuvers as green maneuvers.%LINEBREAK%"""
+        "T-65BR 'Recon X'":
+            text: """At the end of the Planning phase, you may choose an enemy
+ship at Range 1-3. Guess aloud that ship’s bearing and speed,
+then look at its dial. If correct, you may rotate your dial to an- other maneuver.
+%LINEBREAK%<strong>Action:</strong> Destroy this ship. Each ship at Range 1 suffers 1
+damage.%LINEBREAK%"""
+
+    exportObj.setupCardData basic_cards, pilot_translations, upgrade_translations, modification_translations, title_translations, condition_translations, chassis_translations

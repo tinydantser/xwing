@@ -6334,23 +6334,40 @@ exportObj.basicCardData = ->
             points: 0
             ship: "X-Wing"
             faction: "Rebel Alliance"
-            confersAddons: [
-                {
-                    type: exportObj.Upgrade
-                    slot: "Torpedo"
-                }
-                {
-                    type: exportObj.Upgrade
-                    slot: "Astromech"
-                }
-                {
-                    type: exportObj.Modification
-                }
+            slots: [
+                "Torpedo"
+                "Astromech"
+                "Modification"
             ]
+        }
+        {
+            name: "T-65C-A2"
+            id: 1
+            points: 1
+            ship: "X-Wing"
+            faction: "Rebel Alliance"
+            slots: [
+                "Torpedo"
+                "Astromech"
+            ]
+        }
+        {
+            name: "T-65BR 'Recon X'"
+            id: 2
+            points: 2
+            ship: "X-Wing"
+            faction: "Rebel Alliance"
+            slots: [
+                "Astromech"
+            ]
+            modifier_func: (stats) ->
+                if stats.maneuvers? and stats.maneuvers.length > 0
+                    stats.maneuvers[3][2] = 2
+                    stats.maneuvers[4][2] = 2
         }
     ]
 
-exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations, modification_translations, title_translations, condition_translations) ->
+exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations, modification_translations, title_translations, condition_translations, chassis_translations) ->
     # assert that each ID is the index into BLAHById (should keep this, in general)
     for pilot_data, i in basic_cards.pilotsById
         if pilot_data.id != i
@@ -6448,6 +6465,13 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
             chassis_data.english_name = chassis_data.name
             chassis_data.canonical_name = chassis_data.english_name.canonicalize() unless condition_data.canonical_name?
             exportObj.chassis[chassis_data.name] = chassis_data
+    # pilot_name is the English version here as it's the common index into
+    # basic card info
+    for chassis_name, translations of chassis_translations
+        for field, translation of translations
+            try
+                exportObj.chassis[chassis_name][field] = translation
+            catch e
 
     for ship_name, ship_data of basic_cards.ships
         ship_data.english_name ?= ship_name
@@ -6585,7 +6609,7 @@ exportObj.setupCardData = (basic_cards, pilot_translations, upgrade_translations
     exportObj.chassisById = {}
     exportObj.chassisByLocalizedName = {}
     for chassis_name, chassis of exportObj.chassis
-        exportObj.fixIcons pilot
+        exportObj.fixIcons chassis
         exportObj.chassisById[chassis.id] = chassis
         exportObj.chassisByLocalizedName[chassis.name] = chassis
 

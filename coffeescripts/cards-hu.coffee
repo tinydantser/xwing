@@ -678,7 +678,7 @@ exportObj.cardLoaders.Magyar = () ->
         "R7-T1":
             text: """<strong>Action:</strong> Válassz 1 ellenséges hajót 1-2 távolságra. Ha benne vagy a tüzelési szögében, tehetsz rá célpontbemérőt. Ezután végrehajthatsz egy ingyenes %BOOST% akciót. [FAQ]"""
         "Tactician":
-			      text: """<span class="card-restriction">Limitált.</span>%LINEBREAK%Miután végrehajtasz egy támadást egy 2-es távolságra és a tüzelési szögedben lévő hajón, az kap egy stressz jelzőt. [FAQ]"""
+            text: """<span class="card-restriction">Limitált.</span>%LINEBREAK%Miután végrehajtasz egy támadást egy 2-es távolságra és a tüzelési szögedben lévő hajón, az kap egy stressz jelzőt. [FAQ]"""
         "R2-D2 (Crew)":
             text: """<span class="card-restriction">Csak lázadók.</span>%LINEBREAK%Ha a kör végén nincs pajzsod, kapsz 1 pajzs jelzőt és dobnod kell egy támadókockával. %HIT% esetén véletlenszerűen fordítsd fel az egyik sebzés kártyádat és hajtsd végre. [FAQ]"""
         "C-3PO":
