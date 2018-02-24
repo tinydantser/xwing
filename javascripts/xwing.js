@@ -3943,21 +3943,21 @@ exportObj.basicCardData = function() {
         name: "Ion Cannon Turret",
         id: 0,
         slot: "Turret",
-        points: 5,
+        points: 4,
         attack: 3,
         range: "1-2"
       }, {
         name: "Proton Torpedoes",
         id: 1,
         slot: "Torpedo",
-        points: 4,
-        attack: 4,
+        points: 3,
+        attack: 3,
         range: "2-3"
       }, {
         name: "R2 Astromech",
         id: 2,
         slot: "Astromech",
-        points: 1,
+        points: 3,
         modifier_func: function(stats) {
           var turn, _i, _ref, _results;
           if ((stats.maneuvers != null) && stats.maneuvers.length > 0) {
@@ -3977,1886 +3977,171 @@ exportObj.basicCardData = function() {
         }
       }, {
         name: "R2-D2",
-        aka: ["R2-D2 (Crew)"],
         canonical_name: 'r2d2',
         id: 3,
         unique: true,
         slot: "Astromech",
         points: 4
       }, {
-        name: "R2-F2",
+        name: "R5-K6",
         id: 4,
         unique: true,
         slot: "Astromech",
         points: 3
       }, {
-        name: "R5-D8",
-        id: 5,
-        unique: true,
-        slot: "Astromech",
-        points: 3
-      }, {
-        name: "R5-K6",
-        id: 6,
-        unique: true,
-        slot: "Astromech",
-        points: 2
-      }, {
         name: "R5 Astromech",
-        id: 7,
+        id: 5,
         slot: "Astromech",
-        points: 1
+        points: 0
       }, {
         name: "Determination",
-        id: 8,
+        id: 6,
         slot: "Elite",
         points: 1
       }, {
         name: "Swarm Tactics",
-        id: 9,
+        id: 7,
         slot: "Elite",
         points: 2
       }, {
         name: "Squad Leader",
-        id: 10,
+        id: 8,
         unique: true,
         slot: "Elite",
-        points: 2
+        points: 1
       }, {
         name: "Expert Handling",
-        id: 11,
-        slot: "Elite",
-        points: 2
-      }, {
-        name: "Marksmanship",
-        id: 12,
+        id: 9,
         slot: "Elite",
         points: 3
       }, {
+        name: "Marksmanship",
+        id: 10,
+        slot: "Elite",
+        points: 1
+      }, {
         name: "Concussion Missiles",
-        id: 13,
+        id: 11,
         slot: "Missile",
-        points: 4,
+        points: 2,
         attack: 4,
         range: "2-3"
       }, {
         name: "Cluster Missiles",
-        id: 14,
+        id: 12,
         slot: "Missile",
         points: 4,
         attack: 3,
         range: "1-2"
       }, {
-        name: "Daredevil",
-        id: 15,
-        slot: "Elite",
-        points: 3
-      }, {
-        name: "Elusiveness",
-        id: 16,
-        slot: "Elite",
-        points: 2
-      }, {
-        name: "Homing Missiles",
-        id: 17,
-        slot: "Missile",
-        attack: 4,
-        range: "2-3",
-        points: 5
-      }, {
-        name: "Push the Limit",
-        id: 18,
-        slot: "Elite",
-        points: 3
-      }, {
-        name: "Deadeye",
-        id: 19,
-        slot: "Elite",
-        points: 1,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: "Expose",
-        id: 20,
-        slot: "Elite",
-        points: 4
-      }, {
         name: "Gunner",
-        id: 21,
+        id: 13,
         slot: "Crew",
-        points: 5
+        points: 6
       }, {
         name: "Ion Cannon",
-        id: 22,
+        id: 14,
         slot: "Cannon",
-        points: 3,
+        points: 4,
         attack: 3,
         range: "1-3"
       }, {
-        name: "Heavy Laser Cannon",
-        id: 23,
-        slot: "Cannon",
-        points: 7,
-        attack: 4,
-        range: "2-3"
-      }, {
         name: "Seismic Charges",
-        id: 24,
-        slot: "Bomb",
-        points: 2
-      }, {
-        name: "Mercenary Copilot",
-        id: 25,
-        slot: "Crew",
-        points: 2
-      }, {
-        name: "Assault Missiles",
-        id: 26,
-        slot: "Missile",
-        points: 5,
-        attack: 4,
-        range: "2-3"
-      }, {
-        name: "Veteran Instincts",
-        id: 27,
-        slot: "Elite",
-        points: 1,
-        modifier_func: function(stats) {
-          return stats.skill += 2;
-        }
-      }, {
-        name: "Proximity Mines",
-        id: 28,
+        id: 15,
         slot: "Bomb",
         points: 3
       }, {
         name: "Weapons Engineer",
-        id: 29,
+        id: 16,
         slot: "Crew",
         points: 3
-      }, {
-        name: "Draw Their Fire",
-        id: 30,
-        slot: "Elite",
-        points: 1
-      }, {
-        name: "Luke Skywalker",
-        id: 31,
-        unique: true,
-        faction: "Rebel Alliance",
-        slot: "Crew",
-        points: 7
-      }, {
-        name: "Nien Nunb",
-        id: 32,
-        unique: true,
-        faction: "Rebel Alliance",
-        slot: "Crew",
-        points: 1,
-        modifier_func: function(stats) {
-          var s, spd, _i, _len, _ref, _ref1, _results;
-          _ref1 = (_ref = stats.maneuvers) != null ? _ref : [];
-          _results = [];
-          for (spd = _i = 0, _len = _ref1.length; _i < _len; spd = ++_i) {
-            s = _ref1[spd];
-            if (spd === 0) {
-              continue;
-            }
-            if (s[2] > 0) {
-              _results.push(s[2] = 2);
-            } else {
-              _results.push(void 0);
-            }
-          }
-          return _results;
-        }
-      }, {
-        name: "Chewbacca",
-        id: 33,
-        unique: true,
-        faction: "Rebel Alliance",
-        slot: "Crew",
-        points: 4
       }, {
         name: "Advanced Proton Torpedoes",
         canonical_name: 'Adv. Proton Torpedoes'.canonicalize(),
-        id: 34,
+        id: 17,
         slot: "Torpedo",
-        attack: 5,
-        range: "1",
-        points: 6
-      }, {
-        name: "Autoblaster",
-        id: 35,
-        slot: "Cannon",
         attack: 3,
-        range: "1",
-        points: 5
-      }, {
-        name: "Fire-Control System",
-        id: 36,
-        slot: "System",
-        points: 2
-      }, {
-        name: "Blaster Turret",
-        id: 37,
-        slot: "Turret",
-        points: 4,
-        attack: 3,
-        range: "1-2"
-      }, {
-        name: "Recon Specialist",
-        id: 38,
-        slot: "Crew",
-        points: 3
-      }, {
-        name: "Saboteur",
-        id: 39,
-        slot: "Crew",
-        points: 2
-      }, {
-        name: "Intelligence Agent",
-        id: 40,
-        slot: "Crew",
-        points: 1
-      }, {
-        name: "Proton Bombs",
-        id: 41,
-        slot: "Bomb",
-        points: 5
-      }, {
-        name: "Adrenaline Rush",
-        id: 42,
-        slot: "Elite",
-        points: 1
-      }, {
-        name: "Advanced Sensors",
-        id: 43,
-        slot: "System",
-        points: 3
-      }, {
-        name: "Sensor Jammer",
-        id: 44,
-        slot: "System",
+        range: "1-2",
         points: 4
       }, {
-        name: "Darth Vader",
-        id: 45,
-        unique: true,
-        faction: "Galactic Empire",
-        slot: "Crew",
-        points: 3
+        name: "Proton Bombs",
+        id: 18,
+        slot: "Bomb",
+        points: 2
       }, {
-        name: "Rebel Captive",
-        id: 46,
-        unique: true,
-        faction: "Galactic Empire",
-        slot: "Crew",
+        name: "Sensor Jammer",
+        id: 19,
+        slot: "System",
         points: 3
       }, {
         name: "Flight Instructor",
-        id: 47,
+        id: 20,
         slot: "Crew",
         points: 4
-      }, {
-        name: "Navigator",
-        id: 48,
-        slot: "Crew",
-        points: 3,
-        epic_restriction_func: function(ship) {
-          var _ref;
-          return !((_ref = ship.huge) != null ? _ref : false);
-        }
-      }, {
-        name: "Opportunist",
-        id: 49,
-        slot: "Elite",
-        points: 4
-      }, {
-        name: "Comms Booster",
-        id: 50,
-        slot: "Cargo",
-        points: 4
-      }, {
-        name: "Slicer Tools",
-        id: 51,
-        slot: "Cargo",
-        points: 7
-      }, {
-        name: "Shield Projector",
-        id: 52,
-        slot: "Cargo",
-        points: 4
-      }, {
-        name: "Ion Pulse Missiles",
-        id: 53,
-        slot: "Missile",
-        points: 3,
-        attack: 3,
-        range: "2-3"
-      }, {
-        name: "Wingman",
-        id: 54,
-        slot: "Elite",
-        points: 2
-      }, {
-        name: "Decoy",
-        id: 55,
-        slot: "Elite",
-        points: 2
-      }, {
-        name: "Outmaneuver",
-        id: 56,
-        slot: "Elite",
-        points: 3
-      }, {
-        name: "Predator",
-        id: 57,
-        slot: "Elite",
-        points: 3
-      }, {
-        name: "Flechette Torpedoes",
-        id: 58,
-        slot: "Torpedo",
-        points: 2,
-        attack: 3,
-        range: "2-3"
-      }, {
-        name: "R7 Astromech",
-        id: 59,
-        slot: "Astromech",
-        points: 2
-      }, {
-        name: "R7-T1",
-        id: 60,
-        unique: true,
-        slot: "Astromech",
-        points: 3
-      }, {
-        name: "Tactician",
-        id: 61,
-        slot: "Crew",
-        points: 2,
-        limited: true
-      }, {
-        name: "R2-D2 (Crew)",
-        aka: ["R2-D2"],
-        canonical_name: 'r2d2-swx22',
-        id: 62,
-        unique: true,
-        slot: "Crew",
-        points: 4,
-        faction: "Rebel Alliance"
-      }, {
-        name: "C-3PO",
-        unique: true,
-        id: 63,
-        slot: "Crew",
-        points: 3,
-        faction: "Rebel Alliance"
-      }, {
-        name: "Single Turbolasers",
-        id: 64,
-        slot: "Hardpoint",
-        points: 8,
-        energy: 2,
-        attack: 4,
-        range: "3-5"
-      }, {
-        name: "Quad Laser Cannons",
-        id: 65,
-        slot: "Hardpoint",
-        points: 6,
-        energy: 2,
-        attack: 3,
-        range: "1-2"
-      }, {
-        name: "Tibanna Gas Supplies",
-        id: 66,
-        slot: "Cargo",
-        points: 4,
-        limited: true
-      }, {
-        name: "Ionization Reactor",
-        id: 67,
-        slot: "Cargo",
-        points: 4,
-        energy: 5,
-        limited: true
-      }, {
-        name: "Engine Booster",
-        id: 68,
-        slot: "Cargo",
-        points: 3,
-        limited: true
-      }, {
-        name: "R3-A2",
-        id: 69,
-        unique: true,
-        slot: "Astromech",
-        points: 2
-      }, {
-        name: "R2-D6",
-        id: 70,
-        unique: true,
-        slot: "Astromech",
-        points: 1,
-        restriction_func: function(ship) {
-          var conferred_addon, upgrade, _i, _j, _len, _len1, _ref, _ref1, _ref2;
-          if (ship.effectiveStats().skill <= 2 || __indexOf.call(ship.pilot.slots, 'Elite') >= 0) {
-            return false;
-          }
-          _ref = ship.upgrades;
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            upgrade = _ref[_i];
-            if ((upgrade != null) && ((_ref1 = upgrade.data) != null ? _ref1.name : void 0) !== 'R2-D6') {
-              _ref2 = upgrade.conferredAddons;
-              for (_j = 0, _len1 = _ref2.length; _j < _len1; _j++) {
-                conferred_addon = _ref2[_j];
-                if (conferred_addon.slot === 'Elite') {
-                  return false;
-                }
-              }
-            }
-          }
-          return true;
-        },
-        confersAddons: [
-          {
-            type: exportObj.Upgrade,
-            slot: "Elite"
-          }
-        ]
-      }, {
-        name: "Enhanced Scopes",
-        id: 71,
-        slot: "System",
-        points: 1
-      }, {
-        name: "Chardaan Refit",
-        id: 72,
-        slot: "Missile",
-        points: -2,
-        ship: "A-Wing"
-      }, {
-        name: "Proton Rockets",
-        id: 73,
-        slot: "Missile",
-        points: 3,
-        attack: 2,
-        range: "1"
-      }, {
-        name: "Kyle Katarn",
-        id: 74,
-        unique: true,
-        slot: "Crew",
-        points: 3,
-        faction: "Rebel Alliance"
-      }, {
-        name: "Jan Ors",
-        id: 75,
-        unique: true,
-        slot: "Crew",
-        points: 2,
-        faction: "Rebel Alliance"
-      }, {
-        name: "Toryn Farr",
-        id: 76,
-        unique: true,
-        slot: "Crew",
-        points: 6,
-        faction: "Rebel Alliance",
-        restriction_func: exportObj.hugeOnly
-      }, {
-        name: "R4-D6",
-        id: 77,
-        unique: true,
-        slot: "Astromech",
-        points: 1
-      }, {
-        name: "R5-P9",
-        id: 78,
-        unique: true,
-        slot: "Astromech",
-        points: 3
-      }, {
-        name: "WED-15 Repair Droid",
-        id: 79,
-        slot: "Crew",
-        points: 2,
-        restriction_func: exportObj.hugeOnly
-      }, {
-        name: "Carlist Rieekan",
-        id: 80,
-        unique: true,
-        slot: "Crew",
-        points: 3,
-        faction: "Rebel Alliance",
-        restriction_func: exportObj.hugeOnly
-      }, {
-        name: "Jan Dodonna",
-        id: 81,
-        unique: true,
-        slot: "Crew",
-        points: 6,
-        faction: "Rebel Alliance",
-        restriction_func: exportObj.hugeOnly
-      }, {
-        name: "Expanded Cargo Hold",
-        id: 82,
-        slot: "Cargo",
-        points: 1,
-        ship: "GR-75 Medium Transport"
-      }, {
-        name: "Backup Shield Generator",
-        id: 83,
-        slot: "Cargo",
-        limited: true,
-        points: 3
-      }, {
-        name: "EM Emitter",
-        id: 84,
-        slot: "Cargo",
-        limited: true,
-        points: 3
-      }, {
-        name: "Frequency Jammer",
-        id: 85,
-        slot: "Cargo",
-        limited: true,
-        points: 4
-      }, {
-        name: "Han Solo",
-        id: 86,
-        slot: "Crew",
-        unique: true,
-        faction: "Rebel Alliance",
-        points: 2
-      }, {
-        name: "Leia Organa",
-        id: 87,
-        slot: "Crew",
-        unique: true,
-        faction: "Rebel Alliance",
-        points: 4
-      }, {
-        name: "Targeting Coordinator",
-        id: 88,
-        slot: "Crew",
-        limited: true,
-        points: 4
-      }, {
-        name: "Raymus Antilles",
-        id: 89,
-        slot: "Crew",
-        unique: true,
-        faction: "Rebel Alliance",
-        points: 6,
-        restriction_func: exportObj.hugeOnly
-      }, {
-        name: "Gunnery Team",
-        id: 90,
-        slot: "Team",
-        limited: true,
-        points: 4
-      }, {
-        name: "Sensor Team",
-        id: 91,
-        slot: "Team",
-        points: 4
-      }, {
-        name: "Engineering Team",
-        id: 92,
-        slot: "Team",
-        limited: true,
-        points: 4
-      }, {
-        name: "Lando Calrissian",
-        id: 93,
-        slot: "Crew",
-        unique: true,
-        faction: "Rebel Alliance",
-        points: 3
-      }, {
-        name: "Mara Jade",
-        id: 94,
-        slot: "Crew",
-        unique: true,
-        faction: "Galactic Empire",
-        points: 3
-      }, {
-        name: "Fleet Officer",
-        id: 95,
-        slot: "Crew",
-        faction: "Galactic Empire",
-        points: 3
-      }, {
-        name: "Stay On Target",
-        id: 96,
-        slot: "Elite",
-        points: 2
-      }, {
-        name: "Dash Rendar",
-        id: 97,
-        unique: true,
-        slot: "Crew",
-        points: 2,
-        faction: "Rebel Alliance"
-      }, {
-        name: "Lone Wolf",
-        id: 98,
-        unique: true,
-        slot: "Elite",
-        points: 2
-      }, {
-        name: '"Leebo"',
-        id: 99,
-        unique: true,
-        slot: "Crew",
-        points: 2,
-        faction: "Rebel Alliance"
-      }, {
-        name: "Ruthlessness",
-        id: 100,
-        slot: "Elite",
-        points: 3,
-        faction: "Galactic Empire"
-      }, {
-        name: "Intimidation",
-        id: 101,
-        slot: "Elite",
-        points: 2
-      }, {
-        name: "Ysanne Isard",
-        id: 102,
-        unique: true,
-        slot: "Crew",
-        points: 4,
-        faction: "Galactic Empire"
-      }, {
-        name: "Moff Jerjerrod",
-        id: 103,
-        unique: true,
-        slot: "Crew",
-        points: 2,
-        faction: "Galactic Empire"
-      }, {
-        name: "Ion Torpedoes",
-        id: 104,
-        slot: "Torpedo",
-        points: 5,
-        attack: 4,
-        range: "2-3"
-      }, {
-        name: "Bodyguard",
-        id: 105,
-        unique: true,
-        slot: "Elite",
-        points: 2,
-        faction: "Scum and Villainy"
-      }, {
-        name: "Calculation",
-        id: 106,
-        slot: "Elite",
-        points: 1
-      }, {
-        name: "Accuracy Corrector",
-        id: 107,
-        slot: "System",
-        points: 3
-      }, {
-        name: "Inertial Dampeners",
-        id: 108,
-        slot: "Illicit",
-        points: 1
-      }, {
-        name: "Flechette Cannon",
-        id: 109,
-        slot: "Cannon",
-        points: 2,
-        attack: 3,
-        range: "1-3"
-      }, {
-        name: '"Mangler" Cannon',
-        id: 110,
-        slot: "Cannon",
-        points: 4,
-        attack: 3,
-        range: "1-3"
-      }, {
-        name: "Dead Man's Switch",
-        id: 111,
-        slot: "Illicit",
-        points: 2
-      }, {
-        name: "Feedback Array",
-        id: 112,
-        slot: "Illicit",
-        points: 2
-      }, {
-        name: '"Hot Shot" Blaster',
-        id: 113,
-        slot: "Illicit",
-        points: 3,
-        attack: 3,
-        range: "1-2"
-      }, {
-        name: "Greedo",
-        id: 114,
-        unique: true,
-        slot: "Crew",
-        faction: "Scum and Villainy",
-        points: 1
-      }, {
-        name: "Salvaged Astromech",
-        id: 115,
-        slot: "Salvaged Astromech",
-        points: 2
-      }, {
-        name: "Bomb Loadout",
-        id: 116,
-        limited: true,
-        slot: "Torpedo",
-        points: 0,
-        ship: "Y-Wing",
-        confersAddons: [
-          {
-            type: exportObj.Upgrade,
-            slot: "Bomb"
-          }
-        ]
-      }, {
-        name: '"Genius"',
-        id: 117,
-        unique: true,
-        slot: "Salvaged Astromech",
-        points: 0
-      }, {
-        name: "Unhinged Astromech",
-        id: 118,
-        slot: "Salvaged Astromech",
-        points: 1,
-        modifier_func: function(stats) {
-          var turn, _i, _ref, _results;
-          if ((stats.maneuvers != null) && stats.maneuvers.length > 3) {
-            _results = [];
-            for (turn = _i = 0, _ref = stats.maneuvers[3].length; 0 <= _ref ? _i < _ref : _i > _ref; turn = 0 <= _ref ? ++_i : --_i) {
-              if (stats.maneuvers[3][turn] > 0) {
-                _results.push(stats.maneuvers[3][turn] = 2);
-              } else {
-                _results.push(void 0);
-              }
-            }
-            return _results;
-          }
-        }
-      }, {
-        name: "R4-B11",
-        id: 119,
-        unique: true,
-        slot: "Salvaged Astromech",
-        points: 3
-      }, {
-        name: "Autoblaster Turret",
-        id: 120,
-        slot: "Turret",
-        points: 2,
-        attack: 2,
-        range: "1"
-      }, {
-        name: "R4 Agromech",
-        id: 121,
-        slot: "Salvaged Astromech",
-        points: 2
-      }, {
-        name: "K4 Security Droid",
-        id: 122,
-        slot: "Crew",
-        faction: "Scum and Villainy",
-        points: 3
-      }, {
-        name: "Outlaw Tech",
-        id: 123,
-        limited: true,
-        slot: "Crew",
-        faction: "Scum and Villainy",
-        points: 2
       }, {
         name: 'Advanced Targeting Computer',
         canonical_name: 'Adv. Targeting Computer'.canonicalize(),
-        id: 124,
+        id: 21,
         slot: "System",
-        points: 5,
-        ship: "TIE Advanced"
-      }, {
-        name: 'Ion Cannon Battery',
-        id: 125,
-        slot: "Hardpoint",
-        points: 6,
-        energy: 2,
-        attack: 4,
-        range: "2-4"
-      }, {
-        name: "Extra Munitions",
-        id: 126,
-        slot: "Torpedo",
-        limited: true,
-        points: 2
-      }, {
-        name: "Cluster Mines",
-        id: 127,
-        slot: "Bomb",
-        points: 4
-      }, {
-        name: 'Glitterstim',
-        id: 128,
-        slot: "Illicit",
-        points: 2
-      }, {
-        name: 'Grand Moff Tarkin',
-        unique: true,
-        id: 129,
-        slot: "Crew",
-        points: 6,
-        faction: "Galactic Empire",
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.huge) != null ? _ref : false;
-        }
-      }, {
-        name: 'Captain Needa',
-        unique: true,
-        id: 130,
-        slot: "Crew",
-        points: 2,
-        faction: "Galactic Empire",
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.huge) != null ? _ref : false;
-        }
-      }, {
-        name: 'Admiral Ozzel',
-        unique: true,
-        id: 131,
-        slot: "Crew",
-        points: 2,
-        faction: "Galactic Empire",
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.huge) != null ? _ref : false;
-        }
-      }, {
-        name: 'Emperor Palpatine',
-        unique: true,
-        id: 132,
-        slot: "Crew",
-        points: 8,
-        faction: "Galactic Empire",
-        restriction_func: function(ship, upgrade_obj) {
-          return ship.hasAnotherUnoccupiedSlotLike(upgrade_obj);
-        },
-        validation_func: function(ship, upgrade_obj) {
-          return upgrade_obj.occupiesAnotherUpgradeSlot();
-        },
-        also_occupies_upgrades: ["Crew"]
-      }, {
-        name: 'Bossk',
-        unique: true,
-        id: 133,
-        faction: "Scum and Villainy",
-        slot: "Crew",
-        points: 2
-      }, {
-        name: "Lightning Reflexes",
-        id: 134,
-        slot: "Elite",
-        points: 1,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: "Twin Laser Turret",
-        id: 135,
-        slot: "Turret",
-        points: 6,
-        attack: 3,
-        range: "2-3"
-      }, {
-        name: "Plasma Torpedoes",
-        id: 136,
-        slot: "Torpedo",
-        points: 3,
-        attack: 4,
-        range: "2-3"
-      }, {
-        name: "Ion Bombs",
-        id: 137,
-        slot: "Bomb",
-        points: 2
-      }, {
-        name: "Conner Net",
-        id: 138,
-        slot: "Bomb",
-        points: 4
-      }, {
-        name: "Bombardier",
-        id: 139,
-        slot: "Crew",
-        points: 1
-      }, {
-        name: 'Crack Shot',
-        id: 140,
-        slot: 'Elite',
-        points: 1
-      }, {
-        name: "Advanced Homing Missiles",
-        canonical_name: 'Adv. Homing Missiles'.canonicalize(),
-        id: 141,
-        slot: "Missile",
-        points: 3,
-        attack: 3,
-        range: "2"
-      }, {
-        name: 'Agent Kallus',
-        id: 142,
-        unique: true,
-        points: 2,
-        slot: 'Crew',
-        faction: 'Galactic Empire'
-      }, {
-        name: 'XX-23 S-Thread Tracers',
-        id: 143,
-        points: 1,
-        slot: 'Missile',
-        attack: 3,
-        range: '1-3'
-      }, {
-        name: "Tractor Beam",
-        id: 144,
-        slot: "Cannon",
-        attack: 3,
-        range: "1-3",
-        points: 1
-      }, {
-        name: "Cloaking Device",
-        id: 145,
-        unique: true,
-        slot: "Illicit",
-        points: 2,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: 'Shield Technician',
-        id: 146,
-        slot: "Crew",
-        points: 1,
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.huge) != null ? _ref : false;
-        }
-      }, {
-        name: 'Weapons Guidance',
-        id: 147,
-        slot: "Tech",
-        points: 2
-      }, {
-        name: 'BB-8',
-        id: 148,
-        unique: true,
-        slot: "Astromech",
-        points: 2
-      }, {
-        name: 'R5-X3',
-        id: 149,
-        unique: true,
-        slot: "Astromech",
-        points: 1
-      }, {
-        name: 'Wired',
-        id: 150,
-        slot: "Elite",
-        points: 1
-      }, {
-        name: 'Cool Hand',
-        id: 151,
-        slot: 'Elite',
-        points: 1
-      }, {
-        name: 'Juke',
-        id: 152,
-        slot: 'Elite',
-        points: 2,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: 'Comm Relay',
-        id: 153,
-        slot: 'Tech',
-        points: 3
-      }, {
-        name: 'Dual Laser Turret',
-        id: 154,
-        points: 5,
-        slot: 'Hardpoint',
-        attack: 3,
-        range: '1-3',
-        energy: 1,
-        ship: 'Gozanti-class Cruiser'
-      }, {
-        name: 'Broadcast Array',
-        id: 155,
-        ship: 'Gozanti-class Cruiser',
-        points: 2,
-        slot: 'Cargo',
-        modifier_func: function(stats) {
-          if (__indexOf.call(stats.actions, 'Jam') < 0) {
-            return stats.actions.push('Jam');
-          }
-        }
-      }, {
-        name: 'Rear Admiral Chiraneau',
-        id: 156,
-        unique: true,
-        points: 3,
-        slot: 'Crew',
-        faction: 'Galactic Empire',
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.huge) != null ? _ref : false;
-        }
-      }, {
-        name: 'Ordnance Experts',
-        id: 157,
-        limited: true,
-        points: 5,
-        slot: 'Team'
-      }, {
-        name: 'Docking Clamps',
-        id: 158,
-        points: 0,
-        limited: true,
-        slot: 'Cargo',
-        ship: 'Gozanti-class Cruiser'
-      }, {
-        name: 'Kanan Jarrus',
-        id: 159,
-        unique: true,
-        faction: 'Rebel Alliance',
-        points: 3,
-        slot: 'Crew'
-      }, {
-        name: '"Zeb" Orrelios',
-        id: 160,
-        unique: true,
-        faction: 'Rebel Alliance',
-        points: 1,
-        slot: 'Crew'
-      }, {
-        name: 'Reinforced Deflectors',
-        id: 161,
-        points: 3,
-        slot: 'System',
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.large) != null ? _ref : false;
-        }
-      }, {
-        name: 'Dorsal Turret',
-        id: 162,
-        points: 3,
-        slot: 'Turret',
-        attack: 2,
-        range: '1-2'
-      }, {
-        name: 'Targeting Astromech',
-        id: 163,
-        slot: 'Astromech',
-        points: 2
-      }, {
-        name: 'Hera Syndulla',
-        id: 164,
-        unique: true,
-        faction: 'Rebel Alliance',
-        points: 1,
-        slot: 'Crew'
-      }, {
-        name: 'Ezra Bridger',
-        id: 165,
-        unique: true,
-        faction: 'Rebel Alliance',
-        points: 3,
-        slot: 'Crew'
-      }, {
-        name: 'Sabine Wren',
-        id: 166,
-        unique: true,
-        faction: 'Rebel Alliance',
-        points: 2,
-        slot: 'Crew',
-        confersAddons: [
-          {
-            type: exportObj.Upgrade,
-            slot: "Bomb"
-          }
-        ]
-      }, {
-        name: '"Chopper"',
-        id: 167,
-        unique: true,
-        faction: 'Rebel Alliance',
-        points: 0,
-        slot: 'Crew'
-      }, {
-        name: 'Construction Droid',
-        id: 168,
-        points: 3,
-        slot: 'Crew',
-        limited: true,
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.huge) != null ? _ref : false;
-        }
-      }, {
-        name: 'Cluster Bombs',
-        id: 169,
-        points: 4,
-        slot: 'Cargo'
-      }, {
-        name: "Adaptability",
-        id: 170,
-        slot: "Elite",
-        points: 0
-      }, {
-        name: "Adaptability (old)",
-        skip: true,
-        id: 171,
-        superseded_by_id: 170,
-        slot: "Elite",
-        points: 0
-      }, {
-        name: "Electronic Baffle",
-        id: 172,
-        slot: "System",
-        points: 1
-      }, {
-        name: "4-LOM",
-        id: 173,
-        unique: true,
-        slot: "Crew",
-        points: 1,
-        faction: "Scum and Villainy"
-      }, {
-        name: "Zuckuss",
-        id: 174,
-        unique: true,
-        slot: "Crew",
-        points: 1,
-        faction: "Scum and Villainy"
-      }, {
-        name: 'Rage',
-        id: 175,
-        points: 1,
-        slot: 'Elite'
-      }, {
-        name: "Attanni Mindlink",
-        id: 176,
-        faction: "Scum and Villainy",
-        slot: "Elite",
-        points: 1,
-        max_per_squad: 2
-      }, {
-        name: "Boba Fett",
-        id: 177,
-        unique: true,
-        slot: "Crew",
-        points: 1,
-        faction: "Scum and Villainy"
-      }, {
-        name: "Dengar",
-        id: 178,
-        unique: true,
-        slot: "Crew",
-        points: 3,
-        faction: "Scum and Villainy"
-      }, {
-        name: '"Gonk"',
-        id: 179,
-        unique: true,
-        slot: "Crew",
-        faction: "Scum and Villainy",
-        points: 2
-      }, {
-        name: "R5-P8",
-        id: 180,
-        unique: true,
-        slot: "Salvaged Astromech",
-        points: 3
-      }, {
-        name: 'Thermal Detonators',
-        id: 181,
-        points: 3,
-        slot: 'Bomb'
-      }, {
-        name: "Overclocked R4",
-        id: 182,
-        slot: "Salvaged Astromech",
-        points: 1
-      }, {
-        name: 'Systems Officer',
-        id: 183,
-        faction: 'Galactic Empire',
-        limited: true,
-        points: 2,
-        slot: 'Crew'
-      }, {
-        name: 'Tail Gunner',
-        id: 184,
-        slot: 'Crew',
-        limited: true,
-        points: 2
-      }, {
-        name: 'R3 Astromech',
-        id: 185,
-        slot: 'Astromech',
-        points: 2
-      }, {
-        name: 'Collision Detector',
-        id: 186,
-        slot: 'System',
-        points: 0
-      }, {
-        name: 'Sensor Cluster',
-        id: 187,
-        slot: 'Tech',
-        points: 2
-      }, {
-        name: 'Fearlessness',
-        id: 188,
-        slot: 'Elite',
-        faction: 'Scum and Villainy',
-        points: 1
-      }, {
-        name: 'Ketsu Onyo',
-        id: 189,
-        slot: 'Crew',
-        faction: 'Scum and Villainy',
-        unique: true,
-        points: 1
-      }, {
-        name: 'Latts Razzi',
-        id: 190,
-        slot: 'Crew',
-        faction: 'Scum and Villainy',
-        unique: true,
-        points: 2
-      }, {
-        name: 'IG-88D',
-        id: 191,
-        slot: 'Crew',
-        faction: 'Scum and Villainy',
-        unique: true,
-        points: 1
-      }, {
-        name: 'Rigged Cargo Chute',
-        id: 192,
-        slot: 'Illicit',
-        points: 1,
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.large) != null ? _ref : false;
-        }
-      }, {
-        name: 'Seismic Torpedo',
-        id: 193,
-        slot: 'Torpedo',
-        points: 2
-      }, {
-        name: 'Black Market Slicer Tools',
-        id: 194,
-        slot: 'Illicit',
-        points: 1
-      }, {
-        name: 'Kylo Ren',
-        id: 195,
-        slot: 'Crew',
-        unique: true,
-        faction: 'Galactic Empire',
-        points: 3,
-        applies_condition: 'I\'ll Show You the Dark Side'.canonicalize()
-      }, {
-        name: 'Unkar Plutt',
-        id: 196,
-        faction: 'Scum and Villainy',
-        slot: 'Crew',
-        unique: true,
-        points: 1
-      }, {
-        name: 'A Score to Settle',
-        id: 197,
-        applies_condition: 'A Debt to Pay'.canonicalize(),
-        slot: 'Elite',
-        unique: true,
-        points: 0
-      }, {
-        name: 'Jyn Erso',
-        id: 198,
-        faction: 'Rebel Alliance',
-        slot: 'Crew',
-        unique: true,
-        points: 2
-      }, {
-        name: 'Cassian Andor',
-        id: 199,
-        faction: 'Rebel Alliance',
-        slot: 'Crew',
-        unique: true,
-        points: 2
-      }, {
-        name: 'Finn',
-        id: 200,
-        faction: 'Rebel Alliance',
-        unique: true,
-        slot: 'Crew',
         points: 5
       }, {
-        name: 'Rey',
-        id: 201,
-        faction: 'Rebel Alliance',
-        unique: true,
-        slot: 'Crew',
+        name: "Chin Cannon Refit",
+        id: 22,
+        slot: "Refit",
         points: 2
       }, {
-        name: 'Burnout SLAM',
-        id: 202,
-        slot: 'Illicit',
-        points: 1,
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.large) != null ? _ref : false;
-        },
-        modifier_func: function(stats) {
-          if (__indexOf.call(stats.actions, 'SLAM') < 0) {
-            return stats.actions.push('SLAM');
-          }
-        }
-      }, {
-        name: 'Primed Thrusters',
-        id: 203,
-        slot: 'Tech',
-        points: 1,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: 'Pattern Analyzer',
-        id: 204,
-        slot: 'Tech',
-        points: 2
-      }, {
-        name: 'Snap Shot',
-        id: 205,
-        slot: 'Elite',
-        points: 2,
-        attack: 2,
-        range: 1
-      }, {
-        name: 'M9-G8',
-        id: 206,
-        slot: 'Astromech',
-        unique: true,
+        name: "L-s7.2 Cannons",
+        id: 23,
+        slot: "Refit",
         points: 3
       }, {
-        name: 'EMP Device',
-        id: 207,
-        slot: 'Illicit',
-        unique: true,
-        points: 2
-      }, {
-        name: 'Captain Rex',
-        id: 208,
-        slot: 'Crew',
-        faction: 'Rebel Alliance',
-        unique: true,
-        points: 2
-      }, {
-        name: 'General Hux',
-        id: 209,
-        slot: 'Crew',
-        unique: true,
-        faction: 'Galactic Empire',
-        points: 5,
-        applies_condition: 'Fanatical Devotion'.canonicalize()
-      }, {
-        name: 'Operations Specialist',
-        id: 210,
-        slot: 'Crew',
-        limited: true,
+        name: "L-s9.3 Cannons",
+        id: 24,
+        slot: "Refit",
         points: 3
       }, {
-        name: 'Targeting Synchronizer',
-        id: 211,
-        slot: 'Tech',
+        name: "Heavy Blaster Cannon Refit",
+        id: 25,
+        slot: "Refit",
         points: 3
       }, {
-        name: 'Hyperwave Comm Scanner',
-        id: 212,
-        slot: 'Tech',
+        name: "R2-Q2",
+        id: 26,
+        slot: "Astromech",
+        points: 3,
+        unique: true
+      }, {
+        name: "R2-A3",
+        id: 27,
+        slot: "Astromech",
+        points: 4,
+        unique: true
+      }, {
+        name: "L-SF42 Turbolaser",
+        id: 28,
+        slot: "Cannon",
+        points: 4,
+        unique: true
+      }, {
+        name: "Strafe",
+        id: 29,
+        slot: "Elite",
         points: 1
       }, {
-        name: 'Hotshot Co-pilot',
-        id: 213,
-        slot: 'Crew',
+        name: "Sniper",
+        id: 30,
+        slot: "Elite",
         points: 4
       }, {
-        name: 'Trick Shot',
-        id: 214,
-        slot: 'Elite',
-        points: 0
-      }, {
-        name: 'Scavenger Crane',
-        id: 215,
-        slot: 'Illicit',
-        points: 2
-      }, {
-        name: 'Bodhi Rook',
-        id: 216,
-        slot: 'Crew',
-        unique: true,
-        faction: 'Rebel Alliance',
+        name: "Electronic Baffle",
+        id: 31,
+        slot: "System",
         points: 1
-      }, {
-        name: 'Baze Malbus',
-        id: 217,
-        slot: 'Crew',
-        unique: true,
-        faction: 'Rebel Alliance',
-        points: 3
-      }, {
-        name: 'Inspiring Recruit',
-        id: 218,
-        slot: 'Crew',
-        points: 1
-      }, {
-        name: 'Swarm Leader',
-        id: 219,
-        unique: true,
-        slot: 'Elite',
-        points: 3
-      }, {
-        name: 'Expertise',
-        id: 220,
-        slot: 'Elite',
-        points: 4
-      }, {
-        name: 'Bistan',
-        id: 221,
-        slot: 'Crew',
-        unique: true,
-        faction: 'Rebel Alliance',
-        points: 2
-      }, {
-        name: 'BoShek',
-        id: 222,
-        slot: 'Crew',
-        unique: true,
-        points: 2
-      }, {
-        name: 'Heavy Laser Turret',
-        id: 223,
-        ship: 'C-ROC Cruiser',
-        slot: 'Hardpoint',
-        points: 5,
-        energy: 2,
-        attack: 4,
-        range: '2-3'
-      }, {
-        name: 'Cikatro Vizago',
-        id: 224,
-        unique: true,
-        faction: 'Scum and Villainy',
-        slot: 'Crew',
-        points: 0
-      }, {
-        name: 'Azmorigan',
-        id: 225,
-        faction: 'Scum and Villainy',
-        slot: 'Crew',
-        points: 2,
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.huge) != null ? _ref : false;
-        }
-      }, {
-        name: 'Quick-release Cargo Locks',
-        id: 226,
-        slot: 'Cargo',
-        points: 2,
-        restriction_func: function(ship) {
-          var _ref;
-          return (_ref = ship.data.canonical_name) === 'C-ROC Cruiser'.canonicalize() || _ref === 'GR-75 Medium Transport'.canonicalize();
-        }
-      }, {
-        name: 'Supercharged Power Cells',
-        id: 227,
-        limited: true,
-        slot: 'Cargo',
-        points: 3
-      }, {
-        name: 'ARC Caster',
-        id: 228,
-        faction: ['Rebel Alliance', 'Scum and Villainy'],
-        slot: 'Cannon',
-        points: 2,
-        attack: 4,
-        range: '1'
-      }, {
-        name: 'Wookiee Commandos',
-        id: 229,
-        slot: 'Crew',
-        faction: 'Rebel Alliance',
-        points: 1,
-        restriction_func: function(ship, upgrade_obj) {
-          return ship.hasAnotherUnoccupiedSlotLike(upgrade_obj);
-        },
-        validation_func: function(ship, upgrade_obj) {
-          return upgrade_obj.occupiesAnotherUpgradeSlot();
-        },
-        also_occupies_upgrades: ["Crew"]
-      }, {
-        name: 'Synced Turret',
-        id: 230,
-        slot: 'Turret',
-        points: 4,
-        attack: 3,
-        range: '1-2'
-      }, {
-        name: 'Unguided Rockets',
-        id: 231,
-        slot: 'Missile',
-        points: 2,
-        attack: 3,
-        range: '1-3',
-        restriction_func: function(ship, upgrade_obj) {
-          return ship.hasAnotherUnoccupiedSlotLike(upgrade_obj);
-        },
-        validation_func: function(ship, upgrade_obj) {
-          return upgrade_obj.occupiesAnotherUpgradeSlot();
-        },
-        also_occupies_upgrades: ['Missile']
-      }, {
-        name: 'Intensity',
-        id: 232,
-        slot: 'Elite',
-        points: 2,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: 'Jabba the Hutt',
-        id: 233,
-        unique: true,
-        slot: 'Crew',
-        points: 5,
-        faction: 'Scum and Villainy',
-        restriction_func: function(ship, upgrade_obj) {
-          return ship.hasAnotherUnoccupiedSlotLike(upgrade_obj);
-        },
-        validation_func: function(ship, upgrade_obj) {
-          return upgrade_obj.occupiesAnotherUpgradeSlot();
-        },
-        also_occupies_upgrades: ["Crew"]
-      }, {
-        name: 'IG-RM Thug Droids',
-        id: 234,
-        slot: 'Team',
-        points: 1
-      }, {
-        name: 'Selflessness',
-        id: 235,
-        slot: 'Elite',
-        unique: true,
-        faction: 'Rebel Alliance',
-        points: 1,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: 'Breach Specialist',
-        id: 236,
-        slot: 'Crew',
-        points: 1
-      }, {
-        name: 'Bomblet Generator',
-        id: 237,
-        slot: 'Bomb',
-        unique: true,
-        points: 3,
-        restriction_func: function(ship, upgrade_obj) {
-          return ship.hasAnotherUnoccupiedSlotLike(upgrade_obj);
-        },
-        validation_func: function(ship, upgrade_obj) {
-          return upgrade_obj.occupiesAnotherUpgradeSlot();
-        },
-        also_occupies_upgrades: ["Bomb"]
-      }, {
-        name: 'Cad Bane',
-        id: 238,
-        slot: 'Crew',
-        faction: 'Scum and Villainy',
-        unique: true,
-        points: 2,
-        confersAddons: [
-          {
-            type: exportObj.Upgrade,
-            slot: "Bomb"
-          }
-        ]
-      }, {
-        name: 'Minefield Mapper',
-        id: 239,
-        slot: 'System',
-        points: 0
-      }, {
-        name: 'R4-E1',
-        id: 240,
-        slot: 'Salvaged Astromech',
-        unique: true,
-        points: 1
-      }, {
-        name: 'Cruise Missiles',
-        id: 241,
-        slot: 'Missile',
-        points: 3,
-        attack: 1,
-        range: '2-3'
-      }, {
-        name: 'Ion Dischargers',
-        id: 242,
-        slot: 'Illicit',
-        points: 2
-      }, {
-        name: 'Harpoon Missiles',
-        id: 243,
-        slot: 'Missile',
-        points: 4,
-        attack: 4,
-        range: '2-3',
-        applies_condition: 'Harpooned!'.canonicalize()
-      }, {
-        name: 'Ordnance Silos',
-        id: 244,
-        slot: 'Bomb',
-        points: 2,
-        ship: 'B/SF-17 Bomber'
-      }, {
-        name: 'Trajectory Simulator',
-        id: 245,
-        slot: 'System',
-        points: 1
-      }, {
-        name: 'Jamming Beam',
-        id: 246,
-        slot: 'Cannon',
-        points: 1,
-        attack: 3,
-        range: '1-2'
-      }, {
-        name: 'Linked Battery',
-        id: 247,
-        limited: true,
-        slot: 'Cannon',
-        points: 2,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: 'Saturation Salvo',
-        id: 248,
-        slot: 'Elite',
-        points: 1
-      }, {
-        name: 'Contraband Cybernetics',
-        id: 249,
-        slot: 'Illicit',
-        points: 1
-      }, {
-        name: 'Maul',
-        id: 250,
-        unique: true,
-        slot: 'Crew',
-        points: 3,
-        restriction_func: function(ship) {
-          var builder, t, thing, things, _ref;
-          builder = ship.builder;
-          if (builder.faction === "Scum and Villainy") {
-            return true;
-          }
-          _ref = builder.uniques_in_use;
-          for (t in _ref) {
-            things = _ref[t];
-            if (__indexOf.call((function() {
-              var _i, _len, _results;
-              _results = [];
-              for (_i = 0, _len = things.length; _i < _len; _i++) {
-                thing = things[_i];
-                _results.push(thing.canonical_name.getXWSBaseName());
-              }
-              return _results;
-            })(), 'ezrabridger') >= 0) {
-              return true;
-            }
-          }
-          return false;
-        }
-      }, {
-        name: 'Courier Droid',
-        id: 251,
-        slot: 'Crew',
-        limited: true,
-        points: 0
-      }, {
-        name: '"Chopper" (Astromech)',
-        id: 252,
-        canonical_name: 'chopper-swx72',
-        unique: true,
-        slot: 'Astromech',
-        points: 1
-      }, {
-        name: 'Flight-Assist Astromech',
-        id: 253,
-        slot: 'Astromech',
-        points: 1
-      }, {
-        name: 'Advanced Optics',
-        id: 254,
-        slot: 'Tech',
-        points: 2
-      }, {
-        name: 'Scrambler Missiles',
-        id: 255,
-        slot: 'Missile',
-        points: 2,
-        attack: 3,
-        range: '2-3'
-      }, {
-        name: 'R5-TK',
-        id: 256,
-        unique: true,
-        slot: 'Salvaged Astromech',
-        points: 0
-      }, {
-        name: 'Threat Tracker',
-        id: 257,
-        slot: 'Tech',
-        points: 3,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: 'Debris Gambit',
-        id: 258,
-        slot: 'Elite',
-        points: 2,
-        restriction_func: function(ship) {
-          var _ref, _ref1;
-          return !(((_ref = ship.data.large) != null ? _ref : false) || ((_ref1 = ship.data.huge) != null ? _ref1 : false));
-        }
-      }, {
-        name: 'Targeting Scrambler',
-        id: 259,
-        slot: 'System',
-        points: 0,
-        applies_condition: 'Scrambled'.canonicalize()
-      }, {
-        name: 'Death Troopers',
-        unique: true,
-        id: 260,
-        slot: "Crew",
-        points: 2,
-        faction: "Galactic Empire",
-        restriction_func: function(ship, upgrade_obj) {
-          return ship.hasAnotherUnoccupiedSlotLike(upgrade_obj);
-        },
-        validation_func: function(ship, upgrade_obj) {
-          return upgrade_obj.occupiesAnotherUpgradeSlot();
-        },
-        also_occupies_upgrades: ["Crew"]
-      }, {
-        name: 'Saw Gerrera',
-        unique: true,
-        id: 261,
-        slot: 'Crew',
-        faction: 'Rebel Alliance',
-        points: 1
-      }, {
-        name: 'Director Krennic',
-        unique: true,
-        id: 262,
-        slot: 'Crew',
-        faction: 'Galactic Empire',
-        points: 5,
-        applies_condition: 'Optimized Prototype'.canonicalize()
       }
     ],
     modificationsById: [],
     titlesById: [],
-    conditionsById: [
-      {
-        name: 'Zero Condition',
-        id: 0
-      }, {
-        name: 'I\'ll Show You the Dark Side',
-        id: 1,
-        unique: true
-      }, {
-        name: 'A Debt to Pay',
-        id: 2,
-        unique: true
-      }, {
-        name: 'Suppressive Fire',
-        id: 3,
-        unique: true
-      }, {
-        name: 'Fanatical Devotion',
-        id: 4,
-        unique: true
-      }, {
-        name: 'Shadowed',
-        id: 5,
-        unique: true
-      }, {
-        name: 'Mimicked',
-        id: 6,
-        unique: true
-      }, {
-        name: 'Harpooned!',
-        id: 7
-      }, {
-        name: 'Rattled',
-        id: 8,
-        unique: true
-      }, {
-        name: 'Scrambled',
-        id: 9,
-        unique: true
-      }, {
-        name: 'Optimized Prototype',
-        id: 10,
-        unique: true
-      }
-    ],
+    conditionsById: [],
     chassisById: [
       {
         name: "T-65B",
@@ -6168,7 +4453,7 @@ exportObj.setupCardData = function(basic_cards, pilot_translations, upgrade_tran
     if (chassis_data.skip == null) {
       chassis_data.sources = [];
       chassis_data.english_name = chassis_data.name;
-      if (condition_data.canonical_name == null) {
+      if (chassis_data.canonical_name == null) {
         chassis_data.canonical_name = chassis_data.english_name.canonicalize();
       }
       exportObj.chassis[chassis_data.name] = chassis_data;
@@ -9536,7 +7821,7 @@ exportObj.cardLoaders.English = function() {
       text: "After spending a focus token, you may place that token on any other friendly ship at Range 1-2 (instead of discarding it)."
     },
     "Biggs Darklighter": {
-      text: "Once per turn, when a friendly ship at Range 1 is hit by an attack, you may\nroll dice equal to your agility. For each %EVADE% result, you may suffer 1 of the uncanceled %HIT% or %CRIT% results."
+      text: "Once per turn, when a friendly ship at Range 1 is hit by an attack, you may roll dice equal to your agility. For each %EVADE% result, you may suffer 1 of the uncanceled %HIT% or %CRIT% results."
     },
     "Luke Skywalker": {
       text: "When defending, you may reduce the attacker's primary weapon value by 1 (to a minimum of 0)."
@@ -10108,25 +8393,25 @@ exportObj.cardLoaders.English = function() {
   };
   upgrade_translations = {
     "Ion Cannon Turret": {
-      text: "<strong>Attack:</strong> Attack 1 ship (even a ship outside your firing arc).%LINEBREAK%If this attack hits the target ship, the ship suffers 1 damage and receives 1 ion token.  Then cancel all dice results."
+      text: "<strong>Attack:</strong> Attack 1 ship (even a ship outside your firing arc).%LINEBREAK%If this attack hits the target ship, the ship suffers 1 damage and receives 1 ion token. If the defender is inside your firing arc, the ship receives an additional 1 ion token. Then cancel all dice results."
     },
     "Proton Torpedoes": {
-      text: "<strong>Attack (target lock):</strong> Spend your target lock and discard this card to perform this attack.%LINEBREAK%You may change 1 of your %FOCUS% results to a %CRIT% result."
+      text: "<strong>Attack (Target Lock):</strong> Discard this card to perform this attack.%LINEBREAK%You may change 1 of your %FOCUS% results to a %CRIT% result. If this attack hits, you mad add 1 %HIT% result."
     },
     "R2 Astromech": {
       text: "You may treat all 1- and 2-speed maneuvers as green maneuvers."
     },
     "R2-D2": {
-      text: "After executing a green maneuver, you may recover 1 shield (up to your shield value)."
+      text: "At the end of the End phase, if you have no shields, you may recover 1 shield and roll 1 attack die. On a %HIT% result, randomly flip 1 of your facedown Damage cards faceup and resolve it."
     },
-    "R2-F2": {
+    "R2-Q2": {
       text: "<strong>Action:</strong> Increase your agility value by 1 until the end of this game round."
     },
-    "R5-D8": {
-      text: "<strong>Action:</strong> Roll 1 defense die.%LINEBREAK%On a %EVADE% or %FOCUS% result, discard 1 of your facedown Damage cards."
+    "R2-A3": {
+      text: "When attacking, if you are not stressed, you may change all of your %FOCUS% results to %HIT% results."
     },
     "R5-K6": {
-      text: "After spending your target lock, roll 1 defense die.%LINEBREAK%On a %EVADE% result, immediately acquire a target lock on that same ship.  You cannot spend this target lock during this attack."
+      text: "After you perform an attack, you may acquire a target lock on the defender."
     },
     "R5 Astromech": {
       text: "During the End phase, you may choose 1 of your faceup Damage cards with the Ship trait and flip it facedown."
@@ -10134,764 +8419,74 @@ exportObj.cardLoaders.English = function() {
     "Determination": {
       text: "When you are dealt a faceup Damage card with the Pilot trait, discard it immediately without resolving its effect."
     },
-    "Swarm Tactics": {
-      text: "At the start of the Combat phase, you may choose 1 friendly ship at Range 1.%LINEBREAK%Until the end of this phase, treat the chosen ship as if its pilot skill were equal to your pilot skill."
+    "Strafe": {
+      text: "Enemy ships inside your firing arc may not resolve abilities beginning with the \"<strong>ACTION:</strong>\" header on their Damage cards."
     },
     "Squad Leader": {
-      text: "<strong>Action:</strong> Choose 1 ship at Range 1-2 that has a lower pilot skill than you.%LINEBREAK%The chosen ship may immediately perform 1 free action."
+      text: "<strong>Action:</strong> Choose 1 ship at Range 1-2 that has a lower pilot skill than you. The chosen ship may immediately perform 1 free action."
     },
     "Expert Handling": {
-      text: "<strong>Action:</strong> Perform a free barrel roll action.  If you do not have the %BARRELROLL% action icon, receive 1 stress token.%LINEBREAK%You may then remove 1 enemy target lock from your ship."
+      text: "<strong>Action:</strong> Perform a free barrel roll action.  If you do not have the %BARRELROLL% action icon, receive 1 stress token.%LINEBREAK%You may then, at the beginning of the Combat phase, remove 1 enemy target lock from your ship."
     },
     "Marksmanship": {
       text: "<strong>Action:</strong> When attacking this round, you may change 1 of your %FOCUS% results to a %CRIT% result and all of your other %FOCUS% results to %HIT% results."
     },
     "Concussion Missiles": {
-      text: "<strong>Attack (target lock):</strong>  Spend your target lock and discard this card to perform this attack.%LINEBREAK%You may change 1 of your blank results to a %HIT% result."
+      text: "<strong>Attack (Target Lock):</strong> Discard this card to perform this attack.%LINEBREAK%If this attack hits, the defender suffers 2 damgae. Then cancel <strong>all</strong> dice results."
     },
     "Cluster Missiles": {
-      text: "<strong>Attack (target lock):</strong> Spend your target lock and discard this card to perform this attack twice."
+      text: "<strong>Attack (Target Lock):</strong> Discard this card to perform this attack twice.%LINEBREAK%Each time this attack hits, the defender suffers 1 %CRIT%. Then cancel <strong>all</strong> dice results."
     },
-    "Daredevil": {
-      text: "<strong>Action:</strong> Execute a white (%TURNLEFT% 1) or (%TURNRIGHT% 1) maneuver.  Then, receive 1 stress token.%LINEBREAK%Then, if you do not have the %BOOST% action icon, roll 2 attack dice.  Suffer any damage (%HIT%) and any critical damage (%CRIT%) rolled."
+    "Chin Cannon Refit": {
+      text: "After you perform an attack with a primary weapon against a ship at Range 2, if the defender has fewer than 2 stress tokens, that ship receives 1 stress token."
     },
-    "Elusiveness": {
-      text: "When defending, you may receive 1 stress token to choose 1 attack die.  The attacker must reroll that die.%LINEBREAK%If you have at least 1 stress token, you cannot use this ability."
+    "L-s7.2 Cannons": {
+      text: "When attacking with a primary weapon, you may reroll 1 attack die."
     },
-    "Homing Missiles": {
-      text: "<strong>Attack (target lock):</strong> Discard this card to perform this attack.%LINEBREAK%The defender cannot spend evade tokens during this attack."
+    "L-s9.3 Cannons": {
+      text: "When attacking with a primary weapon, you may change 1 of the defender's %EVADE% results into a %FOCUS% result."
     },
-    "Push the Limit": {
-      text: "Once per round, after you perform an action, you may perform 1 free action shown in your action bar.%LINEBREAK%Then receive 1 stress token."
+    "Heavy Blaster Cannon Refit": {
+      text: "When attacking with a primary weapon, When you perform an attack that hits, before dealing damage, you may cancel 1 of your %CRIT% results to add 2 %HIT% results."
     },
-    "Deadeye": {
-      text: "%SMALLSHIPONLY%%LINEBREAK%You may treat the <strong>Attack (target lock):</strong> header as <strong>Attack (focus):</strong>.%LINEBREAK%When an attack instructs you to spend a target lock, you may spend a focus token instead."
+    "Swarm Tactics": {
+      text: "At the start of the Combat phase, you may choose 1 friendly ship at Range 1. Until the end of this phase, treat the chosen ship as if its pilot skill were equal to your pilot skill."
     },
-    "Expose": {
-      text: "<strong>Action:</strong> Until the end of the round, increase your primary weapon value by 1 and decrease your agility value by 1."
-    },
-    "Gunner": {
-      text: "After you perform an attack that does not hit, you may immediately perform a primary weapon attack.  You cannot perform another attack this round."
-    },
-    "Ion Cannon": {
-      text: "<strong>Attack:</strong> Attack 1 ship.%LINEBREAK%If this attack hits, the defender suffers 1 damage and receives 1 ion token.  Then cancel all dice results."
-    },
-    "Heavy Laser Cannon": {
-      text: "<strong>Attack:</strong> Attack 1 ship.%LINEBREAK%Immediately after rolling your attack dice, you must change all of your %CRIT% results to %HIT% results."
-    },
-    "Seismic Charges": {
-      text: "When you reveal your maneuver dial, you may discard this card to drop 1 seismic charge token.%LINEBREAK%This token detonates at the end of the Activation phase.%LINEBREAK%<strong>Seismic Charge Token:</strong> When this bomb token detonates, each ship at Range 1 of the token suffers 1 damage.  Then discard this token."
-    },
-    "Mercenary Copilot": {
-      text: "When attacking at Range 3, you may change 1 of your %HIT% results to a %CRIT% result."
-    },
-    "Assault Missiles": {
-      text: "<strong>Attack (target lock):</strong> Spend your target lock and discard this card to perform this attack.%LINEBREAK%If this attack hits, each other ship at Range 1 of the defender suffers 1 damage."
-    },
-    "Veteran Instincts": {
-      text: "Increase your pilot skill value by 2."
-    },
-    "Proximity Mines": {
-      text: "<strong>Action:</strong> Discard this card to <strong>drop</strong> 1 proximity mine token.%LINEBREAK%When a ship's base or maneuver template overlaps this token, this token <strong>detonates</strong>.%LINEBREAK%<strong>Proximity Mine Token:</strong> When this bomb token detonates, the ship that moved through or overlapped this token rolls 3 attack dice and suffers all damage (%HIT%) and critical damage (%CRIT%) rolled.  Then discard this token."
-    },
-    "Weapons Engineer": {
-      text: "You may maintain 2 target locks (only 1 per enemy ship).%LINEBREAK%When you acquire a target lock, you may lock onto 2 different ships."
-    },
-    "Draw Their Fire": {
-      text: "When a friendly ship at Range 1 is hit by an attack, you may suffer 1 of the uncanceled %CRIT% results instead of the target ship."
-    },
-    "Luke Skywalker": {
-      text: "%REBELONLY%%LINEBREAK%After you perform an attack that does not hit, you may immediately perform a primary weapon attack.  You may change 1 %FOCUS% result to a %HIT% result.  You cannot perform another attack this round."
-    },
-    "Nien Nunb": {
-      text: "%REBELONLY%%LINEBREAK%You may treat all %STRAIGHT% maneuvers as green maneuvers."
-    },
-    "Chewbacca": {
-      text: "%REBELONLY%%LINEBREAK%When you are dealt a Damage card, you may immediately discard that card and recover 1 shield.%LINEBREAK%Then, discard this Upgrade card."
+    "Sniper": {
+      text: "When attacking an enemy ship at Range 2-3, your %CRIT% results may only be cancelled if, during the \"Compare results\" step, the defender spends an %EVADE% token."
     },
     "Advanced Proton Torpedoes": {
-      text: "<strong>Attack (target lock):</strong> Spend your target lock and discard this card to perform this attack.%LINEBREAK%You may change up to 3 of your blank results to %FOCUS% results."
+      text: "<strong>Attack (Target Lock):</strong> Discard this card to perform this attack.%LINEBREAK%You may change up to 3 of your blank results to %FOCUS% results. If this attack hits, you may add 2 %HIT% results."
     },
-    "Autoblaster": {
-      text: "<strong>Attack:</strong> Attack 1 ship.%LINEBREAK%Your %HIT% results cannot be canceled by defense dice.%LINEBREAK%The defender may cancel %CRIT% results before %HIT% results."
+    "Ion Cannon": {
+      text: "<strong>Attack:</strong> Attack 1 ship.%LINEBREAK%If this attack hits the target ship, the ship suffers 1 damage and receives 2 ion tokens. After dealing damage, remove 1 shield token from the defender. Then cancel all dice results."
     },
-    "Fire-Control System": {
-      text: "After you perform an attack, you may acquire a target lock on the defender."
+    "L-sf42 Turbolaser": {
+      text: "<strong>Attack:</strong> Attack 1 ship, then receive 1 ion token. If this attack hits, after dealing damage, deal 1 facedown Damage card."
     },
-    "Blaster Turret": {
-      text: "<strong>Attack (focus):</strong> Spend 1 focus token to perform this attack against 1 ship (even a ship outside your firing arc)."
-    },
-    "Recon Specialist": {
-      text: "When you perform a focus action, assign 1 additional focus token to your ship."
-    },
-    "Saboteur": {
-      text: "<strong>Action:</strong> Choose 1 enemy ship at Range 1 and roll 1 attack die.  On a %HIT% or %CRIT% result, choose 1 random facedown Damage card assigned to that ship, flip it faceup, and resolve it."
-    },
-    "Intelligence Agent": {
-      text: "At the start of the Activation phase, choose 1 enemy ship at Range 1-2.  You may look at that ship's chosen maneuver."
-    },
-    "Proton Bombs": {
-      text: "When you reveal your maneuver dial, you may discard this card to <strong>drop</strong> 1 proton bomb token.%LINEBREAK%This token <strong>detonates</strong> at the end of the Activation phase.%LINEBREAK%<strong>Proton Bomb Token:</strong> When this bomb token detonates, deal 1 <strong>faceup</strong> Damage card to each ship at Range 1 of the token.  Then discard this token."
-    },
-    "Adrenaline Rush": {
-      text: "When you reveal a red maneuver, you may discard this card to treat that maneuver as a white maneuver until the end of the Activation phase."
-    },
-    "Advanced Sensors": {
-      text: "Immediately before you reveal your maneuver, you may perform 1 free action.%LINEBREAK%If you use this ability, you must skip your \"Perform Action\" step during this round."
-    },
-    "Sensor Jammer": {
-      text: "When defending, you may change 1 of the attacker's %HIT% results into a %FOCUS% result.%LINEBREAK%The attacker cannot reroll the die with the changed result."
-    },
-    "Darth Vader": {
-      text: "%IMPERIALONLY%%LINEBREAK%After you perform an attack against an enemy ship, you may suffer 2 damage to cause that ship to suffer 1 critical damage."
-    },
-    "Rebel Captive": {
-      text: "%IMPERIALONLY%%LINEBREAK%Once per round, the first ship that declares you as the target of an attack immediately receives 1 stress token."
-    },
-    "Flight Instructor": {
-      text: "When defending, you may reroll 1 of your %FOCUS% results.  If the attacker's pilot skill value is \"2\" or lower, you may reroll 1 of your blank results instead."
-    },
-    "Navigator": {
-      text: "When you reveal a maneuver, you may rotate your dial to another maneuver with the same bearing.%LINEBREAK%You cannot rotate to a red maneuver if you have any stress tokens."
-    },
-    "Opportunist": {
-      text: "When attacking, if the defender does not have any focus or evade tokens, you may receive 1 stress token to roll 1 additional attack die.%LINEBREAK%You cannot use this ability if you have any stress tokens."
-    },
-    "Comms Booster": {
-      text: "<strong>Energy:</strong> Spend 1 energy to remove all stress tokens from a friendly ship at Range 1-3.  Then assign 1 focus token to that ship."
-    },
-    "Slicer Tools": {
-      text: "<strong>Action:</strong> Choose 1 or more ships at Range 1-3 that have a stress token.  For each ship chosen, you may spend 1 energy to cause that ship to suffer 1 damage."
-    },
-    "Shield Projector": {
-      text: "When an enemy ship is declaring either a small or large ship as the target of its attack, you may spend 3 energy to force that ship to target you if possible."
-    },
-    "Ion Pulse Missiles": {
-      text: "<strong>Attack (target lock):</strong> Discard this card to perform this attack.%LINEBREAK%If this attack hits, the defender suffers 1 damage and receives 2 ion tokens.  Then cancel <strong>all</strong> dice results."
-    },
-    "Wingman": {
-      text: "At the start of the Combat phase, remove 1 stress token from another friendly ship at Range 1."
-    },
-    "Decoy": {
-      text: "At the start of the Combat phase, you may choose 1 friendly ship at Range 1-2.  Exchange your pilot skill with that ship's pilot skill until the end of the phase."
-    },
-    "Outmaneuver": {
-      text: "When attacking a ship inside your firing arc, if you are not inside that ship's firing arc, reduce its agility value by 1 (to a minimum of 0)."
-    },
-    "Predator": {
-      text: "When attacking, you may reroll 1 attack die.  If the defender's pilot skill value is \"2\" or lower, you may instead reroll up to 2 attack dice."
-    },
-    "Flechette Torpedoes": {
-      text: "<strong>Attack (target lock):</strong> Discard this card and spend your target lock to perform this attack.%LINEBREAK%After you perform this attack, the defender receives 1 stress token if its hull value is \"4\" or lower."
-    },
-    "R7 Astromech": {
-      text: "Once per round when defending, if you have a target lock on the attacker, you may spend the target lock to choose any or all attack dice.  The attacker must reroll the chosen dice."
-    },
-    "R7-T1": {
-      text: "<strong>Action:</strong> Choose an enemy ship at Range 1-2.  If you are inside that ship's firing arc, you may acquire a target lock on that ship.  Then, you may perform a free boost action."
-    },
-    "Tactician": {
-      text: "After you perform an attack against a ship inside your firing arc at Range 2, that ship receives 1 stress token."
-    },
-    "R2-D2 (Crew)": {
-      text: "%REBELONLY%%LINEBREAK%At the end of the End phase, if you have no shields, you may recover 1 shield and roll 1 attack die.  On a %HIT% result, randomly flip 1 of your facedown Damage cards faceup and resolve it."
-    },
-    "C-3PO": {
-      text: "%REBELONLY%%LINEBREAK%Once per round, before you roll 1 or more defense dice, you may guess aloud a number of %EVADE% results.  If you roll that many %EVADE% results (before modifying dice), add 1 %EVADE% result."
-    },
-    "Single Turbolasers": {
-      text: "<strong>Attack (Energy):</strong> Spend 2 energy from this card to perform this attack.  The defender doubles his agility value against this attack.  You may change 1 of your %FOCUS% results to a %HIT% result."
-    },
-    "Quad Laser Cannons": {
-      text: "<strong>Attack (Energy):</strong> Spend 1 energy from this card to perform this attack.  If this attack does not hit, you may immediately spend 1 energy from this card to perform this attack again."
-    },
-    "Tibanna Gas Supplies": {
-      text: "<strong>Energy:</strong> You may discard this card to gain 3 energy."
-    },
-    "Ionization Reactor": {
-      text: "<strong>Energy:</strong> Spend 5 energy from this card and discard this card to cause each other ship at Range 1 to suffer 1 damage and receive 1 ion token."
-    },
-    "Engine Booster": {
-      text: "Immediately before you reveal your maneuver dial, you may spend 1 energy to execute a white (%STRAIGHT% 1) maneuver.  You cannot use this ability if you would overlap another ship."
-    },
-    "R3-A2": {
-      text: "When you declare the target of your attack, if the defender is inside your firing arc, you may receive 1 stress token to cause the defender to receive 1 stress token."
-    },
-    "R2-D6": {
-      text: "Your upgrade bar gains the %ELITE% upgrade icon.%LINEBREAK%You cannot equip this upgrade if you already have a %ELITE% upgrade icon or if your pilot skill value is \"2\" or lower."
-    },
-    "Enhanced Scopes": {
-      text: "During the Activation phase, treat your pilot skill value as \"0\"."
-    },
-    "Chardaan Refit": {
-      text: "<span class=\"card-restriction\">A-Wing only.</span>%LINEBREAK%This card has a negative squad point cost."
-    },
-    "Proton Rockets": {
-      text: "<strong>Attack (Focus):</strong> Discard this card to perform this attack.%LINEBREAK%You may roll additional attack dice equal to your agility value, to a maximum of 3 additional dice."
-    },
-    "Kyle Katarn": {
-      text: "%REBELONLY%%LINEBREAK%After you remove a stress token from your ship, you may assign a focus token to your ship."
-    },
-    "Jan Ors": {
-      text: "%REBELONLY%%LINEBREAK%Once per round, when a friendly ship at Range 1-3 performs a focus action or would be assigned a focus token, you may assign it an evade token instead."
-    },
-    "Toryn Farr": {
-      text: "%HUGESHIPONLY% %REBELONLY%%LINEBREAK%<strong>Action:</strong> Spend any amount of energy to choose that many enemy ships at Range 1-2.  Remove all focus, evade, and blue target lock tokens from those ships."
-    },
-    "R4-D6": {
-      text: "When you are hit by an attack and there are at least 3 uncanceled %HIT% results, you may choose to cancel those results until there are 2 remaining.  For each result canceled this way, receive 1 stress token."
-    },
-    "R5-P9": {
-      text: "At the end of the Combat phase, you may spend 1 of your focus tokens to recover 1 shield (up to your shield value)."
-    },
-    "WED-15 Repair Droid": {
-      text: "%HUGESHIPONLY%%LINEBREAK%<strong>Action:</strong> Spend 1 energy to discard 1 of your facedown Damage cards, or spend 3 energy to discard 1 of your faceup Damage cards."
-    },
-    "Carlist Rieekan": {
-      text: "%HUGESHIPONLY% %REBELONLY%%LINEBREAK%At the start of the Activation phase, you may discard this card to treat each friendly ship's pilot skill value as \"12\" until the end of the phase."
-    },
-    "Jan Dodonna": {
-      text: "%HUGESHIPONLY% %REBELONLY%%LINEBREAK%When another friendly ship at Range 1 is attacking, it may change 1 of its %HIT% results to a %CRIT%."
-    },
-    "Expanded Cargo Hold": {
-      text: "<span class=\"card-restriction\">GR-75 only.</span>%LINEBREAK%Once per round, when you would be dealt a faceup Damage card, you may draw that card from either the fore or aft Damage deck."
-    },
-    "Backup Shield Generator": {
-      text: "At the end of each round, you may spend 1 energy to recover 1 shield (up to your shield value)."
-    },
-    "EM Emitter": {
-      text: "When you obstruct an attack, the defender rolls 3 additional defense dice (instead of 1)."
-    },
-    "Frequency Jammer": {
-      text: "When you perform a jam action, choose 1 enemy ship that does not have a stress token and is at Range 1 of the jammed ship.  The chosen ship receives 1 stress token."
-    },
-    "Han Solo": {
-      text: "%REBELONLY%%LINEBREAK%When attacking, if you have a target lock on the defender, you may spend that target lock to change all of your %FOCUS% results to %HIT% results."
-    },
-    "Leia Organa": {
-      text: "%REBELONLY%%LINEBREAK%At the start of the Activation phase, you may discard this card to allow all friendly ships that reveal a red maneuver to treat that maneuver as a white maneuver until the end of the phase."
-    },
-    "Targeting Coordinator": {
-      text: "<strong>Energy:</strong> You may spend 1 energy to choose 1 friendly ship at Range 1-2.  Acquire a target lock, then assign the blue target lock token to the chosen ship."
-    },
-    "Raymus Antilles": {
-      text: "%HUGESHIPONLY% %REBELONLY%%LINEBREAK%At the start of the Activation phase, choose 1 enemy ship at Range 1-3.  You may look at that ship's chosen maneuver.  If the maneuver is white, assign that ship 1 stress token."
-    },
-    "Gunnery Team": {
-      text: "Once per round, when attacking with a secondary weapon, you may spend 1 energy to change 1 of your blank results to a %HIT% result."
-    },
-    "Sensor Team": {
-      text: "When acquiring a target lock, you may lock onto an enemy ship at Range 1-5 instead of 1-3."
-    },
-    "Engineering Team": {
-      text: "During the Activation phase, when you reveal a %STRAIGHT% maneuver, gain 1 additional energy during the \"Gain Energy\" step."
-    },
-    "Lando Calrissian": {
-      text: "%REBELONLY%%LINEBREAK%<strong>Action:</strong> Roll 2 defense dice.  For each %FOCUS% result, assign 1 focus token to your ship.  For each %EVADE% result, assign 1 evade token to your ship."
-    },
-    "Mara Jade": {
-      text: "%IMPERIALONLY%%LINEBREAK%At the end of the Combat phase, each enemy ship at Range 1 that does not have a stress token receives 1 stress token."
-    },
-    "Fleet Officer": {
-      text: "%IMPERIALONLY%%LINEBREAK%<strong>Action:</strong> Choose up to 2 friendly ships at Range 1-2 and assign 1 focus token to each of those ships.  Then receive 1 stress token."
-    },
-    "Lone Wolf": {
-      text: "When attacking or defending, if there are no other friendly ships at Range 1-2, you may reroll 1 of your blank results."
-    },
-    "Stay On Target": {
-      text: "When you reveal a maneuver, you may rotate your dial to another maneuver with the same speed.%LINEBREAK%Treat that maneuver as a red maneuver."
-    },
-    "Dash Rendar": {
-      text: "%REBELONLY%%LINEBREAK%You may perform attacks while overlapping an obstacle.%LINEBREAK%Your attacks cannot be obstructed."
-    },
-    '"Leebo"': {
-      text: "%REBELONLY%%LINEBREAK%<strong>Action:</strong> Perform a free boost action.  Then receive 1 ion token."
-    },
-    "Ruthlessness": {
-      text: "%IMPERIALONLY%%LINEBREAK%After you perform an attack that hits, you <strong>must</strong> choose 1 other ship at Range 1 of the defender (other than yourself).  That ship suffers 1 damage."
-    },
-    "Intimidation": {
-      text: "While you are touching an enemy ship, reduce that ship's agility value by 1."
-    },
-    "Ysanne Isard": {
-      text: "%IMPERIALONLY%%LINEBREAK%At the start of the Combat phase, if you have no shields and at least 1 Damage card assigned to your ship, you may perform a free evade action."
-    },
-    "Moff Jerjerrod": {
-      text: "%IMPERIALONLY%%LINEBREAK%When you are dealt a faceup Damage card, you may discard this Upgrade card or another %CREW% Upgrade card to flip that Damage card facedown (without resolving its effect)."
-    },
-    "Ion Torpedoes": {
-      text: "<strong>Attack (target lock):</strong> Spend your target lock and discard this card to perform this attack.%LINEBREAK%If this attack hits, the defender and each ship at Range 1 of it receives 1 ion token."
-    },
-    "Bodyguard": {
-      text: "%SCUMONLY%%LINEBREAK%At the start of the Combat phase, you may spend a focus token to choose a friendly ship at Range 1 with higher pilot skill than you. Increase its agility value by 1 until the end of the round."
-    },
-    "Calculation": {
-      text: "When attacking, you may spend a focus token to change 1 of your %FOCUS% results to a %CRIT% result."
-    },
-    "Accuracy Corrector": {
-      text: "When attacking, during the \"Modify Attack Dice\" step, you may cancel all of your dice results. Then, you may add 2 %HIT% results to your roll.%LINEBREAK%Your dice cannot be modified again during this attack."
-    },
-    "Inertial Dampeners": {
-      text: "When you reveal your maneuver, you may discard this card to instead perform a white (0 %STOP%) maneuver. Then receive 1 stress token."
-    },
-    "Flechette Cannon": {
-      text: "<strong>Attack:</strong> Attack 1 ship.%LINEBREAK%If this attack hits, the defender suffers 1 damage and, if the defender is not stressed, it also receives 1 stress token.  Then cancel <strong>all</strong> dice results."
-    },
-    '"Mangler" Cannon': {
-      text: "<strong>Attack:</strong> Attack 1 ship.%LINEBREAK%When attacking, you may change 1 of your %HIT% results to a %CRIT% result."
-    },
-    "Dead Man's Switch": {
-      text: "When you are destroyed, each ship at Range 1 suffers 1 damage."
-    },
-    "Feedback Array": {
-      text: "During the Combat phase, instead of performing any attacks, you may receive 1 ion token and suffer 1 damage to choose 1 enemy ship at Range 1.  That ship suffers 1 damage."
-    },
-    '"Hot Shot" Blaster': {
-      text: "<strong>Attack:</strong> Discard this card to attack 1 ship (even a ship outside your firing arc)."
-    },
-    "Greedo": {
-      text: "%SCUMONLY%%LINEBREAK%The first time you attack each round and the first time you defend each round, the first Damage card dealt is dealt faceup."
-    },
-    "Salvaged Astromech": {
-      text: "When you are dealt a faceup Damage card with the <strong>Ship</strong> trait, you may immediately discard that card (before resolving its effect).%LINEBREAK%Then, discard this Upgrade card."
-    },
-    "Bomb Loadout": {
-      text: "<span class=\"card-restriction\">Y-Wing only.</span>%LINEBREAK%Your upgrade bar gains the %BOMB% icon."
-    },
-    '"Genius"': {
-      text: "After you reveal and execute a maneuver, if you did not overlap a ship, you may discard 1 of your equipped %BOMB% Upgrade cards without the \"<strong>Action:</strong>\" header to drop the corresponding bomb token."
-    },
-    "Unhinged Astromech": {
-      text: "You may treat all 3-speed maneuvers as green maneuvers."
-    },
-    "R4-B11": {
-      text: "When attacking, if you have a target lock on the defender, you may spend the target lock to choose any or all defense dice. The defender must reroll the chosen dice."
-    },
-    "Autoblaster Turret": {
-      text: "<strong>Attack:</strong> Attack 1 ship (even a ship outside your firing arc).%LINEBREAK%Your %HIT% results cannot be canceled by defense dice. The defender may cancel %CRIT% results before %HIT% results."
-    },
-    "R4 Agromech": {
-      text: "When attacking, after you spend a focus token, you may acquire a target lock on the defender."
-    },
-    "K4 Security Droid": {
-      text: "%SCUMONLY%%LINEBREAK%After executing a green maneuver, you may acquire a target lock."
-    },
-    "Outlaw Tech": {
-      text: "%SCUMONLY%%LINEBREAK%After you execute a red maneuver, you may assign 1 focus token to your ship."
-    },
-    "Advanced Targeting Computer": {
-      text: "<span class=\"card-restriction\">TIE Advanced only.</span>%LINEBREAK%When attacking with your primary weapon, if you have a target lock on the defender, you may add 1 %CRIT% result to your roll.  If you do, you cannot spend target locks during this attack."
-    },
-    "Ion Cannon Battery": {
-      text: "<strong>Attack (energy):</strong> Spend 2 energy from this card to perform this attack.  If this attack hits, the defender suffers 1 critical damage and receives 1 ion token.  Then cancel <strong>all</strong> dice results."
-    },
-    "Extra Munitions": {
-      text: "When you equip this card, place 1 ordnance token on each equipped %TORPEDO%, %MISSILE%, and %BOMB% Upgrade card.  When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead."
-    },
-    "Cluster Mines": {
-      text: "<strong>Action:</strong> Discard this card to <strong>drop</strong> 3 cluster mine tokens.<br /><br />When a ship's base or maneuver template overlaps a cluster mine token, that token <strong>detonates</strong>.<br /><br /><strong>Cluster Mines Tokens:</strong> When one of these bomb tokens detonates, the ship that moved through or overlapped this token rolls 2 attack dice and suffers 1 damage for each %HIT% and %CRIT% rolled.  Then discard that token."
-    },
-    "Glitterstim": {
-      text: "At the start of the Combat phase, you may discard this card and receive 1 stress token.  If you do, until the end of the round, when attacking  or defending, you may change all of your %FOCUS% results to %HIT% or %EVADE% results."
-    },
-    "Grand Moff Tarkin": {
-      text: "%HUGESHIPONLY% %IMPERIALONLY%%LINEBREAK%At the start of the Combat phase, you may choose another ship at Range 1-4.  Either remove 1 focus token from the chosen ship or assign 1 focus token to that ship."
-    },
-    "Captain Needa": {
-      text: "%HUGESHIPONLY% %IMPERIALONLY%%LINEBREAK%If you overlap an obstacle during the Activation phase, do not suffer 1 faceup damage card.  Instead, roll 1 attack die.  On a %HIT% or %CRIT% result, suffer 1 damage."
-    },
-    "Admiral Ozzel": {
-      text: "%HUGESHIPONLY% %IMPERIALONLY%%LINEBREAK%<strong>Energy:</strong> You may remove up to 3 shields from your ship.  For each shield removed, gain 1 energy."
-    },
-    "Emperor Palpatine": {
-      text: "%IMPERIALONLY%%LINEBREAK%Once per round, before a friendly ship rolls dice, you may name a die result. After rolling, you must change 1 of your dice results to the named result. That die result cannot be modified again."
-    },
-    "Bossk": {
-      text: "%SCUMONLY%%LINEBREAK%After you perform an attack that does not hit, if you are not stressed, you <strong>must</strong> receive 1 stress token. Then assign 1 focus token to your ship and acquire a target lock on the defender."
-    },
-    "Lightning Reflexes": {
-      text: "%SMALLSHIPONLY%%LINEBREAK%After you execute a white or green maneuver on your dial, you may discard this card to rotate your ship 180&deg;.  Then receive 1 stress token <strong>after</strong> the \"Check Pilot Stress\" step."
-    },
-    "Twin Laser Turret": {
-      text: "<strong>Attack:</strong> Perform this attack <strong>twice</strong> (even against a ship outside your firing arc).<br /><br />Each time this attack hits, the defender suffers 1 damage.  Then cancel <strong>all</strong> dice results."
-    },
-    "Plasma Torpedoes": {
-      text: "<strong>Attack (target lock):</strong> Spend your target lock and discard this card to perform this attack.<br /><br />If this attack hits, after dealing damage, remove 1 shield token from the defender."
-    },
-    "Ion Bombs": {
-      text: "When you reveal your maneuver dial, you may discard this card to <strong>drop</strong> 1 ion bomb token.<br /><br />This token <strong>detonates</strong> at the end of the Activation phase.<br /><br /><strong>Ion Bombs Token:</strong> When this bomb token detonates, each ship at Range 1 of the token receives 2 ion tokens.  Then discard this token."
-    },
-    "Conner Net": {
-      text: "<strong>Action:</strong> Discard this card to <strong>drop</strong> 1 Conner Net token.<br /><br />When a ship's base or maneuver template overlaps this token, this token <strong>detonates</strong>.<br /><br /><strong>Conner Net Token:</strong> When this bomb token detonates, the ship that moved through or overlapped this token suffers 1 damage, receives 2 ion tokens, and skips its \"Perform Action\" step.  Then discard this token."
-    },
-    "Bombardier": {
-      text: "When dropping a bomb, you may use the (%STRAIGHT% 2) template instead of the (%STRAIGHT% 1) template."
-    },
-    'Crack Shot': {
-      text: 'When attacking a ship inside your firing arc, at the start of the "Compare Results" step, you may discard this card to cancel 1 of the defender\'s %EVADE% results.'
-    },
-    "Advanced Homing Missiles": {
-      text: "<strong>Attack (target lock):</strong> Discard this card to perform this attack.%LINEBREAK%If this attack hits, deal 1 faceup Damage card to the defender.  Then cancel <strong>all</strong> dice results."
-    },
-    'Agent Kallus': {
-      text: '%IMPERIALONLY%%LINEBREAK%At the start of the first round, choose 1 enemy small or large ship.  When attacking or defending against that ship, you may change 1 of your %FOCUS% results to a %HIT% or %EVADE% result.'
-    },
-    'XX-23 S-Thread Tracers': {
-      text: "<strong>Attack (focus):</strong> Discard this card to perform this attack.  If this attack hits, each friendly ship at Range 1-2 of you may acquire a target lock on the defender.  Then cancel <strong>all</strong> dice results."
-    },
-    "Tractor Beam": {
-      text: "<strong>Attack:</strong> Attack 1 ship.%LINEBREAK%If this attack hits, the defender receives 1 tractor beam token.  Then cancel <strong>all</strong> dice results."
-    },
-    "Cloaking Device": {
-      text: "%SMALLSHIPONLY%%LINEBREAK%<strong>Action:</strong> Perform a free cloak action.%LINEBREAK%At the end of each round, if you are cloaked, roll 1 attack die.  On a %FOCUS% result, discard this card, then decloak or discard your cloak token."
-    },
-    "Shield Technician": {
-      text: "%HUGESHIPONLY%%LINEBREAK%When you perform a recover action, instead of spending all of your energy, you can choose any amount of energy to spend."
-    },
-    "Weapons Guidance": {
-      text: "When attacking, you may spend a focus token to change 1 of your blank results to a %HIT% result."
-    },
-    "BB-8": {
-      text: "When you reveal a green maneuver, you may perform a free barrel roll action."
-    },
-    "R5-X3": {
-      text: "Before you reveal your maneuver, you may discard this card to ignore obstacles until the end of the round."
-    },
-    "Wired": {
-      text: "When attacking or defending, if you are stressed, you may reroll 1 or more of your %FOCUS% results."
-    },
-    'Cool Hand': {
-      text: 'When you receive a stress token, you may discard this card to assign 1 focus or evade token to your ship.'
-    },
-    'Juke': {
-      text: '%SMALLSHIPONLY%%LINEBREAK%When attacking, if you have an evade token, you may change 1 of the defender\'s %EVADE% results into a %FOCUS% result.'
-    },
-    'Comm Relay': {
-      text: 'You cannot have more than 1 evade token.%LINEBREAK%During the End phase, do not remove an unused evade token from your ship.'
-    },
-    'Dual Laser Turret': {
-      text: '%GOZANTIONLY%%LINEBREAK%<strong>Attack (energy):</strong> Spend 1 energy from this card to perform this attack against 1 ship (even a ship outside your firing arc).'
-    },
-    'Broadcast Array': {
-      text: '%GOZANTIONLY%%LINEBREAK%Your action bar gains the %JAM% action icon.'
-    },
-    'Rear Admiral Chiraneau': {
-      text: '%HUGESHIPONLY% %IMPERIALONLY%%LINEBREAK%<strong>Action:</strong> Execute a white (%STRAIGHT% 1) maneuver.'
-    },
-    'Ordnance Experts': {
-      text: 'Once per round, when a friendly ship at Range 1-3 performs an attack with a %TORPEDO% or %MISSILE% secondary weapon, it may change 1 of its blank results to a %HIT% result.'
-    },
-    'Docking Clamps': {
-      text: '%GOZANTIONLY% %LIMITED%%LINEBREAK%You may attach up to 4 TIE fighters, TIE interceptors, TIE bombers, or TIE Advanced to this ship.  All attached ships must have the same ship type.'
-    },
-    '"Zeb" Orrelios': {
-      text: "%REBELONLY%%LINEBREAK%Enemy ships inside your firing arc that you are touching are not considered to be touching you when either you or they activate during the Combat phase."
-    },
-    'Kanan Jarrus': {
-      text: "%REBELONLY%%LINEBREAK%Once per round, after a friendly ship at Range 1-2 executes a white maneuver, you may remove 1 stress token from that ship."
-    },
-    'Reinforced Deflectors': {
-      text: "%LARGESHIPONLY%%LINEBREAK%After defending, if you suffered a combination of 3 or more damage and critical damage during the attack, recover 1 shield (up to your shield value)."
-    },
-    'Dorsal Turret': {
-      text: "<strong>Attack:</strong> Attack 1 ship (even a ship outside your firing arc).%LINEBREAK%If the target of this attack is at Range 1, roll 1 additional attack die."
-    },
-    'Targeting Astromech': {
-      text: 'After you execute a red maneuver, you may acquire a target lock.'
-    },
-    'Hera Syndulla': {
-      text: "%REBELONLY%%LINEBREAK%You can reveal and execute red maneuvers even while you are stressed."
-    },
-    'Ezra Bridger': {
-      text: "%REBELONLY%%LINEBREAK%When attacking, if you are stressed, you may change 1 of your %FOCUS% results to a %CRIT% result."
-    },
-    'Sabine Wren': {
-      text: "%REBELONLY%%LINEBREAK%Your upgrade bar gains the %BOMB% upgrade icon.  Once per round, before a friendly bomb token is removed, choose 1 enemy ship at Range 1 of that token. That ship suffers 1 damage."
-    },
-    '"Chopper"': {
-      text: "%REBELONLY%%LINEBREAK%You may perform actions even while you are stressed.%LINEBREAK%After you perform an action while you are stressed, suffer 1 damage."
-    },
-    'Construction Droid': {
-      text: '%HUGESHIPONLY% %LIMITED%%LINEBREAK%When you perform a recover action, you may spend 1 energy to discard 1 facedown Damage card.'
-    },
-    'Cluster Bombs': {
-      text: 'After defending, you may discard this card.  If you do, each other ship at Range 1 of the defending section rolls 2 attack dice, suffering all damage (%HIT%) and critical damage (%CRIT%) rolled.'
-    },
-    "Adaptability": {
-      text: "<span class=\"card-restriction\">Dual card.</span>%LINEBREAK%<strong>Side A:</strong> Increase your pilot skill value by 1.%LINEBREAK%<strong>Side B:</strong> Decrease your pilot skill value by 1."
+    "Seismic Charges": {
+      text: "When this bomb token detonates, each ship at Range 1-2 of the token suffers 1 damage. Then, each ship at Range 1 of each obstacle at Range 1-2 of the seismic charge token rolls 2 attack dice and suffers any damage %HIT% or critical damage %CRIT% rolled. Do not remove the obstacle tokens. Then discard the seismic charge token."
     },
     "Electronic Baffle": {
       text: "When you receive a stress token or an ion token, you may suffer 1 damage to discard that token."
     },
-    "4-LOM": {
-      text: "%SCUMONLY%%LINEBREAK%When attacking, during the \"Modify Attack Dice\" step, you may receive 1 ion token to choose 1 of the defender's focus or evade tokens.  That token cannot be spent during this attack."
+    "Sensor Jammer": {
+      text: "When defending, you may change 1 of the attacker's %HIT% results into a %FOCUS% result. The attacker cannot reroll the die with the changed result."
     },
-    "Zuckuss": {
-      text: "%SCUMONLY%%LINEBREAK%When attacking, if you are not stressed, you may receive any number of stress tokens to choose an equal number of defense dice.  The defender must reroll those dice."
+    "Proton Bomb": {
+      text: "When this bomb token detonates, each ship at Range 1 of the token suffers 2 critical damage %CRIT%. Each ship at Range 2 of the token suffers 1 critical damage %CRIT%. Then discard this token."
     },
-    'Rage': {
-      text: "<strong>Action:</strong> Assign 1 focus token to your ship and receive 2 stress tokens.  Until the end of the round, when attacking, you may reroll up to 3 attack dice."
+    "Advanced Targeting Computer": {
+      text: "When attacking with your primary weapon, if you have a target lock on the defender, you may change 1 blank result to a 1 %CRIT% result. If you do, you cannot spend target locks during this attack."
     },
-    "Attanni Mindlink": {
-      text: "<span class=\"card-restriction\">Limit 2 per squad.</span> %SCUMONLY%%LINEBREAK%Each time you are assigned a focus or stress token, each other friendly ship with Attanni Mindlink must also be assigned the same type of token if it does not already have one."
+    "Gunner": {
+      text: "After you perform an attack that does not hit, you may immediately perform a primary weapon attack. You cannot perform another attack this round."
     },
-    "Boba Fett": {
-      text: "%SCUMONLY%%LINEBREAK%After performing an attack, if the defender was dealt a faceup Damage card, you may discard this card to choose and discard 1 of the defender's Upgrade cards."
+    "Flight Instructor": {
+      text: "When defending, you may reroll 1 of your %FOCUS% results. If the attacker's pilot skill value is \"4\" or lower, you may reroll 1 of your blank results instead."
     },
-    "Dengar": {
-      text: "%SCUMONLY%%LINEBREAK%When attacking, you may reroll 1 attack die.  If the defender is a unique pilot, you may instead reroll up to 2 attack dice."
-    },
-    '"Gonk"': {
-      text: "%SCUMONLY%%LINEBREAK%<strong>Action:</strong> Place 1 shield token on this card.%LINEBREAK%<strong>Action:</strong> Remove 1 shield token from this card to recover 1 shield (up to your shield value)."
-    },
-    "R5-P8": {
-      text: "Once per round, after defending, you may roll 1 attack die.  On a %HIT% result, the attacker suffers 1 damage.  On a %CRIT% result, you and the attacker each suffer 1 damage."
-    },
-    'Thermal Detonators': {
-      text: "When you reveal your maneuver dial, you may discard this card to <strong>drop</strong> 1 thermal detonator token.%LINEBREAK%This token <strong>detonates</strong> at the end of the Activation phase.%LINEBREAK%<strong>Thermal Detonator Token:</strong> When this bomb token detonates, each ship at Range 1 of the token suffers 1 damage and receives 1 stress token.  Then discard this token."
-    },
-    "Overclocked R4": {
-      text: "During the Combat phase, when you spend a focus token, you may receive 1 stress token to assign 1 focus token to your ship."
-    },
-    'Systems Officer': {
-      text: '%IMPERIALONLY%%LINEBREAK%After you execute a green maneuver, choose another friendly ship at Range 1.  That ship may acquire a target lock.'
-    },
-    'Tail Gunner': {
-      text: 'When attacking from your rear-facing auxiliary firing arc, reduce the defender\'s agility by 1 (to a minimum of "0").'
-    },
-    'R3 Astromech': {
-      text: 'Once per round, when attacking with a primary weapon, you may cancel 1 of your %FOCUS% results during the "Modify Attack Dice" step to assign 1 evade token to your ship.'
-    },
-    'Collision Detector': {
-      text: 'When performing a boost, barrel roll, or decloak, your ship and maneuver template can overlap obstacles.%LINEBREAK%When rolling for obstacle damage, ignore all %CRIT% results.'
-    },
-    'Sensor Cluster': {
-      text: 'When defending, you may spend a focus token to change 1 of your blank results to an %EVADE% result.'
-    },
-    'Fearlessness': {
-      text: '%SCUMONLY%%LINEBREAK%When attacking, if you are inside the defender\'s firing arc at Range 1 and the defender is inside your firing arc, you may add 1 %HIT% result to your roll.'
-    },
-    'Ketsu Onyo': {
-      text: '%SCUMONLY%%LINEBREAK%At the start of the End phase, you may choose 1 ship in your firing arc at Range 1-2.  That ship does not remove its tractor beam tokens.'
-    },
-    'Latts Razzi': {
-      text: '%SCUMONLY%%LINEBREAK%When defending, you may remove 1 stress token from the attacker to add 1 %EVADE% result to your roll.'
-    },
-    'IG-88D': {
-      text: '%SCUMONLY%%LINEBREAK%You have the pilot ability of each other friendly ship with the <em>IG-2000</em> Upgrade card (in addition to your own pilot ability).'
-    },
-    'Rigged Cargo Chute': {
-      text: '%LARGESHIPONLY%%LINEBREAK%<strong>Action:</strong> Discard this card to <strong>drop</strong> one cargo token.'
-    },
-    'Seismic Torpedo': {
-      text: '<strong>Action:</strong> Discard this card to choose an obstacle at Range 1-2 and inside your primary firing arc.  Each ship at Range 1 of the obstacle rolls 1 attack die and suffers any damage (%HIT%) or critical damage (%CRIT%) rolled.  Then remove the obstacle.'
-    },
-    'Black Market Slicer Tools': {
-      text: '<strong>Action:</strong> Choose a stressed enemy ship at Range 1-2 and roll 1 attack die. On a (%HIT%) or (%CRIT%) result, remove 1 stress token and deal it 1 facedown Damage card.'
-    },
-    'Kylo Ren': {
-      text: '%IMPERIALONLY%%LINEBREAK%<strong>Action:</strong> Assign the "I\'ll Show You the Dark Side" Condition card to an enemy ship at Range 1-3.'
-    },
-    'Unkar Plutt': {
-      text: '%SCUMONLY%%LINEBREAK%After executing a maneuver that causes you to overlap an enemy ship, you may suffer 1 damage to perform 1 free action.'
-    },
-    'A Score to Settle': {
-      text: 'During setup, before the "Place Forces" step, choose 1 enemy ship and deal the "A Debt to Pay" Condition card to it.%LINEBREAK%When attacking a ship that has the "A Debt to Pay" Condition card, you may change 1 %FOCUS% result to a %CRIT% result.'
-    },
-    'Jyn Erso': {
-      text: '%REBELONLY%%LINEBREAK%<strong>Action:</strong> Choose 1 friendly ship at Range 1-2. Assign 1 focus token to that ship for each enemy ship inside your firing arc at Range 1-3.  You cannot assign more than 3 focus tokens in this way.'
-    },
-    'Cassian Andor': {
-      text: '%REBELONLY%%LINEBREAK%At the end of the Planning phase, you may choose an enemy ship at Range 1-2.  Guess aloud that ship\'s bearing and speed, then look at its dial.  If you are correct, you may rotate your dial to another maneuver.'
-    },
-    'Finn': {
-      text: '%REBELONLY%%LINEBREAK%When attacking with a primary weapon or defending, if the enemy ship is inside your firing arc, you may add 1 blank result to your roll.'
-    },
-    'Rey': {
-      text: '%REBELONLY%%LINEBREAK%At the start of the End phase, you may place 1 of your ship\'s focus tokens on this card.  At the start of the Combat phase, you may assign 1 of those tokens to your ship.'
-    },
-    'Burnout SLAM': {
-      text: '%LARGESHIPONLY%%LINEBREAK%Your action bar gains the %SLAM% action icon.%LINEBREAK%After you perform a SLAM action, discard this card.'
-    },
-    'Primed Thrusters': {
-      text: '%SMALLSHIPONLY%%LINEBREAK%Stress tokens do not prevent you from performing boost or barrel roll actions unless you have 3 or more stress tokens.'
-    },
-    'Pattern Analyzer': {
-      text: 'When executing a maneuver, you may resolve the "Check Pilot Stress" step after the "Perform Action" step (instead of before that step).'
-    },
-    'Snap Shot': {
-      text: 'After an enemy ship executes a maneuver, you may perform this attack against that ship.  <strong>Attack:</strong> Attack 1 ship.  You cannot modify your attack dice and cannot attack again this phase.'
-    },
-    'M9-G8': {
-      text: '%REBELONLY%%LINEBREAK%When a ship you have locked is attacking, you may choose 1 attack die.  The attacker must reroll that die.%LINEBREAK%You can acquire target locks on other friendly ships.'
-    },
-    'EMP Device': {
-      text: 'During the Combat phase, instead of performing any attacks, you may discard this card to assign 2 ion tokens to each ship at Range 1.'
-    },
-    'Captain Rex': {
-      text: '%REBELONLY%%LINEBREAK%After you perform an attack that does not hit, you may assign 1 focus token to your ship.'
-    },
-    'General Hux': {
-      text: '%IMPERIALONLY%%LINEBREAK%<strong>Action:</strong> Choose up to 3 friendly ships at Range 1-2.  Assign 1 focus token to each and assign the "Fanatical Devotion" Condition card to 1 of them.  Then receive 1 stress token.'
-    },
-    'Operations Specialist': {
-      text: '%LIMITED%%LINEBREAK%After a friendly ship at Range 1-2 performs an attack that does not hit, you may assign 1 focus token to a friendly ship at Range 1-3 of the attacker.'
-    },
-    'Targeting Synchronizer': {
-      text: 'When a friendly ship at Range 1-2 is attacking a ship you have locked, the friendly ship treats the "<strong>Attack (target lock):</strong> header as "<strong>Attack:</strong>."  If a game effect instructs that ship to spend a target lock, it may spend your target lock instead.'
-    },
-    'Hyperwave Comm Scanner': {
-      text: 'At the start of the "Place Forces" step, you may choose to treat your pilot skill value as "0," "6," or "12" until the end of the step.%LINEBREAK%During setup, after another friendly ship is placed at Range 1-2, you may assign 1 focus or evade token to it.'
-    },
-    'Trick Shot': {
-      text: 'When attacking, if the attack is obstructed, you may roll 1 additional attack die.'
-    },
-    'Hotshot Co-pilot': {
-      text: 'When attacking with a primary weapon, the defender must spend 1 focus token if able.%LINEBREAK%When defending, the attacker must spend 1 focus token if able.'
-    },
-    'Scavenger Crane': {
-      text: 'After a ship at Range 1-2 is destroyed, you may choose a discarded %TORPEDO%, %MISSILE%, %BOMB%, %CANNON%, %TURRET%, or Modification Upgrade card that was equipped to your ship and flip it faceup.  Then roll 1 attack die.  On a blank result, discard Scavenger Crane.'
-    },
-    'Bodhi Rook': {
-      text: '%REBELONLY%%LINEBREAK%When you acquire a target lock, you can lock onto an enemy ship at Range 1-3 of any friendly ship.'
-    },
-    'Baze Malbus': {
-      text: '%REBELONLY%%LINEBREAK%After you perform an attack that does not hit, you may immediately perform a primary weapon attack against a different ship.  You cannot perform another attack this round.'
-    },
-    'Inspiring Recruit': {
-      text: 'Once per round, when a friendly ship at Range 1-2 removes a stress token, it may remove 1 additional stress token.'
-    },
-    'Swarm Leader': {
-      text: 'When performing a primary weapon attack, choose up to 2 other friendly ships that have the defender inside their firing arcs at Range 1-3. Remove 1 evade token from each chosen ship to roll 1 additional attack die for each token removed.'
-    },
-    'Bistan': {
-      text: '%REBELONLY%%LINEBREAK%When attacking Range 1-2, you may change 1 of your %HIT% results to a %CRIT% result.'
-    },
-    'Expertise': {
-      text: 'When attacking, if you are not stressed, you may change all of your %FOCUS% results to %HIT% results.'
-    },
-    'BoShek': {
-      text: 'When a ship you are touching activates, you may look at its chosen maneuver.  If you do, its owner <strong>must</strong> rotate the dial to an adjacent maneuver.  The ship can reveal and execute that maneuver even while stressed.'
-    },
-    'Heavy Laser Turret': {
-      text: '<span class="card-restriction">C-ROC Cruiser only.</span>%LINEBREAK%<strong>Attack (energy):</strong> Spend 2 energy from this card to perform this attack against 1 ship (even a ship outside of your firing arc).'
-    },
-    'Cikatro Vizago': {
-      text: '%SCUMONLY%%LINEBREAK%At the start of the End phase, you may discard this card to replace a faceup %ILLICIT% or %CARGO% Upgrade card you have equipped with another Upgrade card of the same type of equal or fewer squad points.'
-    },
-    'Azmorigan': {
-      text: '%HUGESHIPONLY% %SCUMONLY%%LINEBREAK%At the start of the End phase, you may spend 1 energy to replace a faceup %CREW% or %TEAM% Upgrade card you have equipped with another Upgrade card of the same type of equal or fewer squad points.'
-    },
-    'Quick-release Cargo Locks': {
-      text: '<span class="card-restriction">C-ROC Cruiser and GR-75 Medium Transport only.</span>%LINEBREAK%At the end of the Activation phase, you may discard this card to <strong>place</strong> 1 container token.'
-    },
-    'Supercharged Power Cells': {
-      text: 'When attacking, you may discard this card to roll 2 additional attack dice.'
-    },
-    'ARC Caster': {
-      text: '<span class="card-restriction">Rebel and Scum only.</span>%DUALCARD%%LINEBREAK%<strong>Side A:</strong>%LINEBREAK%<strong>Attack:</strong> Attack 1 ship.  If this attack hits, you must choose 1 other ship at Range 1 of the defender to suffer 1 damage.%LINEBREAK%Then flip this card.%LINEBREAK%<strong>Side B:</strong>%LINEBREAK%(Recharging) At the start of the Combat phase, you may receive a weapons disabled token to flip this card.'
-    },
-    'Wookiee Commandos': {
-      text: 'When attacking, you may reroll your %FOCUS% results.'
-    },
-    'Synced Turret': {
-      text: '<strong>Attack (Target Lock):</strong> Attack 1 ship (even a ship outside your firing arc).%LINEBREAK%If the defender is inside your primary firing arc, you may reroll a number of attack dice up to your primary weapon value.'
-    },
-    'Unguided Rockets': {
-      text: '<strong>Attack (focus):</strong> Attack 1 Ship.%LINEBREAK%Your attack dice can be modified only by spending a focus token for its standard effect.'
-    },
-    'Intensity': {
-      text: '%SMALLSHIPONLY% %DUALCARD%%LINEBREAK%<strong>Side A:</strong> After you perform a boost or barrel roll action, you may assign 1 focus or evade token to your ship. If you do, flip this card.%LINEBREAK%<strong>Side B:</strong> (Exhausted) At the end of the Combat phase, you may spend 1 focus or evade token to flip this card.'
-    },
-    'Jabba the Hutt': {
-      text: '%SCUMONLY%%LINEBREAK%When you equip this card, place 1 illicit token on each %ILLICIT% Upgrade card in your squad.  When you are instructed to discard an Upgrade card, you may discard 1 illicit token on that card instead.'
-    },
-    'IG-RM Thug Droids': {
-      text: 'When attacking, you may change 1 of your %HIT% results to a %CRIT% result.'
-    },
-    'Selflessness': {
-      text: '%SMALLSHIPONLY% %REBELONLY%%LINEBREAK%When a friendly ship at Range 1 is hit by an attack, you may discard this card to suffer all uncanceled %HIT% results instead of the target ship.'
-    },
-    'Breach Specialist': {
-      text: 'When you are dealt a faceup Damage card, you may spend 1 reinforce token to flip it facedown (without resolving its effect).  If you do, until the end of the round, when you are dealt a faceup Damage card, flip it facedown (without resolving its effect).'
-    },
-    'Bomblet Generator': {
-      text: 'When you reveal your maneuver, you may drop 1 Bomblet token.%LINEBREAK%This token <strong>detonates</strong> at the end of the Activation phase.%LINEBREAK%<strong>Bomblet Token:</strong> When this token detonates, each ship at Range 1 rolls 2 attack dice and suffers all damage (%HIT%) and critical damage (%CRIT%) rolled. Then discard this token.'
-    },
-    'Cad Bane': {
-      text: '%SCUMONLY%%LINEBREAK%Your upgrade bar gains the %BOMB% icon. Once per round, when an enemy ship rolls attack dice due to a friendly bomb detonating, you may choose any number of %FOCUS% and blank results.  It must reroll those results.'
-    },
-    'Minefield Mapper': {
-      text: 'During Setup, after the "Place Forces" step, you may discard any number of your equipped %BOMB% Upgrade cards.  Place all corresponding bomb tokens in the play area beyond Range 3 of enemy ships.'
-    },
-    'R4-E1': {
-      text: 'You can perform actions on your %TORPEDO% and %BOMB% Upgrade cards even if you are stressed. After you perform an action in this way, you may discard this card to remove 1 stress token from your ship.'
-    },
-    'Cruise Missiles': {
-      text: '<strong>Attack (Target Lock):</strong> Discard this card to perform this attack.%LINEBREAK%You may roll additional attack dice equal to the speed of the manuever you performed this round, to a maximum of 4 additional dice.'
-    },
-    'Ion Dischargers': {
-      text: 'After you receive an ion token, you may choose an enemy ship at Range 1.  If you do, remove that ion token. Then that ship may choose to receive 1 ion token. If it does, discard this card.'
-    },
-    'Harpoon Missiles': {
-      text: '<strong>Attack (target lock):</strong> Discard this card to perform this attack.%LINEBREAK%If this attack hits, after the attack resolves, assign the "Harpooned!" Condition to the defender.'
-    },
-    'Ordnance Silos': {
-      text: '<span class="card-restriction">B/SF-17 Bomber only.</span>%LINEBREAK%When you equip this card, place 3 ordnance tokens on each other equipped %BOMB% Upgrade card. When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead.'
-    },
-    'Trajectory Simulator': {
-      text: 'You may launch bombs using the (%STRAIGHT% 5) template instead of dropping them.  You cannot launch bombs with the "<strong>Action:</strong>" header in this way.'
-    },
-    'Jamming Beam': {
-      text: '<strong>Attack:</strong> Attack 1 ship.%LINEBREAK%If this attack hits, assign the defender 1 jam token.  Then cancel <strong>all</strong> dice results.'
-    },
-    'Linked Battery': {
-      text: '%SMALLSHIPONLY%%LINEBREAK%When attacking with a primary or %CANNON% secondary weapon, you may reroll 1 attack die.'
-    },
-    'Saturation Salvo': {
-      text: 'After you perform an attack with a %TORPEDO% or %MISSILE% secondary weapon that does not hit, each ship at Range 1 of the defender with an agility value lower than the squad point cost of the %TORPEDO% or %MISSILE% Upgrade card must roll 1 attack die and suffer any damage (%HIT%) or critical damage (%CRIT%) rolled.'
-    },
-    'Contraband Cybernetics': {
-      text: 'When you become the active ship during the Activation phase, you may discard this card and receive 1 stress token. If you do, until the end of the round, you may perform actions and red maneuvers even while you are stressed.'
-    },
-    'Maul': {
-      text: '%SCUMONLY% <span class="card-restriction">Ignore this restriction if your squad contains "Ezra Bridger."</span>%LINEBREAK%When attacking, if you are not stressed, you may receive any number of stress tokens to reroll that many attack dice.%LINEBREAK%After performing an attack that hits, you may remove 1 of your stress tokens.'
-    },
-    'Courier Droid': {
-      text: 'At the start of the "Place Forces" step, you may choose to treat your pilot skill value as "0" or "8" until the end of the step.'
-    },
-    '"Chopper" (Astromech)': {
-      text: '<strong>Action: </strong>Discard 1 other equipped Upgrade card to recover 1 shield.'
-    },
-    'Flight-Assist Astromech': {
-      text: 'You cannot attack ships outside your firing arc.%LINEBREAK%After you execute a maneuver, if you did not overlap a ship or obstacle and there are no enemy ships inside your firing arc at Range 1-3, you may perform a free boost or barrel roll action.'
-    },
-    'Advanced Optics': {
-      text: 'You cannot have more than 1 focus token.%LINEBREAK%During the End phase, do not remove an unused focus token from your ship.'
-    },
-    'Scrambler Missiles': {
-      text: '<strong>Attack (target lock):</strong> Discard this card to perform this attack.%LINEBREAK%If this attack hits, the defender and each other ship at Range 1 receives 1 jam token.  Then cancel <strong>all</strong> results.'
-    },
-    'R5-TK': {
-      text: 'You can acquire target locks on friendly ships.%LINEBREAK%You can attack friendly ships.'
-    },
-    'Threat Tracker': {
-      text: '%SMALLSHIPONLY%%LINEBREAK%When an enemy ship inside your firing arc at Range 1-2 becomes the active ship during the Combat phase, you may spend your target lock on that ship to perform a free boost or barrel roll action if that action is on your action bar.'
-    },
-    'Debris Gambit': {
-      text: '%SMALLSHIPONLY%%LINEBREAK%<strong>Action:</strong> Assign 1 evade token to your ship for each obstacle at Range 1, to a maximum of 2 evade tokens.'
-    },
-    'Targeting Scrambler': {
-      text: 'At the start of the Planning phase, you may receive a weapons disabled token to choose a ship at Range 1-3 and assign it the "Scrambled" Condition.'
-    },
-    'Death Troopers': {
-      text: 'After another friendly ship at range 1 becomes the defender, if you are inside the attacker\'s firing arc at range 1-3, the attacker receives 1 stress token.'
-    },
-    'Saw Gerrera': {
-      text: '%REBELONLY%%LINEBREAK%When attacking, you may suffer 1 damage to change all of your %FOCUS% results to %CRIT% results.'
-    },
-    'Director Krennic': {
-      text: 'During setup, before the "Place Forces" step, assign the "Optimized Prototype" condition to a friendly Galactic Empire ship with 3 or fewer shields.'
+    "Weapons Engineer": {
+      text: "may maintain 2 target locks (only 1 per enemy ship). When you acquire a target lock, you may lock onto 2 different ships."
     }
   };
   modification_translations = {
@@ -26347,7 +23942,7 @@ exportObj.setupTranslationSupport = function() {
                     parent: ___iced_passed_deferral
                   });
                   builder.container.trigger('xwing:beforeLanguageLoad', __iced_deferrals.defer({
-                    lineno: 24495
+                    lineno: 22187
                   }));
                   __iced_deferrals._fulfill();
                 })(_next);
@@ -27043,7 +24638,7 @@ exportObj.SquadBuilder = (function() {
                   return results = arguments[0];
                 };
               })(),
-              lineno: 25209
+              lineno: 22901
             }));
             __iced_deferrals._fulfill();
           })(function() {
@@ -27787,7 +25382,7 @@ exportObj.SquadBuilder = (function() {
           funcname: "SquadBuilder.removeShip"
         });
         ship.destroy(__iced_deferrals.defer({
-          lineno: 25851
+          lineno: 23543
         }));
         __iced_deferrals._fulfill();
       });
@@ -27799,7 +25394,7 @@ exportObj.SquadBuilder = (function() {
             funcname: "SquadBuilder.removeShip"
           });
           _this.container.trigger('xwing:pointsUpdated', __iced_deferrals.defer({
-            lineno: 25852
+            lineno: 23544
           }));
           __iced_deferrals._fulfill();
         })(function() {
@@ -28609,23 +26204,14 @@ exportObj.SquadBuilder = (function() {
           this.info_container.find('.chassis-upgrade-container').html("" + upgrade_bar);
           break;
         case 'Addon':
-          this.info_container.find('.info-sources').text(((function() {
-            var _k, _len2, _ref43, _results;
-            _ref43 = data.sources;
-            _results = [];
-            for (_k = 0, _len2 = _ref43.length; _k < _len2; _k++) {
-              source = _ref43[_k];
-              _results.push(exportObj.translate(this.language, 'sources', source));
-            }
-            return _results;
-          }).call(this)).sort().join(', '));
+          this.info_container.find('.info-sources').hide();
           if (((_ref43 = this.collection) != null ? _ref43.counts : void 0) != null) {
             addon_count = (_ref44 = (_ref45 = this.collection.counts) != null ? (_ref46 = _ref45[additional_opts.addon_type.toLowerCase()]) != null ? _ref46[data.english_name] : void 0 : void 0) != null ? _ref44 : 0;
             this.info_container.find('.info-collection').text("You have " + addon_count + " in your collection.");
           } else {
             this.info_container.find('.info-collection').text('');
           }
-          this.info_container.find('.info-name').html("" + (data.unique ? "&middot;&nbsp;" : "") + data.name + (data.limited != null ? " (" + (exportObj.translate(this.language, 'ui', 'limited')) + ")" : "") + (data.epic != null ? " (" + (exportObj.translate(this.language, 'ui', 'epic')) + ")" : "") + (exportObj.isReleased(data) ? "" : " (" + (exportObj.translate(this.language, 'ui', 'unreleased')) + ")"));
+          this.info_container.find('.info-name').html("" + (data.unique ? "&middot;&nbsp;" : "") + data.name + (data.limited != null ? " (" + (exportObj.translate(this.language, 'ui', 'limited')) + ")" : ""));
           this.info_container.find('p.info-text').html((_ref47 = data.text) != null ? _ref47 : '');
           this.info_container.find('tr.info-ship').hide();
           this.info_container.find('tr.info-chassis').hide();
@@ -29478,7 +27064,7 @@ Ship = (function() {
                   });
                   _this.builder.container.trigger('xwing:claimUnique', [
                     new_chassis, 'Chassis', __iced_deferrals.defer({
-                      lineno: 26839
+                      lineno: 24531
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -29568,7 +27154,7 @@ Ship = (function() {
                   });
                   _this.builder.container.trigger('xwing:claimUnique', [
                     new_pilot, 'Pilot', __iced_deferrals.defer({
-                      lineno: 26879
+                      lineno: 24571
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -29642,7 +27228,7 @@ Ship = (function() {
             });
             _this.builder.container.trigger('xwing:releaseUnique', [
               _this.pilot, 'Pilot', __iced_deferrals.defer({
-                lineno: 26905
+                lineno: 24597
               })
             ]);
             __iced_deferrals._fulfill();
@@ -29673,7 +27259,7 @@ Ship = (function() {
             });
             _this.builder.container.trigger('xwing:releaseUnique', [
               _this.chassis, 'Chassis', __iced_deferrals.defer({
-                lineno: 26910
+                lineno: 24602
               })
             ]);
             __iced_deferrals._fulfill();
@@ -29739,7 +27325,7 @@ Ship = (function() {
           title = _ref[_i];
           if (title != null) {
             title.destroy(__iced_deferrals.defer({
-              lineno: 26939
+              lineno: 24631
             }));
           }
         }
@@ -29748,7 +27334,7 @@ Ship = (function() {
           upgrade = _ref1[_j];
           if (upgrade != null) {
             upgrade.destroy(__iced_deferrals.defer({
-              lineno: 26941
+              lineno: 24633
             }));
           }
         }
@@ -29757,7 +27343,7 @@ Ship = (function() {
           modification = _ref2[_k];
           if (modification != null) {
             modification.destroy(__iced_deferrals.defer({
-              lineno: 26943
+              lineno: 24635
             }));
           }
         }
@@ -30802,7 +28388,7 @@ GenericAddon = (function() {
             });
             _this.ship.builder.container.trigger('xwing:releaseUnique', [
               _this.data, _this.type, __iced_deferrals.defer({
-                lineno: 27636
+                lineno: 25328
               })
             ]);
             __iced_deferrals._fulfill();
@@ -30921,7 +28507,7 @@ GenericAddon = (function() {
               });
               _this.ship.builder.container.trigger('xwing:releaseUnique', [
                 _this.unadjusted_data, _this.type, __iced_deferrals.defer({
-                  lineno: 27695
+                  lineno: 25387
                 })
               ]);
               __iced_deferrals._fulfill();
@@ -30943,7 +28529,7 @@ GenericAddon = (function() {
                 });
                 _this.ship.builder.container.trigger('xwing:claimUnique', [
                   new_data, _this.type, __iced_deferrals.defer({
-                    lineno: 27699
+                    lineno: 25391
                   })
                 ]);
                 __iced_deferrals._fulfill();
@@ -31033,7 +28619,7 @@ GenericAddon = (function() {
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           addon = _ref[_i];
           addon.destroy(__iced_deferrals.defer({
-            lineno: 27742
+            lineno: 25434
           }));
         }
         __iced_deferrals._fulfill();
