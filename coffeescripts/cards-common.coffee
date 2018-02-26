@@ -4388,7 +4388,7 @@ exportObj.basicCardData = ->
             points: 4
         }
         {
-            name: "Proton Bombs"
+            name: "Proton Bomb"
             id: 18
             slot: "Bomb"
             points: 2
