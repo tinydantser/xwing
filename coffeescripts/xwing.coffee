@@ -1925,6 +1925,8 @@ class exportObj.SquadBuilder
                     card_obj[upgrade.data.name] = null if upgrade.data?
                 card_obj[ship.title.data.name] = null if ship.title?.data?
                 card_obj[ship.modification.data.name] = null if ship.modification?.data?
+            if ship.chassis?
+                card_obj[ship.chassis.name] = null
         return Object.keys(card_obj).sort()
 
     getNotes: ->
@@ -2315,6 +2317,15 @@ class Ship
     setChassis: (new_chassis) ->
         if new_chassis != @chassis
             @builder.current_squad.dirty = true
+            old_upgrades = {}
+            old_modifications = []
+            for upgrade in @upgrades
+                if upgrade?.data?
+                    old_upgrades[upgrade.slot] ?= []
+                    old_upgrades[upgrade.slot].push upgrade
+            for modification in @modifications
+                if modification?.data?
+                    old_modifications.push modification
             @resetChassis()
             @resetAddons()
             if new_chassis?
@@ -2324,6 +2335,14 @@ class Ship
                 @chassis = new_chassis
                 @setupAddons() if @chassis?
                 @copy_button.show()
+                for modification in @modifications
+                    old_modification = old_modifications.shift()
+                    if old_modification?
+                        modification.setById old_modification.data.id
+                for upgrade in @upgrades
+                    old_upgrade = (old_upgrades[upgrade.slot] ? []).shift()
+                    if old_upgrade?
+                        upgrade.setById old_upgrade.data.id
             else
                 @copy_button.hide()
             @builder.container.trigger 'xwing:pointsUpdated'
@@ -2777,6 +2796,7 @@ class Ship
 
         [
             @pilot.id,
+            @chassis.id,
             upgrades,
             @titles[0]?.data?.id ? -1,
             @modifications[0]?.data?.id ? -1,
@@ -2787,11 +2807,11 @@ class Ship
     fromSerialized: (version, serialized) ->
         switch version
             when 1
-                # PILOT_ID:UPGRADEID1,UPGRADEID2:TITLEID:TITLEUPGRADE1,TITLEUPGRADE2:MODIFICATIONID
-                [ pilot_id, upgrade_ids, title_id, title_conferred_upgrade_ids, modification_id ] = serialized.split ':'
+                # PILOT_ID:CHASSIS_ID,UPGRADEID1,UPGRADEID2:TITLEID:TITLEUPGRADE1,TITLEUPGRADE2:MODIFICATIONID
+                [ pilot_id, chassis_id, upgrade_ids, title_id, title_conferred_upgrade_ids, modification_id ] = serialized.split ':'
 
                 @setPilotById parseInt(pilot_id)
-
+                @setChassisById parseInt(chassis_id)
                 for upgrade_id, i in upgrade_ids.split ','
                     upgrade_id = parseInt upgrade_id
                     @upgrades[i].setById upgrade_id if upgrade_id >= 0
@@ -2808,10 +2828,10 @@ class Ship
                 @modifications[0].setById modification_id if modification_id >= 0
 
             when 2, 3
-                # PILOT_ID:UPGRADEID1,UPGRADEID2:TITLEID:MODIFICATIONID:CONFERREDADDONTYPE1.CONFERREDADDONID1,CONFERREDADDONTYPE2.CONFERREDADDONID2
-                [ pilot_id, upgrade_ids, title_id, modification_id, conferredaddon_pairs ] = serialized.split ':'
+                # PILOT_ID:CHASSIS_ID:UPGRADEID1,UPGRADEID2:TITLEID:MODIFICATIONID:CONFERREDADDONTYPE1.CONFERREDADDONID1,CONFERREDADDONTYPE2.CONFERREDADDONID2
+                [ pilot_id, chassis_id, upgrade_ids, title_id, modification_id, conferredaddon_pairs ] = serialized.split ':'
                 @setPilotById parseInt(pilot_id)
-
+                @setChassisById parseInt(chassis_id)
                 deferred_ids = []
                 for upgrade_id, i in upgrade_ids.split ','
                     upgrade_id = parseInt upgrade_id
@@ -2866,10 +2886,10 @@ class Ship
                                 throw new Error("Expected addon class #{addon_cls.constructor.name} for conferred addon at index #{i} but #{conferred_addon.constructor.name} is there")
 
             when 4
-                # PILOT_ID:UPGRADEID1,UPGRADEID2:TITLEID:MODIFICATIONID:CONFERREDADDONTYPE1.CONFERREDADDONID1,CONFERREDADDONTYPE2.CONFERREDADDONID2
-                [ pilot_id, upgrade_ids, title_id, modification_id, conferredaddon_pairs ] = serialized.split ':'
+                # PILOT_ID:chassis_id:UPGRADEID1,UPGRADEID2:TITLEID:MODIFICATIONID:CONFERREDADDONTYPE1.CONFERREDADDONID1,CONFERREDADDONTYPE2.CONFERREDADDONID2
+                [ pilot_id, chassis_id, upgrade_ids, title_id, modification_id, conferredaddon_pairs ] = serialized.split ':'
                 @setPilotById parseInt(pilot_id)
-
+                @setChassisById parseInt(chassis_id)
                 deferred_ids = []
                 for upgrade_id, i in upgrade_ids.split ','
                     upgrade_id = parseInt upgrade_id
