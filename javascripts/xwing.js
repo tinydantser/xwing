@@ -4072,7 +4072,7 @@ exportObj.basicCardData = function() {
         range: "1-2",
         points: 4
       }, {
-        name: "Proton Bombs",
+        name: "Proton Bomb",
         id: 18,
         slot: "Bomb",
         points: 2
