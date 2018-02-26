@@ -279,3 +279,16 @@ li.squad-summary {
 
 svg > g.maneuver.backwards {
   transform: translate(200px, 200px) rotate(180deg); }
+
+.xwing-miniatures-font.xwing-miniatures-font-boost,
+.xwing-miniatures-font.xwing-miniatures-font-bankleft,
+.xwing-miniatures-font.xwing-miniatures-font-bankright,
+.xwing-miniatures-font.xwing-miniatures-font-turnleft,
+.xwing-miniatures-font.xwing-miniatures-font-turnright,
+.xwing-miniatures-font.xwing-miniatures-font-straight {
+  font-size: 1.3em;
+  top: 1px;
+  position: relative; }
+
+.gray {
+  color: gray; }

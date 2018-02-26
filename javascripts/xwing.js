@@ -2425,7 +2425,8 @@ exportObj.basicCardData = function() {
         unique: true,
         skill: 5,
         points: 25,
-        slots: ["Elite", "Missile"]
+        slots: ["Elite", "Missile"],
+        skip: true
       }, {
         name: "Raider-class Corvette (Fore)",
         faction: "Galactic Empire",
@@ -2590,7 +2591,8 @@ exportObj.basicCardData = function() {
         unique: true,
         skill: 8,
         points: 28,
-        slots: ["Elite", "Missile"]
+        slots: ["Elite", "Missile"],
+        skip: true
       }, {
         name: "Zertik Strom",
         id: 148,
@@ -2599,7 +2601,8 @@ exportObj.basicCardData = function() {
         unique: true,
         skill: 6,
         points: 26,
-        slots: ["Elite", "Missile"]
+        slots: ["Elite", "Missile"],
+        skip: true
       }, {
         name: "Lieutenant Colzet",
         id: 149,
@@ -2608,7 +2611,8 @@ exportObj.basicCardData = function() {
         unique: true,
         skill: 3,
         points: 23,
-        slots: ["Missile"]
+        slots: ["Missile"],
+        skip: true
       }, {
         name: "Gozanti-class Cruiser",
         id: 150,
@@ -2625,7 +2629,8 @@ exportObj.basicCardData = function() {
         ship: "TIE Fighter",
         skill: 7,
         slots: ['Elite'],
-        points: 17
+        points: 17,
+        skip: true
       }, {
         name: '"Youngster"',
         id: 152,
@@ -2634,7 +2639,8 @@ exportObj.basicCardData = function() {
         ship: "TIE Fighter",
         skill: 6,
         slots: ['Elite'],
-        points: 15
+        points: 15,
+        skip: true
       }, {
         name: '"Wampa"',
         id: 153,
@@ -2643,7 +2649,8 @@ exportObj.basicCardData = function() {
         ship: "TIE Fighter",
         skill: 4,
         slots: [],
-        points: 14
+        points: 14,
+        skip: true
       }, {
         name: '"Chaser"',
         id: 154,
@@ -2652,7 +2659,8 @@ exportObj.basicCardData = function() {
         ship: "TIE Fighter",
         skill: 3,
         slots: [],
-        points: 14
+        points: 14,
+        skip: true
       }, {
         name: "Hera Syndulla",
         id: 155,
@@ -4193,7 +4201,10 @@ exportObj.basicCardData = function() {
         faction: "Rebel Alliance",
         slots: ["Turret", "Torpedo", "Bomb", "Astromech"],
         redSlots: ["Torpedo", "Bomb"],
-        blueSlots: []
+        blueSlots: [],
+        modifier_func: function(stats) {
+          return stats.shields += 1;
+        }
       }, {
         name: "BTL-A4 LP 'LongProbe'",
         id: 5,
@@ -4211,7 +4222,10 @@ exportObj.basicCardData = function() {
         faction: "Rebel Alliance",
         slots: ["Crew", "Torpedo", "Bomb", "Astromech"],
         redSlots: [],
-        blueSlots: ["Torpedo", "Bomb"]
+        blueSlots: ["Torpedo", "Bomb"],
+        modifier_func: function(stats) {
+          return stats.shields += 1;
+        }
       }, {
         name: "Flight School TIE/LN",
         id: 7,
@@ -4256,7 +4270,12 @@ exportObj.basicCardData = function() {
         faction: "Galactic Empire",
         slots: ["System", "Refit", "Missile"],
         redSlots: [],
-        blueSlots: []
+        blueSlots: [],
+        modifier_func: function(stats) {
+          if (__indexOf.call(stats.actions, 'Boost') < 0) {
+            return stats.actions.push('Boost');
+          }
+        }
       }, {
         name: "TIE/x1",
         id: 12,
@@ -4265,7 +4284,12 @@ exportObj.basicCardData = function() {
         faction: "Galactic Empire",
         slots: ["System", "Refit"],
         redSlots: [],
-        blueSlots: []
+        blueSlots: [],
+        modifier_func: function(stats) {
+          if (__indexOf.call(stats.actions, 'Boost') < 0) {
+            return stats.actions.push('Boost');
+          }
+        }
       }, {
         name: "TIE/x1 Prototype",
         id: 13,
@@ -4275,7 +4299,15 @@ exportObj.basicCardData = function() {
         unique: true,
         slots: ["System", "Missile"],
         redSlots: [],
-        blueSlots: []
+        blueSlots: [],
+        restriction_func: function(ship) {
+          return ship.pilot.name === "Darth Vader";
+        },
+        modifier_func: function(stats) {
+          if (__indexOf.call(stats.actions, 'Boost') < 0) {
+            return stats.actions.push('Boost');
+          }
+        }
       }
     ]
   };
@@ -23942,7 +23974,7 @@ exportObj.setupTranslationSupport = function() {
                     parent: ___iced_passed_deferral
                   });
                   builder.container.trigger('xwing:beforeLanguageLoad', __iced_deferrals.defer({
-                    lineno: 22187
+                    lineno: 22207
                   }));
                   __iced_deferrals._fulfill();
                 })(_next);
@@ -24638,7 +24670,7 @@ exportObj.SquadBuilder = (function() {
                   return results = arguments[0];
                 };
               })(),
-              lineno: 22901
+              lineno: 22921
             }));
             __iced_deferrals._fulfill();
           })(function() {
@@ -25382,7 +25414,7 @@ exportObj.SquadBuilder = (function() {
           funcname: "SquadBuilder.removeShip"
         });
         ship.destroy(__iced_deferrals.defer({
-          lineno: 23543
+          lineno: 23563
         }));
         __iced_deferrals._fulfill();
       });
@@ -25394,7 +25426,7 @@ exportObj.SquadBuilder = (function() {
             funcname: "SquadBuilder.removeShip"
           });
           _this.container.trigger('xwing:pointsUpdated', __iced_deferrals.defer({
-            lineno: 23544
+            lineno: 23564
           }));
           __iced_deferrals._fulfill();
         })(function() {
@@ -25497,35 +25529,36 @@ exportObj.SquadBuilder = (function() {
   };
 
   SquadBuilder.prototype.getAvailableChassisForShipIncluding = function(ship, include_chassis, term) {
-    var available_faction_chassis, chassis, chassis_name, eligible_faction_chassis;
+    var available_faction_chassis, chassis, chassis_name, eligible_chassis, ship_name;
     if (term == null) {
       term = '';
     }
+    ship_name = ship.data.name;
     available_faction_chassis = (function() {
       var _ref, _results;
       _ref = exportObj.chassisByLocalizedName;
       _results = [];
       for (chassis_name in _ref) {
         chassis = _ref[chassis_name];
-        if (((ship == null) || chassis.ship === ship) && this.isOurFaction(chassis.faction) && this.matcher(chassis_name, term)) {
+        if (((ship_name == null) || chassis.ship === ship_name) && this.isOurFaction(chassis.faction) && this.matcher(chassis_name, term)) {
           _results.push(chassis);
         }
       }
       return _results;
     }).call(this);
-    eligible_faction_chassis = (function() {
+    eligible_chassis = (function() {
       var _results;
       _results = [];
       for (chassis_name in available_faction_chassis) {
         chassis = available_faction_chassis[chassis_name];
-        if ((chassis.unique == null) || __indexOf.call(this.uniques_in_use['Chassis'], chassis) < 0 || chassis.canonical_name.getXWSBaseName() === (include_chassis != null ? include_chassis.canonical_name.getXWSBaseName() : void 0)) {
+        if (((chassis.unique == null) || __indexOf.call(this.uniques_in_use['Chassis'], chassis) < 0) && (!((ship_name != null) && (chassis.restriction_func != null)) || chassis.restriction_func(ship))) {
           _results.push(chassis);
         }
       }
       return _results;
     }).call(this);
     if ((include_chassis != null) && (include_chassis.unique != null) && this.matcher(include_chassis.name, term)) {
-      eligible_faction_chassis.push(include_chassis);
+      eligible_chassis.push(include_chassis);
     }
     return ((function() {
       var _i, _len, _results;
@@ -25538,7 +25571,7 @@ exportObj.SquadBuilder = (function() {
           points: chassis.points,
           ship: chassis.ship,
           english_name: chassis.english_name,
-          disabled: __indexOf.call(eligible_faction_chassis, chassis) < 0
+          disabled: __indexOf.call(eligible_chassis, chassis) < 0
         });
       }
       return _results;
@@ -26053,7 +26086,7 @@ exportObj.SquadBuilder = (function() {
           action_bar = ship_actions_icons.join(' ');
           extra_actions_icons = actionsToFontIcons(extra_actions);
           if (extra_actions_icons.length > 0) {
-            action_bar += extra_actions_icons.join(' ');
+            action_bar += ' ' + extra_actions_icons.join(' ');
           }
           this.info_container.find('p.info-text').html('');
           if (data.pilot.text) {
@@ -26182,18 +26215,18 @@ exportObj.SquadBuilder = (function() {
           chassis_upgrade_icons = upgradesToFontIcons(data.slots);
           upgrade_bar = chassis_upgrade_icons.join(' ');
           upgrade_bar += ' ' + "<i class=\"xwing-miniatures-font xwing-miniatures-font-modification\"></i>";
-          action_icons = actionsToFontIcons(ship.actions);
+          action_icons = actionsToFontIcons(effective_stats.actions);
           action_bar = action_icons.join(' ');
           this.info_container.find('p.info-text').html('');
           this.info_container.find('tr.info-attack td.info-data').text(ship.attack);
           this.info_container.find('tr.info-attack').show();
           this.info_container.find('tr.info-energy').hide();
           this.info_container.find('tr.info-range').hide();
-          this.info_container.find('tr.info-agility td.info-data').text(ship.agility);
+          this.info_container.find('tr.info-agility td.info-data').text(statAndEffectiveStat(ship.agility, effective_stats, 'agility'));
           this.info_container.find('tr.info-agility').show();
-          this.info_container.find('tr.info-hull td.info-data').text(ship.hull);
+          this.info_container.find('tr.info-hull td.info-data').text(statAndEffectiveStat(ship.hull, effective_stats, 'hull'));
           this.info_container.find('tr.info-hull').show();
-          this.info_container.find('tr.info-shields td.info-data').text(ship.shields);
+          this.info_container.find('tr.info-shields td.info-data').text(statAndEffectiveStat(ship.shields, effective_stats, 'shields'));
           this.info_container.find('tr.info-shields').show();
           this.info_container.find('tr.info-actions td.info-data').html("" + action_bar);
           this.info_container.find('tr.info-actions').show();
@@ -27016,7 +27049,7 @@ Ship = (function() {
     if (ship_type !== ((_ref1 = this.chassis) != null ? _ref1.ship : void 0)) {
       this.setChassis(((function() {
         var _i, _len, _ref2, _results;
-        _ref2 = this.builder.getAvailableChassisForShipIncluding(ship_type);
+        _ref2 = this.builder.getAvailableChassisForShipIncluding(this);
         _results = [];
         for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
           result = _ref2[_i];
@@ -27064,7 +27097,7 @@ Ship = (function() {
                   });
                   _this.builder.container.trigger('xwing:claimUnique', [
                     new_chassis, 'Chassis', __iced_deferrals.defer({
-                      lineno: 24531
+                      lineno: 24552
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -27077,8 +27110,7 @@ Ship = (function() {
               if (_this.chassis != null) {
                 _this.setupAddons();
               }
-              _this.copy_button.show();
-              return __iced_k(_this.setShipType(_this.chassis.ship));
+              return __iced_k(_this.copy_button.show());
             });
           } else {
             return __iced_k(_this.copy_button.hide());
@@ -27104,7 +27136,7 @@ Ship = (function() {
   };
 
   Ship.prototype.setPilot = function(new_pilot) {
-    var modification, old_modification, old_modifications, old_title, old_titles, old_upgrade, old_upgrades, same_ship, title, upgrade, ___iced_passed_deferral, __iced_deferrals, __iced_k, _i, _j, _k, _len, _len1, _len2, _name, _ref, _ref1, _ref2;
+    var modification, old_chassis, old_modification, old_modifications, old_title, old_titles, old_upgrade, old_upgrades, same_ship, title, upgrade, ___iced_passed_deferral, __iced_deferrals, __iced_k, _i, _j, _k, _len, _len1, _len2, _name, _ref, _ref1, _ref2;
     __iced_k = __iced_k_noop;
     ___iced_passed_deferral = iced.findDeferral(arguments);
     if (new_pilot !== this.pilot) {
@@ -27113,6 +27145,7 @@ Ship = (function() {
       old_upgrades = {};
       old_titles = [];
       old_modifications = [];
+      old_chassis = null;
       if (same_ship) {
         _ref = this.upgrades;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -27138,8 +27171,10 @@ Ship = (function() {
             old_modifications.push(modification);
           }
         }
+        old_chassis = this.chassis;
       }
       this.resetPilot();
+      this.resetChassis();
       this.resetAddons();
       (function(_this) {
         return (function(__iced_k) {
@@ -27154,7 +27189,7 @@ Ship = (function() {
                   });
                   _this.builder.container.trigger('xwing:claimUnique', [
                     new_pilot, 'Pilot', __iced_deferrals.defer({
-                      lineno: 24571
+                      lineno: 24594
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -27165,7 +27200,9 @@ Ship = (function() {
             })(function() {
               var _l, _len3, _len4, _len5, _m, _n, _ref3, _ref4, _ref5, _ref6;
               _this.pilot = new_pilot;
-              if (_this.pilot != null) {
+              if (old_chassis && same_ship) {
+                _this.setChassisById(old_chassis.id);
+              } else if (_this.pilot != null) {
                 _this.setupAddons();
               }
               _this.copy_button.show();
@@ -27228,7 +27265,7 @@ Ship = (function() {
             });
             _this.builder.container.trigger('xwing:releaseUnique', [
               _this.pilot, 'Pilot', __iced_deferrals.defer({
-                lineno: 24597
+                lineno: 24623
               })
             ]);
             __iced_deferrals._fulfill();
@@ -27259,7 +27296,7 @@ Ship = (function() {
             });
             _this.builder.container.trigger('xwing:releaseUnique', [
               _this.chassis, 'Chassis', __iced_deferrals.defer({
-                lineno: 24602
+                lineno: 24628
               })
             ]);
             __iced_deferrals._fulfill();
@@ -27325,7 +27362,7 @@ Ship = (function() {
           title = _ref[_i];
           if (title != null) {
             title.destroy(__iced_deferrals.defer({
-              lineno: 24631
+              lineno: 24657
             }));
           }
         }
@@ -27334,7 +27371,7 @@ Ship = (function() {
           upgrade = _ref1[_j];
           if (upgrade != null) {
             upgrade.destroy(__iced_deferrals.defer({
-              lineno: 24633
+              lineno: 24659
             }));
           }
         }
@@ -27343,7 +27380,7 @@ Ship = (function() {
           modification = _ref2[_k];
           if (modification != null) {
             modification.destroy(__iced_deferrals.defer({
-              lineno: 24635
+              lineno: 24661
             }));
           }
         }
@@ -27572,7 +27609,7 @@ Ship = (function() {
           _this.builder.checkCollection();
           return query.callback({
             more: false,
-            results: _this.builder.getAvailableChassisForShipIncluding(_this.ship_selector.val(), _this.chassis, query.term)
+            results: _this.builder.getAvailableChassisForShipIncluding(_this, _this.chassis, query.term)
           });
         };
       })(this),
@@ -28388,7 +28425,7 @@ GenericAddon = (function() {
             });
             _this.ship.builder.container.trigger('xwing:releaseUnique', [
               _this.data, _this.type, __iced_deferrals.defer({
-                lineno: 25328
+                lineno: 25354
               })
             ]);
             __iced_deferrals._fulfill();
@@ -28507,7 +28544,7 @@ GenericAddon = (function() {
               });
               _this.ship.builder.container.trigger('xwing:releaseUnique', [
                 _this.unadjusted_data, _this.type, __iced_deferrals.defer({
-                  lineno: 25387
+                  lineno: 25413
                 })
               ]);
               __iced_deferrals._fulfill();
@@ -28529,7 +28566,7 @@ GenericAddon = (function() {
                 });
                 _this.ship.builder.container.trigger('xwing:claimUnique', [
                   new_data, _this.type, __iced_deferrals.defer({
-                    lineno: 25391
+                    lineno: 25417
                   })
                 ]);
                 __iced_deferrals._fulfill();
@@ -28619,7 +28656,7 @@ GenericAddon = (function() {
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           addon = _ref[_i];
           addon.destroy(__iced_deferrals.defer({
-            lineno: 25434
+            lineno: 25460
           }));
         }
         __iced_deferrals._fulfill();
