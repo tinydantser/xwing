@@ -1372,15 +1372,16 @@ class exportObj.SquadBuilder
         ({ id: pilot.id, text: "#{pilot.name} (#{pilot.points})", points: pilot.points, ship: pilot.ship, english_name: pilot.english_name, disabled: pilot not in eligible_faction_pilots } for pilot in available_faction_pilots).sort exportObj.sortHelper
 
     getAvailableChassisForShipIncluding: (ship, include_chassis, term='') ->
+        ship_name = ship.data.name
         # Returns data formatted for Select2
-        available_faction_chassis = (chassis for chassis_name, chassis of exportObj.chassisByLocalizedName when (not ship? or chassis.ship == ship) and @isOurFaction(chassis.faction) and @matcher(chassis_name, term))
+        available_faction_chassis = (chassis for chassis_name, chassis of exportObj.chassisByLocalizedName when (not ship_name? or chassis.ship == ship_name) and @isOurFaction(chassis.faction) and @matcher(chassis_name, term))
 
-        eligible_faction_chassis = (chassis for chassis_name, chassis of available_faction_chassis when (not chassis.unique? or chassis not in @uniques_in_use['Chassis'] or chassis.canonical_name.getXWSBaseName() == include_chassis?.canonical_name.getXWSBaseName()))
+        eligible_chassis = (chassis for chassis_name, chassis of available_faction_chassis when (not chassis.unique? or chassis not in @uniques_in_use['Chassis']) and (not (ship_name? and chassis.restriction_func?) or chassis.restriction_func(ship)))
 
         # Re-add selected chassis
         if include_chassis? and include_chassis.unique? and @matcher(include_chassis.name, term)
-            eligible_faction_chassis.push include_chassis
-        ({ id: chassis.id, text: "#{chassis.name} (#{chassis.points})", points: chassis.points, ship: chassis.ship, english_name: chassis.english_name, disabled: chassis not in eligible_faction_chassis } for chassis in available_faction_chassis).sort exportObj.sortHelper
+            eligible_chassis.push include_chassis
+        ({ id: chassis.id, text: "#{chassis.name} (#{chassis.points})", points: chassis.points, ship: chassis.ship, english_name: chassis.english_name, disabled: chassis not in eligible_chassis } for chassis in available_faction_chassis).sort exportObj.sortHelper
 
     dfl_filter_func = ->
         true
@@ -1628,7 +1629,7 @@ class exportObj.SquadBuilder
                     action_bar = ship_actions_icons.join ' '
                     extra_actions_icons = actionsToFontIcons(extra_actions)
                     if extra_actions_icons.length > 0
-                        action_bar += extra_actions_icons.join ' '
+                        action_bar += ' ' + extra_actions_icons.join ' '
 
                     @info_container.find('p.info-text').html ''
                     if data.pilot.text
@@ -1743,7 +1744,7 @@ class exportObj.SquadBuilder
                     upgrade_bar = chassis_upgrade_icons.join ' '
                     upgrade_bar += ' ' + """<i class="xwing-miniatures-font xwing-miniatures-font-modification"></i>"""
 
-                    action_icons = actionsToFontIcons(ship.actions)
+                    action_icons = actionsToFontIcons(effective_stats.actions)
                     action_bar = action_icons.join ' '
 
                     @info_container.find('p.info-text').html ''
@@ -1751,11 +1752,11 @@ class exportObj.SquadBuilder
                     @info_container.find('tr.info-attack').show()
                     @info_container.find('tr.info-energy').hide()
                     @info_container.find('tr.info-range').hide()
-                    @info_container.find('tr.info-agility td.info-data').text(ship.agility)
+                    @info_container.find('tr.info-agility td.info-data').text statAndEffectiveStat( ship.agility, effective_stats, 'agility')
                     @info_container.find('tr.info-agility').show()
-                    @info_container.find('tr.info-hull td.info-data').text(ship.hull)
+                    @info_container.find('tr.info-hull td.info-data').text statAndEffectiveStat( ship.hull, effective_stats, 'hull')
                     @info_container.find('tr.info-hull').show()
-                    @info_container.find('tr.info-shields td.info-data').text(ship.shields)
+                    @info_container.find('tr.info-shields td.info-data').text statAndEffectiveStat( ship.shields, effective_stats, 'shields')
                     @info_container.find('tr.info-shields').show()
                     @info_container.find('tr.info-actions td.info-data').html """#{action_bar}"""
                     @info_container.find('tr.info-actions').show()
@@ -2293,7 +2294,7 @@ class Ship
             @setPilot (exportObj.pilotsById[result.id] for result in @builder.getAvailablePilotsForShipIncluding(ship_type) when not exportObj.pilotsById[result.id].unique)[0]
 
         if ship_type != @chassis?.ship
-            @setChassis (exportObj.chassisById[result.id] for result in @builder.getAvailableChassisForShipIncluding(ship_type) when not exportObj.chassisById[result.id].unique)[0]                                       
+            @setChassis (exportObj.chassisById[result.id] for result in @builder.getAvailableChassisForShipIncluding(this) when not exportObj.chassisById[result.id].unique)[0]                                       
 
         # Clear ship background class
         for cls in @row.attr('class').split(/\s+/)
@@ -2323,7 +2324,6 @@ class Ship
                 @chassis = new_chassis
                 @setupAddons() if @chassis?
                 @copy_button.show()
-                @setShipType @chassis.ship
             else
                 @copy_button.hide()
             @builder.container.trigger 'xwing:pointsUpdated'
@@ -2342,6 +2342,7 @@ class Ship
             old_upgrades = {}
             old_titles = []
             old_modifications = []
+            old_chassis = null
             if same_ship
                 # track addons and try to reassign them
                 for upgrade in @upgrades
@@ -2354,14 +2355,19 @@ class Ship
                 for modification in @modifications
                     if modification?.data?
                         old_modifications.push modification
+                old_chassis = @chassis
             @resetPilot()
+            @resetChassis()
             @resetAddons()
             if new_pilot?
                 @data = exportObj.ships[new_pilot?.ship]
                 if new_pilot?.unique?
                     await @builder.container.trigger 'xwing:claimUnique', [ new_pilot, 'Pilot', defer() ]
                 @pilot = new_pilot
-                @setupAddons() if @pilot?
+                if old_chassis and same_ship
+                    @setChassisById(old_chassis.id)
+                else if @pilot?
+                    @setupAddons()
                 @copy_button.show()
                 @setShipType @pilot.ship
                 if same_ship
@@ -2583,7 +2589,7 @@ class Ship
                 @builder.checkCollection()
                 query.callback
                     more: false
-                    results: @builder.getAvailableChassisForShipIncluding(@ship_selector.val(), @chassis, query.term)
+                    results: @builder.getAvailableChassisForShipIncluding(this, @chassis, query.term)
             minimumResultsForSearch: if $.isMobile() then -1 else 0
             formatResultCssClass: (obj) => ''
 

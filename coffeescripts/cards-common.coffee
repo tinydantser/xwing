@@ -1842,6 +1842,7 @@ exportObj.basicCardData = ->
                 "Elite"
                 "Missile"
             ]
+            skip: true
         }
         {
             name: "Raider-class Corvette (Fore)"
@@ -2148,6 +2149,7 @@ exportObj.basicCardData = ->
                 "Elite"
                 "Missile"
             ]
+            skip: true
         }
         {
             name: "Zertik Strom"
@@ -2161,6 +2163,7 @@ exportObj.basicCardData = ->
                 "Elite"
                 "Missile"
             ]
+            skip: true
         }
         {
             name: "Lieutenant Colzet"
@@ -2173,6 +2176,7 @@ exportObj.basicCardData = ->
             slots: [
                 "Missile"
             ]
+            skip: true
         }
         {
             name: "Gozanti-class Cruiser"
@@ -2201,6 +2205,7 @@ exportObj.basicCardData = ->
                 'Elite'
             ]
             points: 17
+            skip:true
         }
         {
             name: '"Youngster"'
@@ -2213,6 +2218,7 @@ exportObj.basicCardData = ->
                 'Elite'
             ]
             points: 15
+            skip:true
         }
         {
             name: '"Wampa"'
@@ -2223,6 +2229,7 @@ exportObj.basicCardData = ->
             skill: 4
             slots: []
             points: 14
+            skip:true
         }
         {
             name: '"Chaser"'
@@ -2233,6 +2240,7 @@ exportObj.basicCardData = ->
             skill: 3
             slots: []
             points: 14
+            skip:true
         }
         {
             name: "Hera Syndulla"
@@ -4555,6 +4563,8 @@ exportObj.basicCardData = ->
                 "Bomb"
             ]
             blueSlots: [ ]
+            modifier_func: (stats) ->
+                stats.shields += 1
         }
         {
             name: "BTL-A4 LP 'LongProbe'"
@@ -4590,6 +4600,8 @@ exportObj.basicCardData = ->
                "Torpedo"
                "Bomb"
             ]
+            modifier_func: (stats) ->
+                stats.shields += 1            
         }
         {
             name: "Flight School TIE/LN"
@@ -4650,6 +4662,8 @@ exportObj.basicCardData = ->
             ]
             redSlots: [ ]
             blueSlots: [ ]
+            modifier_func: (stats) ->
+                stats.actions.push 'Boost' if 'Boost' not in stats.actions
         }
         {
             name: "TIE/x1"
@@ -4663,6 +4677,8 @@ exportObj.basicCardData = ->
             ]
             redSlots: [ ]
             blueSlots: [ ]
+            modifier_func: (stats) ->
+                stats.actions.push 'Boost' if 'Boost' not in stats.actions
         }
         {
             name: "TIE/x1 Prototype"
@@ -4677,6 +4693,10 @@ exportObj.basicCardData = ->
             ]
             redSlots: [ ]
             blueSlots: [ ]
+            restriction_func: (ship) ->
+                ship.pilot.name == "Darth Vader"
+            modifier_func: (stats) ->
+                stats.actions.push 'Boost' if 'Boost' not in stats.actions
         }
     ]
 
