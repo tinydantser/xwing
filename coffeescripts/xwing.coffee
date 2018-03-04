@@ -95,6 +95,35 @@ clone = (obj) ->
   
     return newInstance
 
+upgradeToFontIcons = (upgrade, extra_munitions) ->
+    color = ""
+    if extra_munitions == 1
+        color = "red"
+    else if extra_munitions == 2
+        color = "blue"
+    upgrade_icon = switch upgrade
+        when "Torpedo"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-torpedo """ + color + """""></i>"""
+        when "Astromech"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-astromech"></i>"""
+        when "Modification"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-modification"></i>"""
+        when "Missile"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-missile """ + color + """""></i>"""
+        when "Cannon"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-cannon"></i>"""
+        when "Crew"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-crew"></i>"""
+        when "System"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-system"></i>"""
+        when "Turret"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-turret"></i>"""
+        when "Bomb"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-bomb """ + color + """""></i>"""
+        else
+            """<span>&nbsp;#{upgrade}<span>"""
+    return upgrade_icon
+
 upgradesToFontIcons = (upgrades) ->
     upgrade_icons = []
     for upgrade in upgrades
@@ -1648,7 +1677,18 @@ class exportObj.SquadBuilder
                         @info_container.find('.chassis-text-container').show()
                         @info_container.find('.chassis-text').html data.chassis.text
 
-                    chassis_upgrade_icons = upgradesToFontIcons(data.chassis.slots)
+                    chassis_upgrade_icons = [ ]
+                    for slot in data.chassis.slots
+                        extra_munitions = 0
+                        if slot == "Torpedo"
+                            extra_munitions = data.chassis.extraTorps
+                        else if slot == "Bomb"
+                            extra_munitions = data.chassis.extraBombs
+                        else if slot == "Missiles"
+                            extra_munitions = data.chassis.extraMissiles
+                        icon = upgradeToFontIcons(slot, extra_munitions)
+                        chassis_upgrade_icons.push icon
+
                     upgrade_bar = chassis_upgrade_icons.join ' '
                     upgrade_bar += ' ' + """<i class="xwing-miniatures-font xwing-miniatures-font-modification"></i>"""
                     @info_container.find('.chassis-upgrade-container').html """#{upgrade_bar}"""
@@ -1740,7 +1780,18 @@ class exportObj.SquadBuilder
                     effective_stats = clone(ship)
                     data.modifier_func(effective_stats) if data.modifier_func?
 
-                    chassis_upgrade_icons = upgradesToFontIcons(data.slots)
+                    chassis_upgrade_icons = [ ]
+                    for slot in data.slots
+                        extra_munitions = 0
+                        if slot == "Torpedo"
+                            extra_munitions = data.extraTorps
+                        else if slot == "Bomb"
+                            extra_munitions = data.extraBombs
+                        else if slot == "Missiles"
+                            extra_munitions = data.extraMissiles
+                        icon = upgradeToFontIcons(slot, extra_munitions)
+                        chassis_upgrade_icons.push icon
+
                     upgrade_bar = chassis_upgrade_icons.join ' '
                     upgrade_bar += ' ' + """<i class="xwing-miniatures-font xwing-miniatures-font-modification"></i>"""
 

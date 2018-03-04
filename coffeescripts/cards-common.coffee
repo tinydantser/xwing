@@ -4495,8 +4495,9 @@ exportObj.basicCardData = ->
                 "Astromech"
                 "Modification"
             ]
-            redSlots: [ ]
-            blueSlots: [ ]
+            extraTorps: 0
+            extraMissiles: 0
+            extraBombs: 0
         }
         {
             name: "T-65C-A2"
@@ -4508,10 +4509,9 @@ exportObj.basicCardData = ->
                 "Torpedo"
                 "Astromech"
             ]
-            redSlots: [
-                "Torpedo"
-            ]
-            blueSlots: [ ]
+            extraTorps: 1
+            extraMissiles: 0
+            extraBombs: 0
             modifier_func: (stats) ->
                 if stats.maneuvers? and stats.maneuvers.length > 0
                     stats.maneuvers[3][2] = 2
@@ -4526,8 +4526,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Astromech"
             ]
-            redSlots: [ ]
-            blueSlots: [ ]
+            extraTorps: 0
+            extraMissiles: 0
+            extraBombs: 0
         }
         {
             name: "BTL-A4"
@@ -4541,10 +4542,9 @@ exportObj.basicCardData = ->
                 "Bomb"
                 "Astromech"
             ]
-            redSlots: [
-                "Torpedo"
-            ]
-            blueSlots: [ ]
+            extraTorps: 1
+            extraMissiles: 0
+            extraBombs: 0
         }
         {
             name: "BTL-S3"
@@ -4558,11 +4558,9 @@ exportObj.basicCardData = ->
                 "Bomb"
                 "Astromech"
             ]
-            redSlots: [
-                "Torpedo"
-                "Bomb"
-            ]
-            blueSlots: [ ]
+            extraTorps: 1
+            extraMissiles: 0
+            extraBombs: 1
             modifier_func: (stats) ->
                 stats.shields += 1
         }
@@ -4578,10 +4576,14 @@ exportObj.basicCardData = ->
                 "Torpedo"
                 "Astromech"
             ]
-            redSlots: [ ]
-            blueSlots: [ 
-               "Torpedo"
-            ]
+            modifier_func: (stats) ->
+                if stats.maneuvers? and stats.maneuvers.length > 0
+                    stats.maneuvers[1][1] = 2
+                    stats.maneuvers[1][2] = 2
+                    stats.maneuvers[1][3] = 2
+            extraTorps: 2
+            extraMissiles: 0
+            extraBombs: 0
         }
         {
             name: "BTL-S3 TS 'Twin'"
@@ -4595,11 +4597,9 @@ exportObj.basicCardData = ->
                 "Bomb"
                 "Astromech"
             ]
-            redSlots: [ ]
-            blueSlots: [ 
-               "Torpedo"
-               "Bomb"
-            ]
+            extraTorps: 1
+            extraMissiles: 0
+            extraBombs: 1
             modifier_func: (stats) ->
                 stats.shields += 1            
         }
@@ -4612,8 +4612,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Crew"
             ]
-            redSlots: [ ]
-            blueSlots: [ ]
+            extraTorps: 0
+            extraMissiles: 0
+            extraBombs: 0
         }
         {
             name: "TIE/LN 'S-Type'"
@@ -4624,8 +4625,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Refit"
             ]
-            redSlots: [ ]
-            blueSlots: [ ]
+            extraTorps: 0
+            extraMissiles: 0
+            extraBombs: 0
         }
         {
             name: "TIE/M2 'Havoc'"
@@ -4636,8 +4638,13 @@ exportObj.basicCardData = ->
             slots: [
                 "Cannon"
             ]
-            redSlots: [ ]
-            blueSlots: [ ]
+            modifier_func: (stats) ->
+                if stats.maneuvers? and stats.maneuvers.length > 0
+                    stats.maneuvers[1][0] = 3
+                    stats.maneuvers[1][4] = 3
+            extraTorps: 0
+            extraMissiles: 0
+            extraBombs: 0
         }
         {
             name: "TIE/LN"
@@ -4646,8 +4653,9 @@ exportObj.basicCardData = ->
             ship: "TIE Fighter"
             faction: "Galactic Empire"
             slots: [ ]
-            redSlots: [ ]
-            blueSlots: [ ]
+            extraTorps: 0
+            extraMissiles: 0
+            extraBombs: 0
         }
         {
             name: "TIE/x2C 'Corona'"
@@ -4660,8 +4668,9 @@ exportObj.basicCardData = ->
                 "Refit"
                 "Missile"
             ]
-            redSlots: [ ]
-            blueSlots: [ ]
+            extraTorps: 0
+            extraMissiles: 0
+            extraBombs: 0
             modifier_func: (stats) ->
                 stats.actions.push 'Boost' if 'Boost' not in stats.actions
         }
@@ -4675,8 +4684,9 @@ exportObj.basicCardData = ->
                 "System"
                 "Refit"
             ]
-            redSlots: [ ]
-            blueSlots: [ ]
+            extraTorps: 0
+            extraMissiles: 0
+            extraBombs: 0
             modifier_func: (stats) ->
                 stats.actions.push 'Boost' if 'Boost' not in stats.actions
         }
@@ -4691,8 +4701,9 @@ exportObj.basicCardData = ->
                 "System"
                 "Missile"
             ]
-            redSlots: [ ]
-            blueSlots: [ ]
+            extraTorps: 0
+            extraMissiles: 0
+            extraBombs: 0
             restriction_func: (ship) ->
                 ship.pilot.name == "Darth Vader"
             modifier_func: (stats) ->
