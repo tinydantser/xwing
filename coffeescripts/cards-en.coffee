@@ -564,7 +564,7 @@ exportObj.cardLoaders.English = () ->
 
     upgrade_translations =
         "Ion Cannon Turret":
-            text: """<strong>Attack:</strong> Attack 1 ship (even a ship outside your firing arc).%LINEBREAK%If this attack hits the target ship, the ship suffers 1 damage and receives 1 ion token. If the defender is inside your firing arc, the ship receives an additional 1 ion token. Then cancel all dice results."""
+            text: """<strong>Attack:</strong> Attack 1 ship or <strong>Attack (Target Lock):</strong> Attack 1 ship outside your primary firing arc.%LINEBREAK%If this attack hits the target ship, the ship suffers 1 damage and receives 1 ion token. After dealing damage remove 1 shield token from the defender. Then cancel all dice results."""
         "Proton Torpedoes":
             text: """<strong>Attack (Target Lock):</strong> Discard this card to perform this attack.%LINEBREAK%You may change 1 of your %FOCUS% results to a %CRIT% result. If this attack hits, you mad add 1 %HIT% result."""
         "R2 Astromech":
@@ -584,11 +584,11 @@ exportObj.cardLoaders.English = () ->
         "Strafe":
             text: """Enemy ships inside your firing arc may not resolve abilities beginning with the "<strong>ACTION:</strong>" header on their Damage cards."""
         "Squad Leader":
-            text: """<strong>Action:</strong> Choose 1 ship at Range 1-2 that has a lower pilot skill than you. The chosen ship may immediately perform 1 free action."""
+            text: """Once per turn, after a friendly ship at Range 1-2 with a lower pilot skill than you performs a maneuver, it may immediately perform 1 free action, then you receive 1 stress token."""
         "Expert Handling":
             text: """<strong>Action:</strong> Perform a free barrel roll action.  If you do not have the %BARRELROLL% action icon, receive 1 stress token.%LINEBREAK%You may then, at the beginning of the Combat phase, remove 1 enemy target lock from your ship."""
         "Marksmanship":
-            text: """<strong>Action:</strong> When attacking this round, you may change 1 of your %FOCUS% results to a %CRIT% result and all of your other %FOCUS% results to %HIT% results."""
+            text: """<strong>Action:</strong> Assign this ship a focus token. When attacking this round, you may change 1 of your %FOCUS% results to a %CRIT% result."""
         "Concussion Missiles":
             text: """<strong>Attack (Target Lock):</strong> Discard this card to perform this attack.%LINEBREAK%If this attack hits, the defender suffers 2 damgae. Then cancel <strong>all</strong> dice results."""
         "Cluster Missiles":
@@ -612,15 +612,15 @@ exportObj.cardLoaders.English = () ->
         "L-sf42 Turbolaser":
             text: """<strong>Attack:</strong> Attack 1 ship, then receive 1 ion token. If this attack hits, after dealing damage, deal 1 facedown Damage card."""
         "Seismic Charges":
-            text: """When this bomb token detonates, each ship at Range 1-2 of the token suffers 1 damage. Then, each ship at Range 1 of each obstacle at Range 1-2 of the seismic charge token rolls 2 attack dice and suffers any damage %HIT% or critical damage %CRIT% rolled. Do not remove the obstacle tokens. Then discard the seismic charge token."""
+            text: """When this bomb token detonates, each ship at Range 1 of each obstacle at Range 1 of the seismic charge token rolls 2 attack dice and suffers any damage (%HIT%) or critical damage (%CRIT%) rolled.%LINEBREAK%Do not remove the obstacle tokens. Then discard the seismic charge token."""
         "Electronic Baffle":
-            text: """When you receive a stress token or an ion token, you may suffer 1 damage to discard that token."""
+            text: """After receiving a stress token or an ion token, once per turn, you may immediately discard that token. Then, roll 1 attack die, your ship suffers any damage (%HIT%) or critical damage (%CRIT%) rolled."""
         "Sensor Jammer":
             text: """When defending, you may change 1 of the attacker's %HIT% results into a %FOCUS% result. The attacker cannot reroll the die with the changed result."""
         "Proton Bomb":
-            text: """When this bomb token detonates, each ship at Range 1 of the token suffers 2 critical damage %CRIT%. Each ship at Range 2 of the token suffers 1 critical damage %CRIT%. Then discard this token."""
+            text: """When this bomb token detonates, each ship at Range 1 of the token suffers 2 critical damage (%CRIT%). Each ship at Range 2 of the token must spend 1 focus token or suffer 1 critical damage (%CRIT%). Then discard this token."""
         "Advanced Targeting Computer":
-            text: """When attacking with your primary weapon, if you have a target lock on the defender, you may change 1 blank result to a 1 %CRIT% result. If you do, you cannot spend target locks during this attack."""
+            text: """When attacking with your primary weapon, if you have a target lock on the defender, you may change a blank result to a 1 %CRIT% result. If you do, you cannot spend target locks during this attack."""
         "Gunner":
             text: """After you perform an attack that does not hit, you may immediately perform a primary weapon attack. You cannot perform another attack this round."""
         "Flight Instructor":

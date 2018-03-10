@@ -188,7 +188,7 @@ exportObj.basicCardData = ->
             unique: true
             ship: "Y-Wing"
             skill: 6
-            points: 22
+            points: 23
             slots: [
                 "Elite"
             ]
@@ -340,7 +340,7 @@ exportObj.basicCardData = ->
             id: 21
             ship: "TIE Advanced"
             skill: 4
-            points: 28
+            points: 27
             slots: [
                 "Elite"
             ]
@@ -4322,7 +4322,7 @@ exportObj.basicCardData = ->
             id: 8
             unique: true
             slot: "Elite"
-            points: 1
+            points: 3
         }
         {
             name: "Expert Handling"
@@ -4334,7 +4334,7 @@ exportObj.basicCardData = ->
             name: "Marksmanship"
             id: 10
             slot: "Elite"
-            points: 1
+            points: 2
         }
         {
             name: "Concussion Missiles"
@@ -4410,30 +4410,30 @@ exportObj.basicCardData = ->
             canonical_name: 'Adv. Targeting Computer'.canonicalize()
             id: 21
             slot: "System"
-            points: 5
+            points: 4
         }
         {
             name: "Chin Cannon Refit"
             id: 22
-            slot: "Refit"
+            slot: "Armament"
             points: 2
         }
         {
             name: "L-s7.2 Cannons"
             id: 23
-            slot: "Refit"
+            slot: "Armament"
             points: 3
         }
         {
             name: "L-s9.3 Cannons"
             id: 24
-            slot: "Refit"
+            slot: "Armament"
             points: 3
         }
         {
             name: "Heavy Blaster Cannon Refit"
             id: 25
-            slot: "Refit"
+            slot: "Armament"
             points: 3
         }
         {
@@ -4623,7 +4623,7 @@ exportObj.basicCardData = ->
             ship: "TIE Fighter"
             faction: "Galactic Empire"
             slots: [
-                "Refit"
+                "Armament"
             ]
             extraTorps: 0
             extraMissiles: 0
@@ -4632,7 +4632,7 @@ exportObj.basicCardData = ->
         {
             name: "TIE/M2 'Havoc'"
             id: 9
-            points: 3
+            points: 2
             ship: "TIE Fighter"
             faction: "Galactic Empire"
             slots: [
@@ -4665,7 +4665,7 @@ exportObj.basicCardData = ->
             faction: "Galactic Empire"
             slots: [ 
                 "System"
-                "Refit"
+                "Armament"
                 "Missile"
             ]
             extraTorps: 0
@@ -4682,7 +4682,7 @@ exportObj.basicCardData = ->
             faction: "Galactic Empire"
             slots: [ 
                 "System"
-                "Refit"
+                "Armament"
             ]
             extraTorps: 0
             extraMissiles: 0

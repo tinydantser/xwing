@@ -73,7 +73,7 @@ conditionToHTML = (condition) ->
         </div>
     """
 
-clone = (obj) ->
+cloneObj = (obj) ->
     if not obj? or typeof obj isnt 'object'
        return obj
 
@@ -91,7 +91,7 @@ clone = (obj) ->
     newInstance = new obj.constructor()
 
     for key of obj
-      newInstance[key] = clone obj[key]
+      newInstance[key] = cloneObj obj[key]
   
     return newInstance
 
@@ -1777,7 +1777,7 @@ class exportObj.SquadBuilder
                     @info_container.find('tr.info-chassis').hide()
 
                     ship = exportObj.ships[data.ship]
-                    effective_stats = clone(ship)
+                    effective_stats = cloneObj(ship)
                     data.modifier_func(effective_stats) if data.modifier_func?
 
                     chassis_upgrade_icons = [ ]
@@ -2283,16 +2283,6 @@ class Ship
                     if modification?.data? and not modification.data.unique
                         other_modifications.push modification
 
-                other_titles = []
-                for title in other.titles
-                    if title?.data? and not title.data.unique
-                        other_titles.push title
-
-                for title in @titles
-                    other_title = other_titles.shift()
-                    if other_title?
-                        title.setById other_title.data.id
-
                 for modification in @modifications
                     other_modification = other_modifications.shift()
                     if other_modification?
@@ -2307,7 +2297,7 @@ class Ship
         else
             # Exact clone, so we can copy things over directly
             @setPilotById other.pilot.id
-
+            @setChassisById other.chassis.id
             # set up non-conferred addons
             other_conferred_addons = []
             other_conferred_addons = other_conferred_addons.concat(other.titles[0].conferredAddons) if other.titles[0]?.data? # and other.titles.conferredAddons.length > 0

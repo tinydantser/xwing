@@ -1,8 +1,3 @@
-###
-    X-Wing Card Browser
-    Geordan Rosario <geordan@gmail.com>
-    https://github.com/geordanr/xwing
-###
 exportObj = exports ? this
 
 # Assumes cards.js has been loaded
