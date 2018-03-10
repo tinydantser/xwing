@@ -4,7 +4,7 @@
     Geordan Rosario <geordan@gmail.com>
     https://github.com/geordanr/xwing
  */
-var DFL_LANGUAGE, GenericAddon, SERIALIZATION_CODE_TO_CLASS, SPEC_URL, SQUAD_DISPLAY_NAME_MAX_LENGTH, Ship, TYPES, URL_BASE, actionsToFontIcons, builders, byName, byPoints, clone, conditionToHTML, exportObj, getPrimaryFaction, sortWithoutQuotes, statAndEffectiveStat, upgradeToFontIcons, upgradesToFontIcons, _base,
+var DFL_LANGUAGE, GenericAddon, SERIALIZATION_CODE_TO_CLASS, SPEC_URL, SQUAD_DISPLAY_NAME_MAX_LENGTH, Ship, TYPES, URL_BASE, actionsToFontIcons, builders, byName, byPoints, cloneObj, conditionToHTML, exportObj, getPrimaryFaction, sortWithoutQuotes, statAndEffectiveStat, upgradeToFontIcons, upgradesToFontIcons, _base,
   __slice = [].slice,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -807,13 +807,6 @@ exportObj.SquadBuilderBackend = (function() {
 
 })();
 
-
-/*
-    X-Wing Card Browser
-    Geordan Rosario <geordan@gmail.com>
-    https://github.com/geordanr/xwing
- */
-
 exportObj = typeof exports !== "undefined" && exports !== null ? exports : this;
 
 TYPES = ['pilots', 'upgrades', 'modifications', 'titles'];
@@ -1332,7 +1325,7 @@ exportObj.basicCardData = function() {
         unique: true,
         ship: "Y-Wing",
         skill: 6,
-        points: 22,
+        points: 23,
         slots: ["Elite"]
       }, {
         name: "Horton Salm",
@@ -1452,7 +1445,7 @@ exportObj.basicCardData = function() {
         id: 21,
         ship: "TIE Advanced",
         skill: 4,
-        points: 28,
+        points: 27,
         slots: ["Elite"]
       }, {
         name: "Darth Vader",
@@ -4016,7 +4009,7 @@ exportObj.basicCardData = function() {
         id: 8,
         unique: true,
         slot: "Elite",
-        points: 1
+        points: 3
       }, {
         name: "Expert Handling",
         id: 9,
@@ -4026,7 +4019,7 @@ exportObj.basicCardData = function() {
         name: "Marksmanship",
         id: 10,
         slot: "Elite",
-        points: 1
+        points: 2
       }, {
         name: "Concussion Missiles",
         id: 11,
@@ -4091,26 +4084,26 @@ exportObj.basicCardData = function() {
         canonical_name: 'Adv. Targeting Computer'.canonicalize(),
         id: 21,
         slot: "System",
-        points: 5
+        points: 4
       }, {
         name: "Chin Cannon Refit",
         id: 22,
-        slot: "Refit",
+        slot: "Armament",
         points: 2
       }, {
         name: "L-s7.2 Cannons",
         id: 23,
-        slot: "Refit",
+        slot: "Armament",
         points: 3
       }, {
         name: "L-s9.3 Cannons",
         id: 24,
-        slot: "Refit",
+        slot: "Armament",
         points: 3
       }, {
         name: "Heavy Blaster Cannon Refit",
         id: 25,
-        slot: "Refit",
+        slot: "Armament",
         points: 3
       }, {
         name: "R2-Q2",
@@ -4256,14 +4249,14 @@ exportObj.basicCardData = function() {
         points: 3,
         ship: "TIE Fighter",
         faction: "Galactic Empire",
-        slots: ["Refit"],
+        slots: ["Armament"],
         extraTorps: 0,
         extraMissiles: 0,
         extraBombs: 0
       }, {
         name: "TIE/M2 'Havoc'",
         id: 9,
-        points: 3,
+        points: 2,
         ship: "TIE Fighter",
         faction: "Galactic Empire",
         slots: ["Cannon"],
@@ -4292,7 +4285,7 @@ exportObj.basicCardData = function() {
         points: 4,
         ship: "TIE Advanced",
         faction: "Galactic Empire",
-        slots: ["System", "Refit", "Missile"],
+        slots: ["System", "Armament", "Missile"],
         extraTorps: 0,
         extraMissiles: 0,
         extraBombs: 0,
@@ -4307,7 +4300,7 @@ exportObj.basicCardData = function() {
         points: 0,
         ship: "TIE Advanced",
         faction: "Galactic Empire",
-        slots: ["System", "Refit"],
+        slots: ["System", "Armament"],
         extraTorps: 0,
         extraMissiles: 0,
         extraBombs: 0,
@@ -8452,7 +8445,7 @@ exportObj.cardLoaders.English = function() {
   };
   upgrade_translations = {
     "Ion Cannon Turret": {
-      text: "<strong>Attack:</strong> Attack 1 ship (even a ship outside your firing arc).%LINEBREAK%If this attack hits the target ship, the ship suffers 1 damage and receives 1 ion token. If the defender is inside your firing arc, the ship receives an additional 1 ion token. Then cancel all dice results."
+      text: "<strong>Attack:</strong> Attack 1 ship or <strong>Attack (Target Lock):</strong> Attack 1 ship outside your primary firing arc.%LINEBREAK%If this attack hits the target ship, the ship suffers 1 damage and receives 1 ion token. After dealing damage remove 1 shield token from the defender. Then cancel all dice results."
     },
     "Proton Torpedoes": {
       text: "<strong>Attack (Target Lock):</strong> Discard this card to perform this attack.%LINEBREAK%You may change 1 of your %FOCUS% results to a %CRIT% result. If this attack hits, you mad add 1 %HIT% result."
@@ -8482,13 +8475,13 @@ exportObj.cardLoaders.English = function() {
       text: "Enemy ships inside your firing arc may not resolve abilities beginning with the \"<strong>ACTION:</strong>\" header on their Damage cards."
     },
     "Squad Leader": {
-      text: "<strong>Action:</strong> Choose 1 ship at Range 1-2 that has a lower pilot skill than you. The chosen ship may immediately perform 1 free action."
+      text: "Once per turn, after a friendly ship at Range 1-2 with a lower pilot skill than you performs a maneuver, it may immediately perform 1 free action, then you receive 1 stress token."
     },
     "Expert Handling": {
       text: "<strong>Action:</strong> Perform a free barrel roll action.  If you do not have the %BARRELROLL% action icon, receive 1 stress token.%LINEBREAK%You may then, at the beginning of the Combat phase, remove 1 enemy target lock from your ship."
     },
     "Marksmanship": {
-      text: "<strong>Action:</strong> When attacking this round, you may change 1 of your %FOCUS% results to a %CRIT% result and all of your other %FOCUS% results to %HIT% results."
+      text: "<strong>Action:</strong> Assign this ship a focus token. When attacking this round, you may change 1 of your %FOCUS% results to a %CRIT% result."
     },
     "Concussion Missiles": {
       text: "<strong>Attack (Target Lock):</strong> Discard this card to perform this attack.%LINEBREAK%If this attack hits, the defender suffers 2 damgae. Then cancel <strong>all</strong> dice results."
@@ -8524,19 +8517,19 @@ exportObj.cardLoaders.English = function() {
       text: "<strong>Attack:</strong> Attack 1 ship, then receive 1 ion token. If this attack hits, after dealing damage, deal 1 facedown Damage card."
     },
     "Seismic Charges": {
-      text: "When this bomb token detonates, each ship at Range 1-2 of the token suffers 1 damage. Then, each ship at Range 1 of each obstacle at Range 1-2 of the seismic charge token rolls 2 attack dice and suffers any damage %HIT% or critical damage %CRIT% rolled. Do not remove the obstacle tokens. Then discard the seismic charge token."
+      text: "When this bomb token detonates, each ship at Range 1 of each obstacle at Range 1 of the seismic charge token rolls 2 attack dice and suffers any damage (%HIT%) or critical damage (%CRIT%) rolled.%LINEBREAK%Do not remove the obstacle tokens. Then discard the seismic charge token."
     },
     "Electronic Baffle": {
-      text: "When you receive a stress token or an ion token, you may suffer 1 damage to discard that token."
+      text: "After receiving a stress token or an ion token, once per turn, you may immediately discard that token. Then, roll 1 attack die, your ship suffers any damage (%HIT%) or critical damage (%CRIT%) rolled."
     },
     "Sensor Jammer": {
       text: "When defending, you may change 1 of the attacker's %HIT% results into a %FOCUS% result. The attacker cannot reroll the die with the changed result."
     },
     "Proton Bomb": {
-      text: "When this bomb token detonates, each ship at Range 1 of the token suffers 2 critical damage %CRIT%. Each ship at Range 2 of the token suffers 1 critical damage %CRIT%. Then discard this token."
+      text: "When this bomb token detonates, each ship at Range 1 of the token suffers 2 critical damage (%CRIT%). Each ship at Range 2 of the token must spend 1 focus token or suffer 1 critical damage (%CRIT%). Then discard this token."
     },
     "Advanced Targeting Computer": {
-      text: "When attacking with your primary weapon, if you have a target lock on the defender, you may change 1 blank result to a 1 %CRIT% result. If you do, you cannot spend target locks during this attack."
+      text: "When attacking with your primary weapon, if you have a target lock on the defender, you may change a blank result to a 1 %CRIT% result. If you do, you cannot spend target locks during this attack."
     },
     "Gunner": {
       text: "After you perform an attack that does not hit, you may immediately perform a primary weapon attack. You cannot perform another attack this round."
@@ -24001,7 +23994,7 @@ exportObj.setupTranslationSupport = function() {
                     parent: ___iced_passed_deferral
                   });
                   builder.container.trigger('xwing:beforeLanguageLoad', __iced_deferrals.defer({
-                    lineno: 22218
+                    lineno: 22213
                   }));
                   __iced_deferrals._fulfill();
                 })(_next);
@@ -24168,7 +24161,7 @@ conditionToHTML = function(condition) {
   return html = $.trim("<div class=\"condition\">\n    <div class=\"name\">" + (condition.unique ? "&middot;&nbsp;" : "") + condition.name + "</div>\n    <div class=\"text\">" + condition.text + "</div>\n</div>");
 };
 
-clone = function(obj) {
+cloneObj = function(obj) {
   var flags, key, newInstance;
   if ((obj == null) || typeof obj !== 'object') {
     return obj;
@@ -24194,7 +24187,7 @@ clone = function(obj) {
   }
   newInstance = new obj.constructor();
   for (key in obj) {
-    newInstance[key] = clone(obj[key]);
+    newInstance[key] = cloneObj(obj[key]);
   }
   return newInstance;
 };
@@ -24732,7 +24725,7 @@ exportObj.SquadBuilder = (function() {
                   return results = arguments[0];
                 };
               })(),
-              lineno: 22961
+              lineno: 22956
             }));
             __iced_deferrals._fulfill();
           })(function() {
@@ -25476,7 +25469,7 @@ exportObj.SquadBuilder = (function() {
           funcname: "SquadBuilder.removeShip"
         });
         ship.destroy(__iced_deferrals.defer({
-          lineno: 23603
+          lineno: 23598
         }));
         __iced_deferrals._fulfill();
       });
@@ -25488,7 +25481,7 @@ exportObj.SquadBuilder = (function() {
             funcname: "SquadBuilder.removeShip"
           });
           _this.container.trigger('xwing:pointsUpdated', __iced_deferrals.defer({
-            lineno: 23604
+            lineno: 23599
           }));
           __iced_deferrals._fulfill();
         })(function() {
@@ -26284,7 +26277,7 @@ exportObj.SquadBuilder = (function() {
           this.info_container.find('tr.info-skill').hide();
           this.info_container.find('tr.info-chassis').hide();
           ship = exportObj.ships[data.ship];
-          effective_stats = clone(ship);
+          effective_stats = cloneObj(ship);
           if (data.modifier_func != null) {
             data.modifier_func(effective_stats);
           }
@@ -26998,7 +26991,7 @@ Ship = (function() {
   };
 
   Ship.prototype.copyFrom = function(other) {
-    var available_pilots, i, modification, other_conferred_addon, other_conferred_addons, other_modification, other_modifications, other_title, other_titles, other_upgrade, other_upgrades, pilot_data, title, upgrade, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _len7, _len8, _m, _n, _name, _o, _p, _q, _ref, _ref1, _ref10, _ref11, _ref12, _ref13, _ref14, _ref15, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+    var available_pilots, i, modification, other_conferred_addon, other_conferred_addons, other_modification, other_modifications, other_upgrade, other_upgrades, pilot_data, upgrade, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _len6, _m, _n, _name, _o, _ref, _ref1, _ref10, _ref11, _ref12, _ref13, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
     if (other === this) {
       throw new Error("Cannot copy from self");
     }
@@ -27039,34 +27032,18 @@ Ship = (function() {
             other_modifications.push(modification);
           }
         }
-        other_titles = [];
-        _ref2 = other.titles;
+        _ref2 = this.modifications;
         for (_k = 0, _len2 = _ref2.length; _k < _len2; _k++) {
-          title = _ref2[_k];
-          if (((title != null ? title.data : void 0) != null) && !title.data.unique) {
-            other_titles.push(title);
-          }
-        }
-        _ref3 = this.titles;
-        for (_l = 0, _len3 = _ref3.length; _l < _len3; _l++) {
-          title = _ref3[_l];
-          other_title = other_titles.shift();
-          if (other_title != null) {
-            title.setById(other_title.data.id);
-          }
-        }
-        _ref4 = this.modifications;
-        for (_m = 0, _len4 = _ref4.length; _m < _len4; _m++) {
-          modification = _ref4[_m];
+          modification = _ref2[_k];
           other_modification = other_modifications.shift();
           if (other_modification != null) {
             modification.setById(other_modification.data.id);
           }
         }
-        _ref5 = this.upgrades;
-        for (_n = 0, _len5 = _ref5.length; _n < _len5; _n++) {
-          upgrade = _ref5[_n];
-          other_upgrade = ((_ref6 = other_upgrades[upgrade.slot]) != null ? _ref6 : []).shift();
+        _ref3 = this.upgrades;
+        for (_l = 0, _len3 = _ref3.length; _l < _len3; _l++) {
+          upgrade = _ref3[_l];
+          other_upgrade = ((_ref4 = other_upgrades[upgrade.slot]) != null ? _ref4 : []).shift();
           if (other_upgrade != null) {
             upgrade.setById(other_upgrade.data.id);
           }
@@ -27076,40 +27053,41 @@ Ship = (function() {
       }
     } else {
       this.setPilotById(other.pilot.id);
+      this.setChassisById(other.chassis.id);
       other_conferred_addons = [];
-      if (((_ref7 = other.titles[0]) != null ? _ref7.data : void 0) != null) {
+      if (((_ref5 = other.titles[0]) != null ? _ref5.data : void 0) != null) {
         other_conferred_addons = other_conferred_addons.concat(other.titles[0].conferredAddons);
       }
-      if (((_ref8 = other.modifications[0]) != null ? _ref8.data : void 0) != null) {
+      if (((_ref6 = other.modifications[0]) != null ? _ref6.data : void 0) != null) {
         other_conferred_addons = other_conferred_addons.concat(other.modifications[0].conferredAddons);
       }
-      _ref9 = other.upgrades;
-      for (i = _o = 0, _len6 = _ref9.length; _o < _len6; i = ++_o) {
-        other_upgrade = _ref9[i];
+      _ref7 = other.upgrades;
+      for (i = _m = 0, _len4 = _ref7.length; _m < _len4; i = ++_m) {
+        other_upgrade = _ref7[i];
         if ((other_upgrade.data != null) && __indexOf.call(other_conferred_addons, other_upgrade) < 0 && !other_upgrade.data.unique && i < this.upgrades.length && ((other_upgrade.data.max_per_squad == null) || this.builder.countUpgrades(other_upgrade.data.canonical_name) < other_upgrade.data.max_per_squad)) {
           this.upgrades[i].setById(other_upgrade.data.id);
         }
       }
-      if ((((_ref10 = other.titles[0]) != null ? _ref10.data : void 0) != null) && !other.titles[0].data.unique) {
+      if ((((_ref8 = other.titles[0]) != null ? _ref8.data : void 0) != null) && !other.titles[0].data.unique) {
         this.titles[0].setById(other.titles[0].data.id);
       }
-      if (((_ref11 = other.modifications[0]) != null ? _ref11.data : void 0) && !other.modifications[0].data.unique) {
+      if (((_ref9 = other.modifications[0]) != null ? _ref9.data : void 0) && !other.modifications[0].data.unique) {
         this.modifications[0].setById(other.modifications[0].data.id);
       }
       if ((other.titles[0] != null) && other.titles[0].conferredAddons.length > 0) {
-        _ref12 = other.titles[0].conferredAddons;
-        for (i = _p = 0, _len7 = _ref12.length; _p < _len7; i = ++_p) {
-          other_conferred_addon = _ref12[i];
-          if ((other_conferred_addon.data != null) && !((_ref13 = other_conferred_addon.data) != null ? _ref13.unique : void 0)) {
+        _ref10 = other.titles[0].conferredAddons;
+        for (i = _n = 0, _len5 = _ref10.length; _n < _len5; i = ++_n) {
+          other_conferred_addon = _ref10[i];
+          if ((other_conferred_addon.data != null) && !((_ref11 = other_conferred_addon.data) != null ? _ref11.unique : void 0)) {
             this.titles[0].conferredAddons[i].setById(other_conferred_addon.data.id);
           }
         }
       }
       if ((other.modifications[0] != null) && other.modifications[0].conferredAddons.length > 0) {
-        _ref14 = other.modifications[0].conferredAddons;
-        for (i = _q = 0, _len8 = _ref14.length; _q < _len8; i = ++_q) {
-          other_conferred_addon = _ref14[i];
-          if ((other_conferred_addon.data != null) && !((_ref15 = other_conferred_addon.data) != null ? _ref15.unique : void 0)) {
+        _ref12 = other.modifications[0].conferredAddons;
+        for (i = _o = 0, _len6 = _ref12.length; _o < _len6; i = ++_o) {
+          other_conferred_addon = _ref12[i];
+          if ((other_conferred_addon.data != null) && !((_ref13 = other_conferred_addon.data) != null ? _ref13.unique : void 0)) {
             this.modifications[0].conferredAddons[i].setById(other_conferred_addon.data.id);
           }
         }
@@ -27209,7 +27187,7 @@ Ship = (function() {
                   });
                   _this.builder.container.trigger('xwing:claimUnique', [
                     new_chassis, 'Chassis', __iced_deferrals.defer({
-                      lineno: 24625
+                      lineno: 24610
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -27319,7 +27297,7 @@ Ship = (function() {
                   });
                   _this.builder.container.trigger('xwing:claimUnique', [
                     new_pilot, 'Pilot', __iced_deferrals.defer({
-                      lineno: 24675
+                      lineno: 24660
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -27395,7 +27373,7 @@ Ship = (function() {
             });
             _this.builder.container.trigger('xwing:releaseUnique', [
               _this.pilot, 'Pilot', __iced_deferrals.defer({
-                lineno: 24704
+                lineno: 24689
               })
             ]);
             __iced_deferrals._fulfill();
@@ -27426,7 +27404,7 @@ Ship = (function() {
             });
             _this.builder.container.trigger('xwing:releaseUnique', [
               _this.chassis, 'Chassis', __iced_deferrals.defer({
-                lineno: 24709
+                lineno: 24694
               })
             ]);
             __iced_deferrals._fulfill();
@@ -27492,7 +27470,7 @@ Ship = (function() {
           title = _ref[_i];
           if (title != null) {
             title.destroy(__iced_deferrals.defer({
-              lineno: 24738
+              lineno: 24723
             }));
           }
         }
@@ -27501,7 +27479,7 @@ Ship = (function() {
           upgrade = _ref1[_j];
           if (upgrade != null) {
             upgrade.destroy(__iced_deferrals.defer({
-              lineno: 24740
+              lineno: 24725
             }));
           }
         }
@@ -27510,7 +27488,7 @@ Ship = (function() {
           modification = _ref2[_k];
           if (modification != null) {
             modification.destroy(__iced_deferrals.defer({
-              lineno: 24742
+              lineno: 24727
             }));
           }
         }
@@ -27791,6 +27769,7 @@ Ship = (function() {
     this.copy_button = $(this.row.find('button.copy-pilot'));
     this.copy_button.click((function(_this) {
       return function(e) {
+        var clone;
         clone = _this.builder.ships[_this.builder.ships.length - 1];
         return clone.copyFrom(_this);
       };
@@ -28558,7 +28537,7 @@ GenericAddon = (function() {
             });
             _this.ship.builder.container.trigger('xwing:releaseUnique', [
               _this.data, _this.type, __iced_deferrals.defer({
-                lineno: 25436
+                lineno: 25421
               })
             ]);
             __iced_deferrals._fulfill();
@@ -28677,7 +28656,7 @@ GenericAddon = (function() {
               });
               _this.ship.builder.container.trigger('xwing:releaseUnique', [
                 _this.unadjusted_data, _this.type, __iced_deferrals.defer({
-                  lineno: 25495
+                  lineno: 25480
                 })
               ]);
               __iced_deferrals._fulfill();
@@ -28699,7 +28678,7 @@ GenericAddon = (function() {
                 });
                 _this.ship.builder.container.trigger('xwing:claimUnique', [
                   new_data, _this.type, __iced_deferrals.defer({
-                    lineno: 25499
+                    lineno: 25484
                   })
                 ]);
                 __iced_deferrals._fulfill();
@@ -28789,7 +28768,7 @@ GenericAddon = (function() {
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           addon = _ref[_i];
           addon.destroy(__iced_deferrals.defer({
-            lineno: 25542
+            lineno: 25527
           }));
         }
         __iced_deferrals._fulfill();
