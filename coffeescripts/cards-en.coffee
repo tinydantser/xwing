@@ -200,12 +200,14 @@ exportObj.cardLoaders.English = () ->
             text: """When your attack deals a faceup Damage card to the defender, instead draw 3 Damage cards, choose 1 to deal, and discard the others."""
         "Darth Vader":
             text: """During your "Perform Action" step, you may perform 2 actions."""
+        "Saber Squadron Pilot":
+            text: """While you do not have any Damage cards, treat your pilot skill value as “8"."""
         "\"Fel's Wrath\"":
-            text: """When the number of Damage cards assigned to you equals or exceeds your hull value, you are not destroyed until the end of the Combat phase."""
+            text: """Once per round, after an enemy ship performs a %BOOST% or %BARRELROLL% action, or a 1- speed maneuver, if it is inside your firing arc, you may perform one attack against that ship."""
         "Turr Phennir":
-            text: """After you perform an attack, you may perform a free boost or barrel roll action."""
+            text: """After you perform an attack, you may perform a free boost or barrel roll action, even if you are stressed."""
         "Soontir Fel":
-            text: """When you receive a stress token, you may assign 1 focus token to your ship."""
+            text: """When performing a primary weapon attack, whenever the target ship is dealt a facedown damage card, immediately flip this card faceup and resolve it."""
         "Tycho Celchu":
             text: """You may perform actions even while you have stress tokens."""
         "Arvel Crynyd":
@@ -627,6 +629,20 @@ exportObj.cardLoaders.English = () ->
             text: """When defending, you may reroll 1 of your %FOCUS% results. If the attacker's pilot skill value is "4" or lower, you may reroll 1 of your blank results instead."""
         "Weapons Engineer":
             text: """may maintain 2 target locks (only 1 per enemy ship). When you acquire a target lock, you may lock onto 2 different ships."""
+        "Booster Blue":
+            text: """At the start of the End phase, you may discard this card to assign up to two of your stress tokens to another ship at Range 1. If you do, roll one attack die, and suffer any damage %HIT% or critical damage %CRIT% rolled."""
+        "Contraband Cybernetics":
+            text: """When you become the active ship during the Activation phase, you may discard this card and receive 1 stress token. If you do, until the end of the round, you may perform actions and red maneuvers even while you are stressed."""
+        "Glitterstim":
+            text: """At the start of the Combat phase, you may discard this card and receive 1 stress token. If you do, until the end of the round, when attacking or defending, you may change all of your %FOCUS% results to %HIT% or %EVADE% results."""
+        "Dead Man's Switch":
+            text: """When you are destroyed, each ship at Range 1 suffers 1 damage."""
+        "Reverse Throttle Hop":
+            text: """<span class="card-restriction">PS7+ only.</span> %DUALCARD%%LINEBREAK%<strong>Side A: </strong>When you reveal a white (%TURNRIGHT% 3) maneuver, you may perform a white (Right Reverse Throttle Hop 3) instead. When you reveal a white (%TURNLEFT% 3) maneuver, you may perform a white (Left Reverse Throttle Hop 3) instead. Then flip this card.%LINEBREAK%<strong>Side B: </strong>At the end of the Combat phase, you may receive 2 stress tokens or spend a focus and evade token to flip this card."""
+        "Ace of Aces":
+            text: """<span class="card-restriction">PS9+ only.</span>%LINEBREAK%After your attack destroys an enemy ship, you may assign 1 stress token to an enemy ship at range 1-2 of you. If the defender had a pilot skill value of 8+, you may assign 2 stress tokens."""
+        "Opportunist":
+            text: """<span class="card-restriction">PS7+ only.</span> %DUALCARD%%LINEBREAK%<strong>Side A: </strong>When you reveal a white (%TURNRIGHT% 3) maneuver, you may perform a white (h 3 or p 3) instead. When you reveal a white (%TURNLEFT% 3) maneuver, you may perform a white (g 3 or q 3) instead. Then flip this card.%LINEBREAK%<strong>Side B: </strong>Action: If you have no stress tokens, you may receive 1 stress token to flip this card."""
 
     modification_translations =
         "Stealth Device":
@@ -652,7 +668,7 @@ exportObj.cardLoaders.English = () ->
         "B-Wing/E2":
             text: """<span class="card-restriction">B-Wing only.</span>%LINEBREAK%Your upgrade bar gains the %CREW% upgrade icon."""
         "Countermeasures":
-            text: """%LARGESHIPONLY%%LINEBREAK%At the start of the Combat phase, you may discard this card to increase your agility value by 1 until the end of the round.  Then you may remove 1 enemy target lock from your ship."""
+            text: """At the start of the Combat phase, you may discard this card. Then, roll 2 attack dice.For each %HIT% or %CRIT% result, you may remove 1 enemy target lock from your ship."""
         "Experimental Interface":
             text: """Once per round, after you perform an action, you may perform 1 free action from an equipped Upgrade card with the "<strong>Action:</strong>" header.  Then receive 1 stress token."""
         "Tactical Jammer":
@@ -695,6 +711,8 @@ exportObj.cardLoaders.English = () ->
             text: '''<span class="card-restriction">Rebel and Scum only.</span>%LINEBREAK%During the End phase, you may receive 1 ion token to recover 1 shield (up to your shield value). You can equip this card only if your shield value is "1."'''
         'Deflective Plating':
             text: '''<span class="card-restriction">B/SF-17 Bomber only.</span>%LINEBREAK%When a friendly bomb token detonates, you may choose not to suffer its effects.  If you do, roll an attack die.  On a %HIT% result, discard this card.'''
+        "Reinforced Cockpit":
+            text: """When you are dealt a faceup Damage card with the Pilot trait, discard it immediately without resolving its effect."""
 
     title_translations =
         "Slave I":
@@ -850,7 +868,7 @@ exportObj.cardLoaders.English = () ->
         "T-65C-A2":
             text: """you may treat all (%STRAIGHT%) maneuvers as green maneuvers.%LINEBREAK%"""
         "T-65BR 'Recon X'":
-            text: """At the end of the Planning phase, you may choose an enemy ship at Range 1-3. Guess aloud that ship’s bearing and speed, then look at its dial. If correct, you may rotate your dial to an- other maneuver. %LINEBREAK%<strong>Action:</strong> Destroy this ship. Each ship at Range 1 suffers 1 damage.%LINEBREAK%"""
+            text: """At the end of the Planning phase, you may choose an enemy ship at Range 1-3. Guess aloud that ship’s bearing and speed, then look at its dial. If correct, a friendly ship at range 1 may rotate its dial to another maneuver. %LINEBREAK%<strong>Action:</strong> Destroy this ship. Each ship at Range 1 suffers 1 damage.%LINEBREAK%"""
         "BTL-A4 LP 'LongProbe'":
             text: """You cannot attack ships outside your firing arc. You may treat all speed 1 maneuvers as green maneuvers."""
         "BTL-A4":
@@ -858,7 +876,7 @@ exportObj.cardLoaders.English = () ->
         "BTL-S3":
             text: """Increase your shield value by 1"""
         "BTL-S3 TS 'Twin'":
-            text: """Increase your shield value by 1"""
+            text: """Increase your shield value by 1."""
         "Flight School TIE/LN":
             text: """All damage cards dealt to you are dealt faceup. You may not equip unique %CREW% upgrade cards."""
         "TIE/LN 'S-Type'":
@@ -873,5 +891,31 @@ exportObj.cardLoaders.English = () ->
             text: """Once per round, when defending against primary weapon attack, you may cancel one of your %FOCUS% results during the 'Modify Defense Dice' step to assign 1 %FOCUS% token to your ship."""
         "TIE/x1 Prototype":
             text: """<span class="card-restriction">Darth Vader Only</span>%LINEBREAK%Your action bar gains the %BOOST% icon. When performing a primary weapon attack, you may receive one stress token to preform this attack twice."""
+        "R22 'Spearhead'":
+            text: """When preforming a boost action, you may use the (%TURNLEFT% 1) or (%TURNRIGHT% 1) template."""
+        "RZ-1":
+            text: """After executing a 3-, 4-, or 5- speed maneuver, if you did not overlap an obstacle or ship, you may perform a free evade action."""
+        "RZ-1 Chardaan Refit":
+            text: """After executing a 3-, 4-, or 5- speed maneuver, if you did not overlap an obstacle or ship, you may perform a free evade action."""
+        "TIE/IN Mk.I":
+            text: """After performing a maneuver, if you are not stressed, you may perform a free boost action."""
+        "TIE/IN Mk.II":
+            text: """<span class="card-restriction">PS 5+</span>%LINEBREAK%After performing a boost or barrel roll action, if you are not stressed, you may receive 1 stress token to perform an additional action, then, assign your ship a focus token."""
+        "TIE/IN M3 'Warhead'":
+            text: """Increase your shield value by 1. After you perform an evade action, you may acquire a target lock."""
+        "Protectorate Mk.II":
+            text: """When defending, if you are inside the attacker's firing arc and at Range 1 and the attacker is inside your firing arc, add 1 %EVADE% result."""
+        "Protectorate Mk.IV":
+            text: """When attacking or defending, if you are inside the enemy ship's firing arc at Range 1 and the enemy ship is inside your firing arc, you may add 1 %HIT% or 1 %EVADE% result to your roll."""
+        "Syndicate Fang":
+            text: """Increase your shield value by 1."""
+        "Z-95-AF4":
+            text: ""
+        "Z-95-AF4-H":
+            text: """When defending, if you are at Range 1 of a friendly Z-95, you may reroll 1 %FOCUS% result."""
+        "Cartel Refit":
+            text: """Increase your hull value by 1.%LINEBREAK%Immediately after you receive a damage card which would destroy your ship, you may perform a free %BOOST% action."""
+        "Syndicate Pursuit Special":
+            text: """Your action bar gains the %BOOST% icon."""
 
     exportObj.setupCardData basic_cards, pilot_translations, upgrade_translations, modification_translations, title_translations, condition_translations, chassis_translations

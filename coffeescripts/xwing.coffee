@@ -120,6 +120,8 @@ upgradeToFontIcons = (upgrade, extra_munitions) ->
             """<i class="xwing-miniatures-font xwing-miniatures-font-turret"></i>"""
         when "Bomb"
             """<i class="xwing-miniatures-font xwing-miniatures-font-bomb """ + color + """""></i>"""
+        when "Illicit"
+            """<i class="xwing-miniatures-font xwing-miniatures-font-illicit"></i>"""            
         else
             """<span>&nbsp;#{upgrade}<span>"""
     return upgrade_icon
