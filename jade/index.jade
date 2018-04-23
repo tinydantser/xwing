@@ -31,11 +31,6 @@ html
           a#browserTab('data-toggle'="tab", href='#browserContent') Card Browser
         li
           a#aboutTab('data-toggle'="tab", href='#aboutContent') About
-        li.dropdown.language-picker
-          a.dropdown-toggle('data-toggle'='dropdown', href='#')
-            span.language-placeholder
-            b.caret
-          ul.dropdown-menu
         li
           a#auth-status(href='#')
             i.fa.fa-spinner.fa-spin
@@ -48,8 +43,6 @@ html
             span.show-authenticated
               i.fa.fa-sign-out.hidden-phone.hidden-tablet
               | Log Out
-        li
-          a(href='https://github.com/geordanr/xwing/issues/new', target='_blank') Submit Bug/Feature Request
 
       .tab-content
         .tab-pane#rebelContent

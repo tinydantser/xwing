@@ -2373,7 +2373,7 @@ class Ship
             @resetAddons()
             if new_chassis?
                 @data = exportObj.ships[new_chassis?.ship]
-                if new_chassis?.unique?
+                if new_chassis.unique? and new_chassis.unique
                     await @builder.container.trigger 'xwing:claimUnique', [ new_chassis, 'Chassis', defer() ]
                 @chassis = new_chassis
                 @setupAddons() if @chassis?
@@ -2457,7 +2457,7 @@ class Ship
         @pilot = null
 
     resetChassis: ->
-        if @chassis?.unique?
+        if @chassis?.unique? and @chassis.unique
             await @builder.container.trigger 'xwing:releaseUnique', [@chassis, 'Chassis', defer() ]
         @chassis = null
 

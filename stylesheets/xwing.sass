@@ -35,6 +35,9 @@ $shields_color: #7ED3E5
   font-family: BankGothicHD
   src: url('../fonts/bankgthd.ttf')
 
+body
+  background-color: #090909
+
 body, button
   font-family: EurostileStandard
 
@@ -53,12 +56,25 @@ strong em, em strong
 
 .nav-pills
   border-bottom: thin solid darkgray
+  background-color: rgba(182, 61, 50, 1)
+  
+.nav-pills a
+  color: white
+
+.nav.nav-pills > li > a:hover, 
+  background-color: #090909
+  color: #eeeeee 
+
+.nav.nav-pills > .active > a,
+.nav.nav-pills > li > a:focus
+  background-color: #eeeeee
+  color: #090909
 
 .ship-container > .row-fluid
   padding: 10px 0px
 
 .ship
-  border: medium solid black
+  border: medium solid #090909
 
 .card-stat
   font-family: kimberley
@@ -69,7 +85,7 @@ strong em, em strong
   color: $pilot_skill_color
 
 .card-icon
-  background: black
+  background: #090909
   border-radius: 50%
   padding: 3px
   font-weight: normal
@@ -161,7 +177,7 @@ i.xwing-miniatures-font-shield
   font-style: italic
 
 .info-well
-  color: black
+  color: #090909
   margin-top: 10px
 
 .info-well table > tbody > tr > td:first-child
@@ -192,7 +208,7 @@ ul.squad-list
 
 .points-display-container
   font-size: 1.2em
-  background-color: rgba(0, 0, 0, 0.5)
+  background-color: #090909
   padding-top: 5px
   text-align: center
 
@@ -200,7 +216,7 @@ ul.squad-list
   padding: 5px 0px
 
 .modal
-  color: black
+  color: #090909
 
 .icon
   background-image: url($xwing_icons_png)
@@ -218,7 +234,7 @@ select.card-selector
 
 .fancy-list .info-data
   vertical-align: middle
-  -webkit-text-stroke: 0.5px black
+  -webkit-text-stroke: 0.5px #090909
 
 .simple-list
   font-family: Arial,Helvetica,sans-serif
@@ -334,3 +350,12 @@ i.xwing-miniatures-font.red
 
 i.xwing-miniatures-font.blue
   color: #33adff
+  
+.btn.btn-primary:not(.btn-danger)
+  background-color: #1485CC
+  background-image: unset
+  
+.btn.btn-primary:not(.btn-danger):hover
+  background-color: #1485CC
+  opacity:.8
+  background-image: unset

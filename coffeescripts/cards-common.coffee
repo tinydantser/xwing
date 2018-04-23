@@ -1230,8 +1230,7 @@ exportObj.basicCardData = ->
             ship: "TIE Interceptor"
             faction: "Galactic Empire"
             unique: false
-            slots: [
-            ]
+            slots: [ ]
             extraTorps: 0
             extraMissiles: 0
             extraBombs: 0
